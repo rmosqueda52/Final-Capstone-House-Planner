@@ -36,7 +36,8 @@
     </form>
   </div>
   <div id="new-account-container">
-    <router-link id="new-account" :to="{ name: 'register' }">Create an account?</router-link>
+    <h3 id="create-account">Create an Account?</h3>
+    <router-link id="new-account" :to="{ name: 'register' }">Sign up</router-link>
   </div>
   
 </body>
@@ -87,20 +88,22 @@ export default {
   align-items: center;
   flex-direction: row;
   justify-content: center;
-  background-color: #023047;
-  
+  background-image: url(https://i.imgur.com/O9EDJOt.jpeg);
+  background-size: cover;
+  /* background-color: #023047; */
+
 }
 #new-account{
    font-family: 'Montserrat', sans-serif;
    size: 50px;
    color: whitesmoke;
-   align-content: top;
+   margin-top: 50px;
 }
 #new-account-container {
   background-color: #219ebc;
   /* padding: 150px; */
-  padding-top:500px;
-  padding-bottom: 500px;
+  padding-top:175px;
+  padding-bottom: 750px;
   padding-left: 150px;
   padding-right: 150px;
   margin-left: 5%;
@@ -110,7 +113,10 @@ export default {
   /* position: absolute; */
   /* bottom: 0%; */
 }
-
+#create-account{
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(0, 0, 0);
+}
 #login{
   display: flex;
   align-items: center;
@@ -147,12 +153,13 @@ h1{
   border-radius: 10px;
 }
 .form-signin{
-  background-color: #ffb703;
+  background-color: #ffb703 1;
   padding: 50px;
   padding-bottom: 500px;
   backdrop-filter: blur(15px);
-  border: 1px solid black;
+  border: 0px solid black;
   border-radius: 5px;
   position: relative;
+
 }
 </style>

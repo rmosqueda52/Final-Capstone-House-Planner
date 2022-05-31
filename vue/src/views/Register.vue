@@ -42,7 +42,7 @@
         value="Home_Buyer"
         required
       />
-      <label for="role" id="home-buyer">Home Buyer</label><br>
+      <label for="role" id="home-buyer-label">Home Buyer</label><br>
       <input
         type="radio"
         id="system-admin"
@@ -52,10 +52,10 @@
         value="System_Admin"
         required
       />
-      <label for="role" id="system-admin">System Administrator</label>
-<button id="create-account" class="btn btn-lg btn-primary btn-block" type="submit">
+      <label for="role" id="system-admin-label">System Administrator</label>
+      <button id="create-account" class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
-      </button><br> <br>
+      </button><br>
       <router-link id="login-link" :to="{ name: 'login' }">Already have an account?</router-link>
       
     </form>
@@ -120,9 +120,11 @@ export default {
   flex-direction: row;
   justify-content: center;
   background-color: #023047;
+  padding-bottom: 600px;
 }
 #register-header {
   color: white;
+  padding-top: 150px;
 }
 #register{
   display: flex;
@@ -141,7 +143,7 @@ export default {
   font-family: 'Montserrat', sans-serif;
   height: 25px;
   border-radius: 10px;
-}
+  }
 #regpassword{
   display: flex;
   flex-direction: column;
@@ -159,9 +161,15 @@ export default {
   border-radius: 10px;
 }
 #home-buyer{
-  color:whitesmoke;
+  margin-left:-102px;
 }
 #system-admin{
+  margin-left: -30px;
+}
+#home-buyer-label{
+  color:whitesmoke;
+}
+#system-admin-label{
   color: whitesmoke;
 }
 #create-account{
