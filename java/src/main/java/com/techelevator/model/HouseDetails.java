@@ -13,6 +13,8 @@ public class HouseDetails {
     private String region;
     private int numberOfFloors;
 
+    public HouseDetails(){}
+
     public HouseDetails(Long houseId, String houseName, Integer foundationSize, String region, int numberOfFloors) {
         this.houseId = houseId;
         this.houseName = houseName;
