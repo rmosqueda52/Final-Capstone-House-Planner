@@ -1,4 +1,5 @@
 <template>
+<body>
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
@@ -12,7 +13,7 @@
         role="alert"
         v-if="this.$route.query.registration"
       >Thank you for registering, please sign in.</div>
-      <label for="username" class="sr-only">Username</label>
+      <!-- <label for="username" class="sr-only">Username</label> -->
       <input
         type="text"
         id="username"
@@ -22,7 +23,7 @@
         required
         autofocus
       />
-      <label for="password" class="sr-only">Password</label>
+      <!-- <label for="password" class="sr-only">Password</label> -->
       <input
         type="password"
         id="password"
@@ -35,6 +36,7 @@
       <button type="submit">Sign in</button>
     </form>
   </div>
+</body>
 </template>
 
 <script>
@@ -74,3 +76,37 @@ export default {
   }
 };
 </script>
+
+<style>
+.text-center{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 50px;
+  size: 50px;
+  text-align: center;
+}
+input{
+  height: 25px;
+  border-radius: 10px;
+}
+h1{
+  text-align: center;
+}
+#username{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+button{
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  border-radius: 10px;
+
+}
+form{
+  background-color: pink;
+}
+</style>
