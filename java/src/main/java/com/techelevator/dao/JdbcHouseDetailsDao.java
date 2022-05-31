@@ -48,6 +48,18 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
         return houses;
     }
 
+    @Override
+    public boolean addFloors(HouseDetails houseDetails, Long houseId) {
+        String sql = "UPDATE house_details SET number_of_floors = number_of_floors + ? WHERE house_id =?";
+        return jdbcTemplate.update(sql, houseDetails.getNumberOfFloors(), houseId)==1;
+    }
+
+    @Override
+    public boolean removeFloors(HouseDetails houseDetails, Long houseId) {
+        String sql = "UPDATE house_details SET number_of_floors = number_of_floors - ? WHERE house_id =?";
+        return jdbcTemplate.update(sql, houseDetails.getNumberOfFloors(), houseId)==1;
+    }
+
 
     private HouseDetails mapRowToHouseDetails (SqlRowSet rs) {
         HouseDetails houseDetails = new HouseDetails();
