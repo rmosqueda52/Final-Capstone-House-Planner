@@ -21,20 +21,26 @@ public class HouseDetailsController {
         return houseDetailsDao.createHouse(houseDetails);
     }
 
-    @GetMapping(value = "/gethousedetails/{id}")
+    @GetMapping(value = "/get-house-details/{id}")
     public HouseDetails getHouseDetails (@PathVariable Long id){
         return houseDetailsDao.getHouseDetails(id);
     }
 
 
-    @GetMapping(value = "/getallhouses/{id}")
+    @GetMapping(value = "/get-all-houses/{id}")
     public List<HouseDetails> getAllHouses (@PathVariable Long id){
         return houseDetailsDao.getAllHouses(id);
     }
 
+    @PutMapping(value = "/update-floors/{id}")
+    public boolean addFloors(@PathVariable Long id, @RequestBody HouseDetails houseDetails){
+        return houseDetailsDao.addFloors(houseDetails, id);
+    }
 
-
-
+    @PutMapping(value = "/update-subtract-floors/{id}")
+    public boolean removeFloors(@PathVariable Long id, @RequestBody HouseDetails houseDetails){
+        return houseDetailsDao.removeFloors(houseDetails, id);
+    }
 
 
 }

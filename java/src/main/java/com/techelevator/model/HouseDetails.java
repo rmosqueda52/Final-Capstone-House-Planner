@@ -11,6 +11,7 @@ public class HouseDetails {
     @JsonProperty ("user_id")
     private Long userId;
     private String region;
+    @JsonProperty("number_of_floors")
     private int numberOfFloors;
 
     public HouseDetails(){}

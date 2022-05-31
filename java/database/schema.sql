@@ -35,6 +35,7 @@ CREATE TABLE house_details (
     region varchar(100) NOT NULL,
     house_name varchar(100) NOT NULL,
     user_id int NOT NULL,
+    number_of_floors int DEFAULT(0),
     CONSTRAINT PK_house_id PRIMARY KEY (house_id),
     CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users (user_id)
 

@@ -12,6 +12,9 @@ public interface HouseDetailsDao {
 
     List <HouseDetails> getAllHouses (Long userId);
 
+    boolean addFloors (HouseDetails houseDetails, Long houseId);
+
+    boolean removeFloors (HouseDetails houseDetails, Long houseId);
 
 
 
