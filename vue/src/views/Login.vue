@@ -100,6 +100,13 @@ h1{
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+#password{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
 }
 button{
   display: flex;
