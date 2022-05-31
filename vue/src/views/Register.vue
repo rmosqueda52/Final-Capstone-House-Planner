@@ -1,7 +1,8 @@
 <template>
+<body id="register-body">
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
-      <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
+      <h1 id="register-header">Create Account</h1> <!--class="h3 mb-3 font-weight-normal"-->
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
@@ -41,7 +42,7 @@
         value="Home_Buyer"
         required
       />
-      <label for="role" id="home-buyer">Home Buyer</label>
+      <label for="role" id="home-buyer">Home Buyer</label><br>
       <input
         type="radio"
         id="system-admin"
@@ -52,13 +53,14 @@
         required
       />
       <label for="role" id="system-admin">System Administrator</label>
-
-      <router-link :to="{ name: 'login' }">Have an account?</router-link>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
+<button id="create-account" class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
-      </button>
+      </button><br> <br>
+      <router-link id="login-link" :to="{ name: 'login' }">Already have an account?</router-link>
+      
     </form>
   </div>
+  </body>
 </template>
 
 <script>
@@ -112,5 +114,67 @@ export default {
 </script>
 
 <style>
+#register-body {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #023047;
+}
+#register-header {
+  color: white;
+}
+#register{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 150px;
+  size: 50px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+#regusername{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+  height: 25px;
+  border-radius: 10px;
+}
+#regpassword{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+  height: 25px;
+  border-radius: 10px;
+}
+#confirmPassword{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+  height: 25px;
+  border-radius: 10px;
+}
+#home-buyer{
+  color:whitesmoke;
+}
+#system-admin{
+  color: whitesmoke;
+}
+#create-account{
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  border-radius: 10px;
+}
+#login-link{
+   font-family: 'Montserrat', sans-serif;
+   size: 50px;
+   color: whitesmoke;
+   align-content: top;
+}
 
 </style>

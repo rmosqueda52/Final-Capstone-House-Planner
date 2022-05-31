@@ -145,7 +145,6 @@ h1{
   flex-direction: column;
   margin-top: 25px;
   border-radius: 10px;
-
 }
 .form-signin{
   background-color: #ffb703;
