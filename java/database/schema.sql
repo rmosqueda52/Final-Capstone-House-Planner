@@ -34,7 +34,10 @@ CREATE TABLE house_details (
     foundation_size int NOT NULL,
     region varchar(100) NOT NULL,
     house_name varchar(100) NOT NULL,
-    CONSTRAINT PK_house_id PRIMARY KEY (house_id)
+    user_id int NOT NULL,
+    CONSTRAINT PK_house_id PRIMARY KEY (house_id),
+    CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users (user_id)
+
 );
 
 

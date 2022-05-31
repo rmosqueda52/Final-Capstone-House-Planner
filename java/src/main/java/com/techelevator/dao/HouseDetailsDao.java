@@ -8,7 +8,7 @@ public interface HouseDetailsDao {
 
     boolean createHouse(HouseDetails houseDetails);
 
-    String getHouseDetails (Long houseId);
+    HouseDetails getHouseDetails (Long houseId);
 
     List <HouseDetails> getAllHouses (Long userId);
 
