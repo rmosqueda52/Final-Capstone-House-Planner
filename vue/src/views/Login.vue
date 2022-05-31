@@ -78,6 +78,7 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 .text-center{
   display: flex;
   align-items: center;
@@ -86,6 +87,7 @@ export default {
   padding: 0 50px;
   size: 50px;
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }
 input{
   height: 25px;
@@ -106,7 +108,11 @@ button{
   border-radius: 10px;
 
 }
-form{
+.form-signin{
   background-color: pink;
+  padding: 50px;
+  padding-bottom: 500px;
+  backdrop-filter: blur(15px);
+  border: 1px solid black;
 }
 </style>
