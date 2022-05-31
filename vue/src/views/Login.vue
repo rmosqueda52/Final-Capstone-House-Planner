@@ -1,5 +1,5 @@
 <template>
-<body>
+<body id="login-body">
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
@@ -32,10 +32,13 @@
         v-model="user.password"
         required
       />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      <button type="submit">Sign in</button>
+      <button class="sign-in" type="submit">Sign in</button>
     </form>
   </div>
+  <div id="new-account-container">
+    <router-link id="new-account" :to="{ name: 'register' }">Create an account?</router-link>
+  </div>
+  
 </body>
 </template>
 
@@ -79,19 +82,44 @@ export default {
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-.text-center{
+#login-body{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #023047;
+  
+}
+#new-account{
+   font-family: 'Montserrat', sans-serif;
+   size: 50px;
+   color: whitesmoke;
+   align-content: top;
+}
+#new-account-container {
+  background-color: #219ebc;
+  /* padding: 150px; */
+  padding-top:500px;
+  padding-bottom: 500px;
+  padding-left: 150px;
+  padding-right: 150px;
+  margin-left: 5%;
+  /* align-content: baseline; */
+  /* flex-grow: .4; */
+  /* text-align: center; */
+  /* position: absolute; */
+  /* bottom: 0%; */
+}
+
+#login{
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
-  padding: 0 50px;
+  justify-content: flex-end;
+  padding: 0 150px;
   size: 50px;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
-}
-input{
-  height: 25px;
-  border-radius: 10px;
 }
 h1{
   text-align: center;
@@ -101,14 +129,18 @@ h1{
   flex-direction: column;
   margin-bottom: 10px;
   font-family: 'Montserrat', sans-serif;
+  height: 25px;
+  border-radius: 10px;
 }
 #password{
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
   font-family: 'Montserrat', sans-serif;
+  height: 25px;
+  border-radius: 10px;
 }
-button{
+.sign-in{
   display: flex;
   flex-direction: column;
   margin-top: 25px;
@@ -116,10 +148,12 @@ button{
 
 }
 .form-signin{
-  background-color: pink;
+  background-color: #ffb703;
   padding: 50px;
   padding-bottom: 500px;
   backdrop-filter: blur(15px);
   border: 1px solid black;
+  border-radius: 5px;
+  position: relative;
 }
 </style>
