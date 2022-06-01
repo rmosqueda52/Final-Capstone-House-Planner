@@ -2,20 +2,23 @@
   <div class="home">
     <h1>Home</h1>
     <p>You must be authenticated to see this</p>
-    <create />
+
+    <view-homes />
   </div>
 </template>
 
 <script>
-import Create from '../components/CreateHome.vue';
+import ViewHomes from "../components/ViewHomes.vue";
 
 export default {
   name: "home",
   components: {
-    Create
-  }
+    ViewHomes,
+  },
 };
 </script>
 <style>
-
+html {
+  margin: 0%;
+}
 </style>
