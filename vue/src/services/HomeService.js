@@ -1,10 +1,10 @@
 import axios from "axios";
 
+
 export default {
 
-    getAllHouses() {
-        return axios.get('/get-all-houses/')
+    getAllHousesByUserId(userId) {
+        return axios.get(`/get-all-houses/${userId}`)
       },
-// Need to clarify House ID in Server Side
 
 }

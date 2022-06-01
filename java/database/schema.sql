@@ -22,6 +22,8 @@ CREATE TABLE users (
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+INSERT INTO users (username,password_hash,role) VALUES ('bob','$2a$10$4oOJ/QruQg14j7.Bda6hau8PAyX1mtUIFpSUWmSQj/u9OIzpYzHNu','ROLE_HOME_BUYER');
+
 
 CREATE SEQUENCE seq_house_id
   INCREMENT BY 1
@@ -43,9 +45,11 @@ CREATE TABLE house_details (
 );
 
 INSERT INTO house_details(house_id, foundation_size,region,house_name,user_id,number_of_floors,is_Private)
-VALUES(990,100,'America', 'Big House', 1, 4, true);
+VALUES(990,100,'America', 'Big House', 3, 4, true);
 INSERT INTO house_details(house_id, foundation_size,region,house_name,user_id,number_of_floors,is_Private)
 VALUES(991,25,'America', 'Small House', 2, 1, false);
+INSERT INTO house_details(house_id, foundation_size,region,house_name,user_id,number_of_floors,is_Private)
+VALUES(992,150,'America', 'Party House', 3, 2, true);
 
 
 COMMIT TRANSACTION;
