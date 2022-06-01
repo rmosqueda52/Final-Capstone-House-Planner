@@ -21,13 +21,13 @@ public class HouseDetailsController {
         return houseDetailsDao.createHouse(houseDetails);
     }
 
-    @GetMapping(value = "/get-house-details/{id}")
+    @GetMapping(value = "/get-house-details/{id}")//house ID
     public HouseDetails getHouseDetails (@PathVariable Long id){
         return houseDetailsDao.getHouseDetails(id);
     }
 
 
-    @GetMapping(value = "/get-all-houses/{id}")
+    @GetMapping(value = "/get-all-houses/{id}")//user ID
     public List<HouseDetails> getAllHouses (@PathVariable Long id){
         return houseDetailsDao.getAllHouses(id);
     }
