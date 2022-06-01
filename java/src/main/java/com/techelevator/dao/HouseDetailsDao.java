@@ -10,12 +10,14 @@ public interface HouseDetailsDao {
 
     HouseDetails getHouseDetails (Long houseId);
 
-    List <HouseDetails> getAllHouses (Long userId);
+    List <HouseDetails> getAllHousesByUserId (Long userId);
 
     boolean addFloors (HouseDetails houseDetails, Long houseId);
 
     boolean removeFloors (HouseDetails houseDetails, Long houseId);
 
+    boolean deleteHouse(Long houseId);
 
+    List<HouseDetails> getAllHousesForGuestUser();
 
 }
