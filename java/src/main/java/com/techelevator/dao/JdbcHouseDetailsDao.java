@@ -81,6 +81,10 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
     }
 
 
+
+
+
+
     private HouseDetails mapRowToHouseDetails (SqlRowSet rs) {
         HouseDetails houseDetails = new HouseDetails();
         houseDetails.setFoundationSize(rs.getInt("foundation_size"));

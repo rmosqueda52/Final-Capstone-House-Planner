@@ -86,6 +86,17 @@ public class JdbcUserDao implements UserDao {
         return userCreated;
     }
 
+    @Override
+    public boolean deleteUser(Long userId) {
+        String sql = "DELETE FROM house_details WHERE user_id = ?";
+        String sql2 = "DELETE FROM users WHERE user_id =?";
+
+        jdbcTemplate.update(sql,userId);
+        return jdbcTemplate.update(sql2,userId) == 1;
+
+
+    }
+
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();
         user.setId(rs.getLong("user_id"));
