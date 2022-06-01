@@ -1,13 +1,10 @@
 import axios from "axios";
 
-const http = axios.create({
-  baseURL: "http://localhost:8080"
-});
 
 export default {
 
     getAllHousesByUserId(userId) {
-        return http.get(`/get-all-houses/${userId}`)
+        return axios.get(`/get-all-houses/${userId}`)
       },
 
 }
