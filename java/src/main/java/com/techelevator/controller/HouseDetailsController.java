@@ -29,7 +29,7 @@ public class HouseDetailsController {
 
     @GetMapping(value = "/get-all-houses/{id}")//user ID
     public List<HouseDetails> getAllHouses (@PathVariable Long id){
-        return houseDetailsDao.getAllHouses(id);
+        return houseDetailsDao.getAllHousesByUserId(id);
     }
 
     @PutMapping(value = "/update-floors/{id}")
@@ -41,6 +41,19 @@ public class HouseDetailsController {
     public boolean removeFloors(@PathVariable Long id, @RequestBody HouseDetails houseDetails){
         return houseDetailsDao.removeFloors(houseDetails, id);
     }
+
+    @DeleteMapping(value = "/delete-house/{id}")
+    public boolean deleteHouse(@PathVariable Long id){
+        return  houseDetailsDao.deleteHouse(id);
+    }
+
+    @PreAuthorize("permitAll")
+    @GetMapping(value = "/guest")
+    public List<HouseDetails> getAllHousesForGuestUser(){
+        return houseDetailsDao.getAllHousesForGuestUser();
+    }
+
+
 
 
 }

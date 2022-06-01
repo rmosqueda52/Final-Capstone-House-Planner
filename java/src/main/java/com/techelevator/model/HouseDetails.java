@@ -13,15 +13,19 @@ public class HouseDetails {
     private String region;
     @JsonProperty("number_of_floors")
     private int numberOfFloors;
+    @JsonProperty("is_private")
+    private boolean isPrivate;
 
     public HouseDetails(){}
 
-    public HouseDetails(Long houseId, String houseName, Integer foundationSize, String region, int numberOfFloors) {
+    public HouseDetails(Long houseId, String houseName, Integer foundationSize, Long userId, String region, int numberOfFloors, boolean isPrivate) {
         this.houseId = houseId;
         this.houseName = houseName;
         this.foundationSize = foundationSize;
+        this.userId = userId;
         this.region = region;
         this.numberOfFloors = numberOfFloors;
+        this.isPrivate = isPrivate;
     }
 
     @Override
@@ -82,5 +86,13 @@ public class HouseDetails {
 
     public void setNumberOfFloors(int numberOfFloors) {
         this.numberOfFloors = numberOfFloors;
+    }
+
+    public boolean isPrivate() {
+        return isPrivate;
+    }
+
+    public void setPrivate(boolean aPrivate) {
+        isPrivate = aPrivate;
     }
 }

@@ -18,10 +18,11 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
 
     @Override
     public boolean createHouse(HouseDetails houseDetails) {
-        String sql = "INSERT INTO house_details (house_name, foundation_size, region, user_id) " +
-                        "VALUES (?,?,?,?)";
+        String sql = "INSERT INTO house_details (house_name, foundation_size, region, user_id, is_private) " +
+                        "VALUES (?,?,?,?,?)";
 
-        return jdbcTemplate.update(sql,houseDetails.getHouseName(),houseDetails.getFoundationSize(),houseDetails.getRegion(), houseDetails.getUserId()) ==1;
+        return jdbcTemplate.update(sql,houseDetails.getHouseName(),houseDetails.getFoundationSize(),
+                houseDetails.getRegion(), houseDetails.getUserId(), houseDetails.isPrivate()) ==1;
     }
 
     @Override
@@ -36,7 +37,7 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
     }
 
     @Override
-    public List<HouseDetails> getAllHouses(Long userId) {
+    public List<HouseDetails> getAllHousesByUserId(Long userId) {
         List<HouseDetails> houses = new ArrayList<>();
         String sql = "SELECT * FROM house_details WHERE user_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
@@ -58,6 +59,25 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
     public boolean removeFloors(HouseDetails houseDetails, Long houseId) {
         String sql = "UPDATE house_details SET number_of_floors = number_of_floors - ? WHERE house_id =?";
         return jdbcTemplate.update(sql, houseDetails.getNumberOfFloors(), houseId)==1;
+    }
+
+    @Override
+    public boolean deleteHouse(Long houseId) {
+        String sql = "DELETE FROM house_details WHERE house_id = ?";
+        return jdbcTemplate.update(sql,houseId) == 1;
+    }
+
+    @Override
+    public List<HouseDetails> getAllHousesForGuestUser() {
+        List<HouseDetails> houses = new ArrayList<>();
+        String sql = "SELECT * FROM house_details WHERE is_private = false";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+
+        while(results.next()) {
+            HouseDetails houseDetails = mapRowToHouseDetails(results);
+            houses.add(houseDetails);
+        }
+        return houses;
     }
 
 
