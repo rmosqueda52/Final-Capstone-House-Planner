@@ -216,7 +216,7 @@ export default {
 html {
   overflow-y: hidden; 
   overflow-x: hidden;
-  margin: -1%;
+  margin: 0%;
 }
 
 </style>
