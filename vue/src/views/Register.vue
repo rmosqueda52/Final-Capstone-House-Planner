@@ -53,13 +53,22 @@
         required
       />
       <label for="role" id="system-admin-label">System Administrator</label>
-      <button id="create-account" class="btn btn-lg btn-primary btn-block" type="submit">
-        Create Account
-      </button><br>
-      <router-link id="login-link" :to="{ name: 'login' }">Already have an account?</router-link>
+      <button class="learn-more" id="reg-create-account">
+  <span class="circle" aria-hidden="true">
+  <span class="icon arrow"></span>
+  </span>
+  <span class="button-text">Create</span>
+</button>
+      <router-link id="login-link" :to="{ name: 'login' }"><button class="cta">
+  <span class="hover-underline-animation"> <b>Already have an account?</b> </span>
+  <svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 46 16">
+    <path id="Path_10" data-name="Path 10" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)"></path>
+  </svg>
+</button></router-link>
       
     </form>
   </div>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
   </body>
 </template>
 
@@ -120,11 +129,14 @@ export default {
   flex-direction: row;
   justify-content: center;
   background-color: #023047;
+  background-image: url(https://wallpaperaccess.com/full/2056374.jpg);
+  background-size: cover;
   padding-bottom: 600px;
 }
 #register-header {
   color: white;
   padding-top: 150px;
+  font-size: 45px;
 }
 #register{
   display: flex;
@@ -141,24 +153,39 @@ export default {
   flex-direction: column;
   margin-bottom: 10px;
   font-family: 'Montserrat', sans-serif;
-  height: 25px;
-  border-radius: 10px;
+  height: 40px;
+  width: 401px;
+  border-radius: 30px;
+  text-align: center;
+  font-size: 20px;
+  border: 0px;
   }
 #regpassword{
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
   font-family: 'Montserrat', sans-serif;
-  height: 25px;
-  border-radius: 10px;
+  text-align: center;
+  height: 40px;
+  width: 401px;
+  border-radius: 30px;
+  font-size: 20px;
+  border: 0px;
+
 }
 #confirmPassword{
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
   font-family: 'Montserrat', sans-serif;
-  height: 25px;
-  border-radius: 10px;
+  height: 40px;
+  width: 401px;
+  border-radius: 30px;
+  text-align: center;
+  font-size: 20px;
+  border: 0px;
+
+
 }
 #home-buyer{
   margin-left:-102px;
@@ -172,17 +199,24 @@ export default {
 #system-admin-label{
   color: whitesmoke;
 }
-#create-account{
+#reg-create-account{
   display: flex;
   flex-direction: column;
-  margin-top: 25px;
+  margin-top: 35px;
   border-radius: 10px;
+  margin-left: 108px;
+  margin-bottom: 35px;
 }
 #login-link{
    font-family: 'Montserrat', sans-serif;
    size: 50px;
    color: whitesmoke;
    align-content: top;
+}
+html {
+  overflow-y: hidden; 
+  overflow-x: hidden;
+  margin: -1%;
 }
 
 </style>
