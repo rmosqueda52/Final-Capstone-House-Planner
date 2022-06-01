@@ -36,11 +36,16 @@ CREATE TABLE house_details (
     house_name varchar(100) NOT NULL,
     user_id int NOT NULL,
     number_of_floors int DEFAULT(0),
+    is_Private boolean NOT NULL,
     CONSTRAINT PK_house_id PRIMARY KEY (house_id),
     CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users (user_id)
 
 );
 
+INSERT INTO house_details(house_id, foundation_size,region,house_name,user_id,number_of_floors,is_Private)
+VALUES(990,100,'America', 'Big House', 1, 4, true);
+INSERT INTO house_details(house_id, foundation_size,region,house_name,user_id,number_of_floors,is_Private)
+VALUES(991,25,'America', 'Small House', 2, 1, false);
 
 
 COMMIT TRANSACTION;
