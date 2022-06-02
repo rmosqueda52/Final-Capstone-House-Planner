@@ -33,7 +33,7 @@ public class JdbcRoomDao implements RoomDao{
     @Override
     public boolean changeRoomName(Room room, int roomId) {
         String sql = "UPDATE room_details SET room_name = ? WHERE room_id = ?";
-        return jdbcTemplate.update(sql,room.getRoomName(), room.getRoomId()) == 1;
+        return jdbcTemplate.update(sql,room.getRoomName(), roomId) == 1;
     }
 
     @Override
