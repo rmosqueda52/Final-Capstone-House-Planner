@@ -39,7 +39,7 @@ methods: {
     HomeService.addNewHouse(this.newHome).then(
       (response) => {
         if (response.status === 200) {
-          window.alert('New Home created');
+          this.$router.push({name:"createFloorPlan"});
         }
       }
     )
