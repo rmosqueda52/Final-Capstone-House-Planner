@@ -49,7 +49,7 @@ CREATE TABLE house_details (
 );
 
 INSERT INTO house_details(house_id, foundation_size,region,house_name,user_id,number_of_floors,is_Private)
-VALUES(990,100,'America', 'Big House', 3, (SELECT COUNT(floor_id) FROM floor WHERE house_id = 990), true);
+VALUES(990,100,'America', 'Big House', 3, 4, true);
 INSERT INTO house_details(house_id, foundation_size,region,house_name,user_id,number_of_floors,is_Private)
 VALUES(991,25,'America', 'Small House', 2, 1, false);
 INSERT INTO house_details(house_id, foundation_size,region,house_name,user_id,number_of_floors,is_Private)

@@ -3,6 +3,7 @@ package com.techelevator.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class HouseDetails {
+    @JsonProperty("house_id")
     private Long houseId;
     @JsonProperty ("house_name")
     private String houseName;

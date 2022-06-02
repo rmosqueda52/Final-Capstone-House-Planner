@@ -20,6 +20,6 @@ public interface HouseDetailsDao {
 
     List<HouseDetails> getAllHousesForGuestUser();
 
-
+    boolean addFloorToDatabase(int houseId, int floorLevel);
 
 }
