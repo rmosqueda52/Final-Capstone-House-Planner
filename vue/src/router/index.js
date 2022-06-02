@@ -6,7 +6,8 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import UserHome from '../views/UserHome.vue'
-
+import PublicHomes from '../views/PublicHomes.vue'
+import CreateNewHome from '../views/CreateNewHome.vue'
 
 Vue.use(Router)
 
@@ -60,6 +61,22 @@ const router = new Router({
       name: "userHomes",
       component: UserHome,
       meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/publicHomes",
+      name: "publicHomes",
+      component: PublicHomes,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/createNewHome",
+      name: "createNewHome",
+      component: CreateNewHome,
+      meta : {
         requiresAuth: true
       }
     }

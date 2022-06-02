@@ -1,26 +1,23 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <p>You must be authenticated to see this</p>
+    <p>Welcome to Build a Bear!</p>
     <div>
-        <button class = "button" v-on:click="$router.userHome">View your homes under construction</button> <br> <br>
-        <button class = "button">View public constructions</button> <br> <br>
-        <button class = "button">Create a new Home</button>
+        <button class = "button" v-on:click="$router.push({ name: 'userHomes'})">
+           View your homes under construction</button> <br> <br>
+        <button class = "button" v-on:click="$router.push({ name: 'publicHomes'})">
+           View public constructions</button> <br> <br>
+        <button class = "button"  v-on:click="$router.push({ name: 'createNewHome'})">
+           Create a new Home</button>
     </div>
-
-    
-    <view-homes />
   </div>
 </template>
 
 <script>
-import ViewHomes from "../components/ViewHomes.vue";
 
 export default {
   name: "home",
-  components: {
-    ViewHomes,
-  },
+  
 };
 </script>
 

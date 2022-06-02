@@ -1,20 +1,21 @@
 <template>
   <div>
-    This is the create a home page
+    This is the list of homes
     <table>
       <tr v-for="house in homes" v-bind:key="house.id">
+        <br>
         House Name:
         {{
           house.houseName
-        }}
+        }}<br>
         House Region:
         {{
           house.region
-        }}
+        }}<br>
         Foundation size:
         {{
           house.foundationSize
-        }}
+        }} <br> 
       </tr>
     </table>
   </div>
