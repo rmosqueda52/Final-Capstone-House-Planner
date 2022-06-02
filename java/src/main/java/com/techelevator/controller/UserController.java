@@ -19,9 +19,5 @@ public class UserController {
         return userDao.deleteUser(Id);
     }
 
-    @GetMapping(value = "/")
-    public int findIdByUsername(String username){
-        return userDao.findIdByUsername(username);
-    }
 
 }
