@@ -54,6 +54,12 @@ INSERT INTO house_details(house_id, foundation_size,region,house_name,user_id,nu
 VALUES(991,25,'America', 'Small House', 2, 1, false);
 INSERT INTO house_details(house_id, foundation_size,region,house_name,user_id,number_of_floors,is_Private)
 VALUES(992,150,'America', 'Party House', 3, 2, true);
+INSERT INTO house_details(house_id, foundation_size,region,house_name,user_id,number_of_floors,is_Private)
+VALUES(993,20,'Portland', 'Public test house 1', 3, 2, false);
+INSERT INTO house_details(house_id, foundation_size,region,house_name,user_id,number_of_floors,is_Private)
+VALUES(994,50,'Brooklin', 'Absurd Public test house 2', 3, 7, false);
+
+
 
 CREATE SEQUENCE seq_floor_id
   INCREMENT BY 1
