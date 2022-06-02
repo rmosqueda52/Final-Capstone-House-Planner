@@ -41,7 +41,7 @@ CREATE TABLE house_details (
     region varchar(100) NOT NULL,
     house_name varchar(100) NOT NULL,
     user_id int NOT NULL,
-    number_of_floors int DEFAULT(0),
+    number_of_floors int DEFAULT(1),
     is_Private boolean NOT NULL,
     CONSTRAINT PK_house_id PRIMARY KEY (house_id),
     CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users (user_id)
@@ -49,7 +49,7 @@ CREATE TABLE house_details (
 );
 
 INSERT INTO house_details(house_id, foundation_size,region,house_name,user_id,number_of_floors,is_Private)
-VALUES(990,100,'America', 'Big House', 3, 4, true);
+VALUES(990,100,'America', 'Big House', 3, (SELECT COUNT(floor_id) FROM floor WHERE house_id = 990), true);
 INSERT INTO house_details(house_id, foundation_size,region,house_name,user_id,number_of_floors,is_Private)
 VALUES(991,25,'America', 'Small House', 2, 1, false);
 INSERT INTO house_details(house_id, foundation_size,region,house_name,user_id,number_of_floors,is_Private)
