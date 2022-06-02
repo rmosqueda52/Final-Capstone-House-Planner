@@ -19,17 +19,26 @@ public class JdbcRoomDao implements RoomDao{
     }
 
     @Override
-    public boolean changeRoomSize(Room room) {
-        return false;
+    public boolean changeRoomSize(Room room, int roomId) {
+        String sql = "UPDATE room_details SET room_size = ? WHERE room_id = ?";
+        return jdbcTemplate.update(sql,room.getRoomSize(), roomId) == 1;
     }
 
     @Override
     public boolean deleteRoom(int roomId) {
-        return false;
+        String sql = "DELETE FROM room_details WHERE room_id = ?";
+        return jdbcTemplate.update(sql,roomId) == 1;
     }
 
     @Override
-    public boolean changeRoomName(Room room) {
-        return false;
+    public boolean changeRoomName(Room room, int roomId) {
+        String sql = "UPDATE room_details SET room_name = ? WHERE room_id = ?";
+        return jdbcTemplate.update(sql,room.getRoomName(), room.getRoomId()) == 1;
+    }
+
+    @Override
+    public boolean changeRoomFloor(Room room, int floorId) {
+        String sql = "UPDATE room_details SET floor_id = ? WHERE room_id =?";
+        return jdbcTemplate.update(sql,floorId, room.getRoomId()) == 1;
     }
 }
