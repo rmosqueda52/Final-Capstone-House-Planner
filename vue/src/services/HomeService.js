@@ -8,6 +8,8 @@ export default {
   },
   getAllPublicHouses() {
     return axios.get('/guest')
+  },
+  addNewHouse(newHouse) {
+    return axios.post('/create', newHouse)
   }
-
 }
