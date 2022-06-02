@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <p>Welcome to Build a Bear!</p>
+    <p>Welcome to Build a Home!</p>
     <div>
         <button class = "button" v-on:click="$router.push({ name: 'userHomes'})">
            View your homes under construction</button> <br> <br>
