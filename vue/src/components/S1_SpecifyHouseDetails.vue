@@ -7,7 +7,7 @@
     Foundation Size: <input type="number" min=1 required v-model='newHome.foundation_size'/><br>
     Number of Floors in this House: <input type="number" min=1 required v-model='newHome.number_of_floors'/><br>
     Should this house be Public or Private? 
-    <select name="isPrivate" required v-model='newHome.isPrivate'>
+    <select name="isPrivate" required v-model='newHome.is_private'>
       <option value="false">Public</option>
       <option value="true">Private</option>
     </select><br> <br>
