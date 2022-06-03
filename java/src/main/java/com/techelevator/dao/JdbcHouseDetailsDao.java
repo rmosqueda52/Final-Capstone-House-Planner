@@ -74,8 +74,8 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
 
     @Override
     public boolean removeFloorsFromHouseTable(HouseDetails houseDetails, int floorId) {
-        String sql = "UPDATE house_details SET number_of_floors = number_of_floors - ? WHERE house_id =?";
-        jdbcTemplate.update(sql, houseDetails.getNumberOfFloors(), houseDetails.getHouseId());
+        String sql = "UPDATE house_details SET number_of_floors = number_of_floors - 1 WHERE house_id =?";
+        jdbcTemplate.update(sql, houseDetails.getHouseId());
         return removeFloorsFromFloorTable(floorId);
     }
 
@@ -85,6 +85,19 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
         jdbcTemplate.update(sql,floorId);
         String sql2 ="DELETE FROM floor WHERE floor_id = ?";
         return jdbcTemplate.update(sql2, floorId)==1;
+    }
+
+    @Override
+    public boolean addFloorToExistingFloors(Long houseId) {
+        String sql = "UPDATE house_details SET number_of_floors = number_of_floors + 1 WHERE house_id =?";
+        jdbcTemplate.update(sql,houseId);
+        return addFloorToFloorTable(houseId);
+    }
+
+    @Override
+    public boolean addFloorToFloorTable(Long houseId) {
+        String sql = "INSERT INTO floor (floor_level, house_id) VALUES ((SELECT COUNT(floor_level) + 1 FROM floor WHERE house_id = ?),?)";
+        return jdbcTemplate.update(sql,houseId,houseId) == 1;
     }
 
 
@@ -105,14 +118,6 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
             houses.add(houseDetails);
         }
         return houses;
-    }
-
-    @Override
-    public boolean addFloor(int houseId, int floorLevel) {
-        String sql = "INSERT INTO floor(house_id, floor_level) VALUES(?,?)";
-
-
-        return false;
     }
 
 
