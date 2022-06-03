@@ -32,9 +32,9 @@ public class HouseDetailsController {
         return houseDetailsDao.getAllHousesByUserId(id);
     }
 
-    @PutMapping(value = "/update-floors/{id}")
-    public boolean addFloors(@PathVariable Long id, @RequestBody HouseDetails houseDetails){
-        return houseDetailsDao.addFloorsWhenHouseisCreated(houseDetails, id);
+    @PutMapping(value = "/update-floors/{houseId}")
+    public boolean addFloorsToExistingFloors(@PathVariable Long houseId){
+        return houseDetailsDao.addFloorToExistingFloors(houseId);
     }
 
     @PutMapping(value = "/update-subtract-floors/{id}") // Validation to be done on the Front end, check for floors only
