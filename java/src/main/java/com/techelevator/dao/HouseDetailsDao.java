@@ -12,14 +12,15 @@ public interface HouseDetailsDao {
 
     List <HouseDetails> getAllHousesByUserId (Long userId);
 
-    boolean addFloors (HouseDetails houseDetails, Long houseId);
+    boolean addFloorsWhenHouseisCreated(HouseDetails houseDetails, Long houseId);
 
-    boolean removeFloors (HouseDetails houseDetails, Long houseId);
+    boolean removeFloorsFromHouseTable(HouseDetails houseDetails, int floorId);
+    boolean removeFloorsFromFloorTable(int floorId);
 
     boolean deleteHouse(Long houseId);
 
     List<HouseDetails> getAllHousesForGuestUser();
 
-
+    boolean addFloor(int houseId, int floorLevel);
 
 }

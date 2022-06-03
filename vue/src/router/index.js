@@ -8,6 +8,7 @@ import store from '../store/index'
 import UserHome from '../views/UserHome.vue'
 import PublicHomes from '../views/PublicHomes.vue'
 import CreateNewHome from '../views/CreateNewHome.vue'
+import CreateFloorPlan from '../components/S2_SpecifyFloorDetails.vue'
 
 Vue.use(Router)
 
@@ -77,6 +78,14 @@ const router = new Router({
       name: "createNewHome",
       component: CreateNewHome,
       meta : {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/createFloorPlan",
+      name: "createFloorPlan",
+      component: CreateFloorPlan,
+      meta: {
         requiresAuth: true
       }
     }

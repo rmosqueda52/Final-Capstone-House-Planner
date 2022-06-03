@@ -49,11 +49,11 @@ CREATE TABLE house_details (
 );
 
 INSERT INTO house_details(house_id, foundation_size,region,house_name,user_id,number_of_floors,is_Private)
-VALUES(990,100,'America', 'Big House', 3, (SELECT COUNT(floor_id) FROM floor WHERE house_id = 990), true);
+VALUES(990,100,'America', 'Big House', 3, 4, true);
 INSERT INTO house_details(house_id, foundation_size,region,house_name,user_id,number_of_floors,is_Private)
 VALUES(991,25,'America', 'Small House', 2, 1, false);
 INSERT INTO house_details(house_id, foundation_size,region,house_name,user_id,number_of_floors,is_Private)
-VALUES(992,150,'America', 'Party House', 3, 2, true);
+VALUES(992,150,'America', 'Party House', 3, 3, true);
 INSERT INTO house_details(house_id, foundation_size,region,house_name,user_id,number_of_floors,is_Private)
 VALUES(993,20,'Portland', 'Public test house 1', 3, 2, false);
 INSERT INTO house_details(house_id, foundation_size,region,house_name,user_id,number_of_floors,is_Private)
@@ -106,6 +106,7 @@ CREATE TABLE room_details(
     floor_id int,
     CONSTRAINT PK_room_id PRIMARY KEY(room_id),
     CONSTRAINT FK_floor_id FOREIGN KEY (floor_id) REFERENCES floor(floor_id)
+
 );
 
 

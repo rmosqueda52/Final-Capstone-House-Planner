@@ -19,12 +19,13 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
     @Override
     public boolean createHouse(HouseDetails houseDetails) {
         String sql = "INSERT INTO house_details (house_name, foundation_size, region, user_id, is_private,number_of_floors) " +
-                        "VALUES (?,?,?,?,?,?)";
-
-
-        return jdbcTemplate.update(sql,houseDetails.getHouseName(),houseDetails.getFoundationSize(),
-                houseDetails.getRegion(), houseDetails.getUserId(), houseDetails.isPrivate(), houseDetails.getNumberOfFloors()) ==1;
+                        "VALUES (?,?,?,?,?,?) RETURNING house_id";
+        Long house_id = jdbcTemplate.queryForObject(sql,Long.class, houseDetails.getHouseName(),houseDetails.getFoundationSize(),
+                houseDetails.getRegion(), houseDetails.getUserId(), houseDetails.isPrivate(), houseDetails.getNumberOfFloors());
+        return addFloorsWhenHouseisCreated(houseDetails, house_id);
     }
+
+
 
     @Override
     public HouseDetails getHouseDetails(Long houseId) {
@@ -50,32 +51,42 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
         return houses;
     }
 
-    @Override
-    public boolean addFloors(HouseDetails houseDetails, Long houseId) {
-        String sql = "UPDATE house_details SET number_of_floors = number_of_floors + ? WHERE house_id =?";
-        return jdbcTemplate.update(sql, houseDetails.getNumberOfFloors(), houseId)==1;
-    }
-
 //    @Override
 //    public boolean addFloors(HouseDetails houseDetails, Long houseId) {
-//        String sql = "INSERT INTO floor (house_id, floor_level) VALUES (?, ?)";
-//
-//        for(int i=1;i<=houseDetails.getNumberOfFloors();i++){
-//            if(i== houseDetails.getNumberOfFloors()){
-//                return jdbcTemplate.update(sql,houseDetails.getHouseId(),i) ==1;
-//            }
-//            jdbcTemplate.update(sql,houseDetails.getHouseId(),i);
-//        }
-//
-//
+//        String sql = "UPDATE house_details SET number_of_floors = number_of_floors + ? WHERE house_id =?";
 //        return jdbcTemplate.update(sql, houseDetails.getNumberOfFloors(), houseId)==1;
 //    }
 
     @Override
-    public boolean removeFloors(HouseDetails houseDetails, Long houseId) {
-        String sql = "UPDATE house_details SET number_of_floors = number_of_floors - ? WHERE house_id =?";
-        return jdbcTemplate.update(sql, houseDetails.getNumberOfFloors(), houseId)==1;
+    public boolean addFloorsWhenHouseisCreated(HouseDetails houseDetails, Long houseId) {
+        String sql = "INSERT INTO floor (house_id, floor_level) VALUES (?, ?)";
+
+        for(int i=1;i<=houseDetails.getNumberOfFloors();i++){
+            if(i== houseDetails.getNumberOfFloors()){
+                return jdbcTemplate.update(sql,houseId,i) ==1;
+            }
+            jdbcTemplate.update(sql,houseId,i);
+        }
+
+
+        return false;
     }
+
+    @Override
+    public boolean removeFloorsFromHouseTable(HouseDetails houseDetails, int floorId) {
+        String sql = "UPDATE house_details SET number_of_floors = number_of_floors - ? WHERE house_id =?";
+        jdbcTemplate.update(sql, houseDetails.getNumberOfFloors(), houseDetails.getHouseId());
+        return removeFloorsFromFloorTable(floorId);
+    }
+
+    @Override
+    public boolean removeFloorsFromFloorTable(int floorId) {
+        String sql = "DELETE FROM room_details WHERE floor_id =?";
+        jdbcTemplate.update(sql,floorId);
+        String sql2 ="DELETE FROM floor WHERE floor_id = ?";
+        return jdbcTemplate.update(sql2, floorId)==1;
+    }
+
 
     @Override
     public boolean deleteHouse(Long houseId) {
@@ -96,9 +107,13 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
         return houses;
     }
 
+    @Override
+    public boolean addFloor(int houseId, int floorLevel) {
+        String sql = "INSERT INTO floor(house_id, floor_level) VALUES(?,?)";
 
 
-
+        return false;
+    }
 
 
     private HouseDetails mapRowToHouseDetails (SqlRowSet rs) {
