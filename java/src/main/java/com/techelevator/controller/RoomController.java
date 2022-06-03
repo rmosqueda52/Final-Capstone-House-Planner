@@ -25,12 +25,6 @@ public class RoomController {
         return roomDao.changeRoomSize(room, id);
     }
 
-<<<<<<< HEAD
-    @DeleteMapping (value = "/delete-room/{id}") // id= room_id
-    public boolean deleteRoom(@PathVariable int id){
-        return roomDao.deleteRoom(id);
-    }
-=======
     @DeleteMapping(value = "/delete-room/{id}") // id =  room_id
     public boolean deleteRoom(@PathVariable int id){
         return roomDao.deleteRoom(id);
@@ -43,17 +37,6 @@ public class RoomController {
 
     @PutMapping(value = "/change-room-floor/{id}")
     public boolean changeRoomFloor(@RequestBody Room room, @PathVariable int id ){
-        return roomDao.changeRoomFloor(room, id);
-    }
->>>>>>> 776edae529381c30ac7752acc474318b49466fcc
-
-    @PutMapping(value = "/change-room-name/{id}") // id = room_id
-    public boolean changeRoomName(@RequestBody Room room, @PathVariable int id) {
-        return roomDao.changeRoomName(room, id);
-    }
-
-    @PutMapping(value = "/change-room-floor/{id}") //id = floor_id
-    public boolean changeRoomFloor(@RequestBody Room room, @PathVariable int id) {
         return roomDao.changeRoomFloor(room, id);
     }
 
