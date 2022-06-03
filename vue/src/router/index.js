@@ -11,6 +11,7 @@ import CreateNewHome from '../views/CreateNewHome.vue'
 import CreateFloorPlan from '../components/S2_SpecifyFloorDetails.vue'
 import GuestHome from '../views/GuestHome.vue'
 import GuestPublicHomes from '../components/GuestPublicHomes.vue'
+import SelectedHouseDetails from '../views/SelectedHouseDetails.vue'
 
 Vue.use(Router)
 
@@ -105,6 +106,14 @@ const router = new Router({
         component: GuestPublicHomes,
         meta: {
           requiresAuth: false
+        }
+      },
+      {
+        path: "/selectedHouseDetails",
+        name: "selectedHouseDetails",
+        component: SelectedHouseDetails,
+        meta: {
+          requiresAuth: true
         }
       }
     

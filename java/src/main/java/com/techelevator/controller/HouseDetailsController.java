@@ -17,8 +17,7 @@ public class HouseDetailsController {
     private HouseDetailsDao houseDetailsDao;
 
     @PostMapping(value = "/create")
-    public boolean createHouse (@RequestBody HouseDetails houseDetails){
-        System.out.println(houseDetails);
+    public Long createHouse (@RequestBody HouseDetails houseDetails){
         return houseDetailsDao.createHouse(houseDetails);
     }
 

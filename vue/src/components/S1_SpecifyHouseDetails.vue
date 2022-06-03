@@ -31,7 +31,7 @@ export default {
         number_of_floors: '',
         is_private: '',
         user_id: this.$store.state.user.id
-      }
+      },
     };
   },
 methods: {
@@ -39,6 +39,8 @@ methods: {
     HomeService.addNewHouse(this.newHome).then(
       (response) => {
         if (response.status === 200) {
+          let houseId = response.data
+      this.$store.commit("SET_ACTIVE_HOUSE", houseId)
           this.$router.push({name:"createFloorPlan"});
         }
       }

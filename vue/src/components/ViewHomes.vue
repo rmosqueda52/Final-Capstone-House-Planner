@@ -39,11 +39,13 @@ export default {
           houseName: eachHome.house_name,
           region: eachHome.region,
           foundationSize: eachHome.foundation_size,
+          houseId: eachHome.house_id
         };
         this.homes.push(newHome);
       }
     });
   },
+  
 };
 </script>
 

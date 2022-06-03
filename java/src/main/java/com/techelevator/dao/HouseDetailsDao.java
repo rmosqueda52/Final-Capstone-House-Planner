@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface HouseDetailsDao {
 
-    boolean createHouse(HouseDetails houseDetails);
+    Long createHouse(HouseDetails houseDetails);
 
     HouseDetails getHouseDetails (Long houseId);
 

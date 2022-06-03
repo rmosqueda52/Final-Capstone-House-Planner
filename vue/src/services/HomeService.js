@@ -17,5 +17,9 @@ export default {
   },
   addNewRoom(newRoom, floorId) {
     return axios.post(`/add-room/${floorId}`,newRoom)
+  },
+  getHouseId(houseId) {
+    return axios.get(`/get-house-details/${houseId}`)
   }
+  
 }

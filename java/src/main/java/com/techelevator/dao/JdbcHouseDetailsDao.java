@@ -18,13 +18,15 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
     public JdbcHouseDetailsDao (JdbcTemplate jdbcTemplate) {this.jdbcTemplate = jdbcTemplate;}
 
     @Override
-    public boolean createHouse(HouseDetails houseDetails) {
+    public Long createHouse(HouseDetails houseDetails) {
         String sql = "INSERT INTO house_details (house_name, foundation_size, region, user_id, is_private,number_of_floors) " +
                         "VALUES (?,?,?,?,?,?) RETURNING house_id";
         Long house_id = jdbcTemplate.queryForObject(sql,Long.class, houseDetails.getHouseName(),houseDetails.getFoundationSize(),
                 houseDetails.getRegion(), houseDetails.getUserId(), houseDetails.isPrivate(), houseDetails.getNumberOfFloors());
-        return addFloorsWhenHouseisCreated(houseDetails, house_id);
-    }
+        addFloorsWhenHouseisCreated(houseDetails,house_id);
+//        return addFloorsWhenHouseisCreated(houseDetails, house_id);
+        return house_id;
+  }
 
 
 
