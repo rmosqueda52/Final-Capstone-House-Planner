@@ -104,28 +104,31 @@ CREATE TABLE room_details(
     room_name varchar(50) NOT NULL,
     room_size int NOT NULL,
     floor_id int,
+    is_kitchen boolean NOT NULL,
+    is_bathroom boolean NOT NULL,
+    number_of_windows int,
+    tier int DEFAULT(0) NOT NULL,
     CONSTRAINT PK_room_id PRIMARY KEY(room_id),
     CONSTRAINT FK_floor_id FOREIGN KEY (floor_id) REFERENCES floor(floor_id)
-
 );
 
 
-INSERT INTO room_details(room_id, room_name, room_size, floor_id)
-VALUES (1, 'Bedroom',10, 90);
-INSERT INTO room_details(room_id, room_name, room_size, floor_id)
-VALUES (2, 'Bedroom',7, 90);
-INSERT INTO room_details(room_id, room_name, room_size, floor_id)
-VALUES (3, 'Bedroom',10, 91);
-INSERT INTO room_details(room_id, room_name, room_size, floor_id)
-VALUES (4, 'Bedroom',10, 92);
-INSERT INTO room_details(room_id, room_name, room_size, floor_id)
-VALUES (5, 'Bedroom',10, 93);
-INSERT INTO room_details(room_id, room_name, room_size, floor_id)
-VALUES (6, 'Bedroom',10, 94);
-INSERT INTO room_details(room_id, room_name, room_size, floor_id)
-VALUES (7, 'Bedroom',10, 95);
-INSERT INTO room_details(room_id, room_name, room_size, floor_id)
-VALUES (8, 'Bedroom',10, 96);
+INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,tier)
+VALUES (1, 'Bedroom',10, 90,false,false,1,2);
+INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,tier)
+VALUES (2, 'Kitchen',7, 90,true,false,2,3);
+INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,tier)
+VALUES (3, 'Bathroom',10, 91,false,true,1,2);
+INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,tier)
+VALUES (4, 'Bedroom',10, 92,false,false,1,2);
+INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,tier)
+VALUES (5, 'Bedroom',10, 93,false,false,2,1);
+INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,tier)
+VALUES (6, 'Kitchen',10, 94,true,false,1,4);
+INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,tier)
+VALUES (7, 'Bathroom',10, 95,false, true,0,2);
+INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,tier)
+VALUES (8, 'Bedroom',10, 96,false,false,3,2);
 
 
 COMMIT TRANSACTION;
