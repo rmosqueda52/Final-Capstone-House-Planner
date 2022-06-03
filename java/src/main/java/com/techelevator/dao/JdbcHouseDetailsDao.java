@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.Floor;
 import com.techelevator.model.HouseDetails;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -100,6 +101,18 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
         return jdbcTemplate.update(sql,houseId,houseId) == 1;
     }
 
+    @Override
+    public List<Floor> getAllFloorsByHouseId(Long houseId) {
+        List<Floor> floors = new ArrayList<>();
+        String sql ="SELECT * FROM floor WHERE house_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql,houseId);
+
+        while(results.next()) {
+            floors.add(mapRowToFloor(results));
+        }
+        return floors;
+    }
+
 
     @Override
     public boolean deleteHouse(Long houseId) {
@@ -131,7 +144,13 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
         return houseDetails;
     }
 
-
+    private Floor mapRowToFloor(SqlRowSet results){
+        Floor floor = new Floor();
+        floor.setFloorId(results.getInt("floor_id"));
+        floor.setFloorLevel(results.getInt("floor_level"));
+        floor.setHouseId(results.getInt("house_id"));
+        return floor;
+    }
 
 
 

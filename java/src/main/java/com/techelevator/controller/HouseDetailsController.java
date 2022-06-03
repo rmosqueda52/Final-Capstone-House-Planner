@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.HouseDetailsDao;
+import com.techelevator.model.Floor;
 import com.techelevator.model.HouseDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -55,6 +56,9 @@ public class HouseDetailsController {
     }
 
 
-
+    @GetMapping(value = "/get-all-floors/{id}")
+    public List<Floor> getAllFloorsByHouseId (@PathVariable Long id){
+        return houseDetailsDao.getAllFloorsByHouseId(id);
+    }
 
 }
