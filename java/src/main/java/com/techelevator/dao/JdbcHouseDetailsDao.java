@@ -22,7 +22,7 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
                         "VALUES (?,?,?,?,?,?) RETURNING house_id";
         Long house_id = jdbcTemplate.queryForObject(sql,Long.class, houseDetails.getHouseName(),houseDetails.getFoundationSize(),
                 houseDetails.getRegion(), houseDetails.getUserId(), houseDetails.isPrivate(), houseDetails.getNumberOfFloors());
-        return addFloors(houseDetails, house_id);
+        return addFloorsWhenHouseisCreated(houseDetails, house_id);
     }
 
 
@@ -58,7 +58,7 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
 //    }
 
     @Override
-    public boolean addFloors(HouseDetails houseDetails, Long houseId) {
+    public boolean addFloorsWhenHouseisCreated(HouseDetails houseDetails, Long houseId) {
         String sql = "INSERT INTO floor (house_id, floor_level) VALUES (?, ?)";
 
         for(int i=1;i<=houseDetails.getNumberOfFloors();i++){
@@ -73,10 +73,20 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
     }
 
     @Override
-    public boolean removeFloors(HouseDetails houseDetails, Long houseId) {
+    public boolean removeFloorsFromHouseTable(HouseDetails houseDetails, int floorId) {
         String sql = "UPDATE house_details SET number_of_floors = number_of_floors - ? WHERE house_id =?";
-        return jdbcTemplate.update(sql, houseDetails.getNumberOfFloors(), houseId)==1;
+        jdbcTemplate.update(sql, houseDetails.getNumberOfFloors(), houseDetails.getHouseId());
+        return removeFloorsFromFloorTable(floorId);
     }
+
+    @Override
+    public boolean removeFloorsFromFloorTable(int floorId) {
+        String sql = "DELETE FROM room_details WHERE floor_id =?";
+        jdbcTemplate.update(sql,floorId);
+        String sql2 ="DELETE FROM floor WHERE floor_id = ?";
+        return jdbcTemplate.update(sql2, floorId)==1;
+    }
+
 
     @Override
     public boolean deleteHouse(Long houseId) {
@@ -98,7 +108,7 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
     }
 
     @Override
-    public boolean addFloorToDatabase(int houseId, int floorLevel) {
+    public boolean addFloor(int houseId, int floorLevel) {
         String sql = "INSERT INTO floor(house_id, floor_level) VALUES(?,?)";
 
 
