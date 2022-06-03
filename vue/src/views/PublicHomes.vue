@@ -1,6 +1,8 @@
 <template>
   <div>
-      This is what the user sees when they click public constructions
+    <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
+     <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+      <br>This is what the user sees when they click public constructions
       <view-public-homes />
   </div>
 </template>
