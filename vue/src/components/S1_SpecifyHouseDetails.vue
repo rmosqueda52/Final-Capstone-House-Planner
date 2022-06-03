@@ -1,5 +1,5 @@
 <template>
-  <div>{{this.newHome}}
+  <div>
       This is where we'll build a form to grab the house details input from the User<br>
   <form v-on:submit.prevent='addHouseDetails'>
     House Name: <input type="text" required v-model='newHome.house_name'/> <br>

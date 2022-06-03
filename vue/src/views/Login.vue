@@ -37,6 +37,12 @@
   <span class="icon arrow"></span>
   </span>
   <span class="button-text">Sign In</span>
+</button><br> <br>
+<button class="learn-more" v-on:click="$router.push({ name: 'guestHome'})">
+  <span class="circle" aria-hidden="true">
+  <span class="icon arrow"></span>
+  </span>
+  <span class="button-text">Guest</span>
 </button>
     </form>
   </div>

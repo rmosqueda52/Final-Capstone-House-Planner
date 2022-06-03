@@ -1,7 +1,9 @@
 <template>
   <div>
-    This is the list of homes this user has worked on
-    <table>
+      <router-link v-bind:to="{ name: 'guestHome' }">Home</router-link>&nbsp;|&nbsp;
+     <router-link v-bind:to="{ name: 'register' }">Create Account?</router-link>
+      <br>This is the List of Public Homes
+      <table>
       <tr v-for="house in homes" v-bind:key="house.id">
         <br>
         House Name:
@@ -32,7 +34,7 @@ export default {
     };
   },
   created() {
-    HomeService.getAllHousesByUserId(this.userID).then((response) => {
+    HomeService.getAllPublicHouses().then((response) => {
       for (let i = 0; i < response.data.length; i++) {
         const eachHome = response.data[i];
         const newHome = {
@@ -48,6 +50,5 @@ export default {
 </script>
 
 <style>
-
 
 </style>
