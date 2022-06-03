@@ -11,5 +11,11 @@ export default {
   },
   addNewHouse(newHouse) {
     return axios.post('/create', newHouse)
+  },
+  getFloorDetails(){
+
+  },
+  addNewRoom(newRoom) {
+    return axios.post('/',newRoom)
   }
 }
