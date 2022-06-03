@@ -12,15 +12,48 @@ public class Room {
     private int roomSize;
     @JsonProperty ("floor_id")
     private int floorId;
-
+    @JsonProperty("is_kitchen")
+    private boolean isKitchen;
+    @JsonProperty("is_bathroom")
+    private boolean isBathroom;
+    @JsonProperty("number_of_windows")
+    private int numOfWindows;
+    @JsonProperty("tier")
+    private int tierFlooring;
 
     public Room(){}
 
-    public Room(int roomId, String roomName, int roomSize, int floorId) {
-        this.roomId = roomId;
-        this.roomName = roomName;
-        this.roomSize = roomSize;
-        this.floorId = floorId;
+
+    public boolean isKitchen() {
+        return isKitchen;
+    }
+
+    public void setKitchen(boolean kitchen) {
+        isKitchen = kitchen;
+    }
+
+    public boolean isBathroom() {
+        return isBathroom;
+    }
+
+    public void setBathroom(boolean bathroom) {
+        isBathroom = bathroom;
+    }
+
+    public int getNumOfWindows() {
+        return numOfWindows;
+    }
+
+    public void setNumOfWindows(int numOfWindows) {
+        this.numOfWindows = numOfWindows;
+    }
+
+    public int getTierFlooring() {
+        return tierFlooring;
+    }
+
+    public void setTierFlooring(int tierFlooring) {
+        this.tierFlooring = tierFlooring;
     }
 
     public int getRoomId() {

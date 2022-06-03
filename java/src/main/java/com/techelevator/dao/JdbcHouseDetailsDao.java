@@ -71,7 +71,6 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
             jdbcTemplate.update(sql,houseId,i);
         }
 
-
         return false;
     }
 
