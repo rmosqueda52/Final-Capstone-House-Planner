@@ -14,5 +14,6 @@ public interface RoomDao {
 
     boolean changeRoomFloor (Room room, int floorId);
 
+    boolean updateRoomTier (Room room, int roomId);
 
 }

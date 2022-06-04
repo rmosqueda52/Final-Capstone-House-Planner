@@ -36,4 +36,8 @@ export default {
   font-size: 16px;
   border-radius: 25px;
 }
+div{
+  text-align: center;
+  align-self: center;
+}
 </style>

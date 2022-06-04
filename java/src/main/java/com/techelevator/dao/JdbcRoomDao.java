@@ -43,4 +43,12 @@ public class JdbcRoomDao implements RoomDao{
         String sql = "UPDATE room_details SET floor_id = ? WHERE room_id =?";
         return jdbcTemplate.update(sql,floorId, room.getRoomId()) == 1;
     }
+
+    @Override
+    public boolean updateRoomTier(Room room, int roomId ) {
+       String sql = "UPDATE room_details SET flooring_tier_id = ? WHERE room_id = ? ";
+        return jdbcTemplate.update(sql,room.getTierFlooring(),roomId) == 1;
+    }
+
+
 }
