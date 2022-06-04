@@ -10,7 +10,7 @@
          <tr v-for="floor in newRooms" v-bind:key="floor.id">
              Floor Level: {{floor.floorLevel}} <br>
 
-             <button v-on:click="setCurrentFloor(floor.floorId)">Add Room to this Floor </button><br><br>
+             <button v-on:click="setCurrentFloor(floor.floorId)">Add Rooms to this Floor </button><br><br>
   </tr> 
   </table> 
   </div>
