@@ -103,13 +103,18 @@ CREATE SEQUENCE seq_room_id
 CREATE TABLE flooring_tier (
     flooring_tier_id serial NOT NULL,
     flooring_name varchar (50) NOT NULL,
+    tier_level int NOT NULL,
     CONSTRAINT PK_flooring_tier_id PRIMARY KEY (flooring_tier_id)
 );
 
-INSERT INTO flooring_tier (flooring_tier_id, flooring_name)
-VALUES (2, 'Marble');
-INSERT INTO flooring_tier (flooring_tier_id, flooring_name)
-VALUES (3, '24k Gold');
+INSERT INTO flooring_tier (flooring_tier_id, flooring_name, tier_level)
+VALUES (1, 'Laminate, Carpet, Ceramic Tile', 1);
+INSERT INTO flooring_tier (flooring_tier_id, flooring_name, tier_level)
+VALUES (2, 'Hardwood, Porcelain, Polished Concrete', 2);
+INSERT INTO flooring_tier (flooring_tier_id, flooring_name, tier_level)
+VALUES (3, 'Granite, Marble, Slate', 3);
+INSERT INTO flooring_tier (flooring_tier_id, flooring_name, tier_level)
+VALUES (4, 'Exotic Hardwood, Custom Porcelain, Lux Touch Tile', 4);
 
 
 
@@ -130,21 +135,21 @@ CREATE TABLE room_details(
 
 
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
-VALUES (1, 'Bedroom',10, 90,false,false,1,2);
+VALUES (1, 'Bedroom',10, 90,false,false,1,1);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
-VALUES (2, 'Kitchen',7, 90,true,false,2,3);
+VALUES (2, 'Kitchen',7, 90,true,false,2,2);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
-VALUES (3, 'Bathroom',10, 91,false,true,1,2);
+VALUES (3, 'Bathroom',10, 91,false,true,1,3);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
-VALUES (4, 'Bedroom',10, 92,false,false,1,2);
+VALUES (4, 'Bedroom',10, 92,false,false,1,4);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
 VALUES (5, 'Bedroom',10, 93,false,false,2,3);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
-VALUES (6, 'Kitchen',10, 94,true,false,1,3);
+VALUES (6, 'Kitchen',10, 94,true,false,1,2);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
-VALUES (7, 'Bathroom',10, 95,false, true,0,3);
+VALUES (7, 'Bathroom',10, 95,false, true,0,1);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
-VALUES (8, 'Bedroom',10, 96,false,false,3,2);
+VALUES (8, 'Bedroom',10, 96,false,false,3,3);
 
 
 
