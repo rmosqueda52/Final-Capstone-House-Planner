@@ -4,16 +4,20 @@
      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
      <br> This is where the details for the floor will go<br>
      {{this.newRooms}} <br>
-     House ID: {{this.house_id}}
+     House ID: {{this.house_id}} <br>
+     You're currently working on: {{this.currentHouseName}}
      <table>
          <tr v-for="floor in newRooms" v-bind:key="floor.id">
-        <form v-on:submit.prevent='addFloorDetails'>
+             Floor Level: {{floor.floorLevel}} <br>
+
+             <button>Add Room to this Floor</button><br><br>
+        <!-- <form v-on:submit.prevent='addFloorDetails'>
      Room Name: <input type="text" required v-model='newRooms.room_name'/><br>
      room Size sq. ft: <input type="number" min=1 required v-model="newRooms.room_size"/> <br>
 
     <button>Submit</button>
   
-  </form>
+  </form> -->
   </tr> 
   </table> 
   </div>
@@ -27,17 +31,14 @@ export default {
     data() {
         return{
            house_id: 990,     //this.$store.state.currentHouseId,
-           newRooms: [{
-               room_name: '',
-           }
-           ],
-            floors: 0
+           newRooms: [],
+            floors: 0,
+            currentHouseName: ''
         };
     },
     created() {
         HomeService.getFloorDetails(this.house_id).then(
             (response) => {
-                console.log(response.data)
                 for(let i = 0; i<response.data.length; i++) {
                     const eachFloor = response.data[i];
                     const newRooms = {
@@ -45,6 +46,12 @@ export default {
                     };
                     this.newRooms.push(newRooms);
                 }
+            }
+        ),
+        HomeService.getHouseDetails(this.house_id).then(
+            (response) => { 
+                this.currentHouseName = response.data.house_name
+
             }
         )
     },
