@@ -2,7 +2,11 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Room;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Component
@@ -49,6 +53,34 @@ public class JdbcRoomDao implements RoomDao{
        String sql = "UPDATE room_details SET flooring_tier_id = ? WHERE room_id = ? ";
         return jdbcTemplate.update(sql,room.getTierFlooring(),roomId) == 1;
     }
+
+    @Override
+    public List<Room> getAllRoomsByFloorId(int floorId) {
+        List<Room> rooms = new ArrayList<>();
+        String sql = "SELECT * FROM room_details WHERE floor_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql,floorId);
+
+        while(results.next()) {
+            Room room = mapRowToRoomDetails(results);
+            rooms.add(room);
+        }
+        return rooms;
+    }
+
+    private Room mapRowToRoomDetails (SqlRowSet rs) {
+        Room room = new Room();
+        room.setRoomId(rs.getInt("room_id"));
+        room.setRoomName(rs.getString("room_name"));
+        room.setRoomSize(rs.getInt("room_size"));
+        room.setFloorId(rs.getInt("floor_id"));
+        room.setKitchen(rs.getBoolean("is_kitchen"));
+        room.setBathroom(rs.getBoolean("is_bathroom"));
+        room.setNumOfWindows(rs.getInt("number_of_windows"));
+        room.setTierFlooring(rs.getInt("flooring_tier_id"));
+        return room;
+    }
+
+
 
 
 }

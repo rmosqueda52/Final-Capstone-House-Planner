@@ -55,7 +55,7 @@ public class HouseDetailsController {
     }
 
 
-    @GetMapping(value = "/get-all-floors/{id}")
+    @GetMapping(value = "/get-all-floors/{id}") //houseId
     public List<Floor> getAllFloorsByHouseId (@PathVariable Long id){
         return houseDetailsDao.getAllFloorsByHouseId(id);
     }
