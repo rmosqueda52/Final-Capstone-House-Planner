@@ -1,13 +1,13 @@
 <template>
-  <div>{{this.newHome}}
+  <div>
       This is where we'll build a form to grab the house details input from the User<br>
   <form v-on:submit.prevent='addHouseDetails'>
     House Name: <input type="text" required v-model='newHome.house_name'/> <br>
     Region: <input type="text" required  v-model='newHome.region'/><br>
-    Foundation Size: <input type="number" min=1 required v-model='newHome.foundation_size'/><br>
+    Foundation Size sq. ft: <input type="number" min=1 required v-model='newHome.foundation_size'/><br>
     Number of Floors in this House: <input type="number" min=1 required v-model='newHome.number_of_floors'/><br>
     Should this house be Public or Private? 
-    <select name="isPrivate" required v-model='newHome.isPrivate'>
+    <select name="isPrivate" required v-model='newHome.is_private'>
       <option value="false">Public</option>
       <option value="true">Private</option>
     </select><br> <br>
@@ -31,7 +31,7 @@ export default {
         number_of_floors: '',
         is_private: '',
         user_id: this.$store.state.user.id
-      }
+      },
     };
   },
 methods: {
@@ -39,6 +39,8 @@ methods: {
     HomeService.addNewHouse(this.newHome).then(
       (response) => {
         if (response.status === 200) {
+          let houseId = response.data
+      this.$store.commit("SET_ACTIVE_HOUSE", houseId)
           this.$router.push({name:"createFloorPlan"});
         }
       }

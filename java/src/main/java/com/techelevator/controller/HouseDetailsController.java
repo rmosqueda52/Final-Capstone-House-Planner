@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.HouseDetailsDao;
+import com.techelevator.model.Floor;
 import com.techelevator.model.HouseDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -16,8 +17,7 @@ public class HouseDetailsController {
     private HouseDetailsDao houseDetailsDao;
 
     @PostMapping(value = "/create")
-    public boolean createHouse (@RequestBody HouseDetails houseDetails){
-        System.out.println(houseDetails);
+    public Long createHouse (@RequestBody HouseDetails houseDetails){
         return houseDetailsDao.createHouse(houseDetails);
     }
 
@@ -32,14 +32,15 @@ public class HouseDetailsController {
         return houseDetailsDao.getAllHousesByUserId(id);
     }
 
-    @PutMapping(value = "/update-floors/{id}")
-    public boolean addFloors(@PathVariable Long id, @RequestBody HouseDetails houseDetails){
-        return houseDetailsDao.addFloors(houseDetails, id);
+    @PutMapping(value = "/update-floors/{houseId}")
+    public boolean addFloorsToExistingFloors(@PathVariable Long houseId){
+        return houseDetailsDao.addFloorToExistingFloors(houseId);
     }
 
-    @PutMapping(value = "/update-subtract-floors/{id}")
-    public boolean removeFloors(@PathVariable Long id, @RequestBody HouseDetails houseDetails){
-        return houseDetailsDao.removeFloors(houseDetails, id);
+    @PutMapping(value = "/update-subtract-floors/{id}") // Validation to be done on the Front end, check for floors only
+    // in the house that they are looking at.
+    public boolean removeFloors(@PathVariable int id, @RequestBody HouseDetails houseDetails){
+        return houseDetailsDao.removeFloorsFromHouseTable(houseDetails, id );
     }
 
     @DeleteMapping(value = "/delete-house/{id}")
@@ -54,6 +55,9 @@ public class HouseDetailsController {
     }
 
 
-
+    @GetMapping(value = "/get-all-floors/{id}")
+    public List<Floor> getAllFloorsByHouseId (@PathVariable Long id){
+        return houseDetailsDao.getAllFloorsByHouseId(id);
+    }
 
 }

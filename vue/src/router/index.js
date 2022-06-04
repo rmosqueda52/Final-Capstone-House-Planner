@@ -9,6 +9,9 @@ import UserHome from '../views/UserHome.vue'
 import PublicHomes from '../views/PublicHomes.vue'
 import CreateNewHome from '../views/CreateNewHome.vue'
 import CreateFloorPlan from '../components/S2_SpecifyFloorDetails.vue'
+import GuestHome from '../views/GuestHome.vue'
+import GuestPublicHomes from '../components/GuestPublicHomes.vue'
+import SelectedHouseDetails from '../views/SelectedHouseDetails.vue'
 
 Vue.use(Router)
 
@@ -88,7 +91,32 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
-    }
+    },
+    {
+      path: "/guestHome",
+      name: "guestHome",
+      component: GuestHome,
+      meta: {
+        requiresAuth: false
+      }
+      },
+      {
+        path: "/guestPublicHomes",
+        name: "guestPublicHomes",
+        component: GuestPublicHomes,
+        meta: {
+          requiresAuth: false
+        }
+      },
+      {
+        path: "/selectedHouseDetails",
+        name: "selectedHouseDetails",
+        component: SelectedHouseDetails,
+        meta: {
+          requiresAuth: true
+        }
+      }
+    
   ]
 })
 

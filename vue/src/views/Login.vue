@@ -37,7 +37,8 @@
   <span class="icon arrow"></span>
   </span>
   <span class="button-text">Sign In</span>
-</button>
+</button><br> <br>
+
     </form>
   </div>
   <div id="new-account-container">
@@ -51,7 +52,7 @@
     
   </div>
   <div class="main_div">
-  <button @click="goToHome()">Continue as Guest</button>
+  <button v-on:click="$router.push({ name: 'guestHome'})">Continue as Guest</button>
 </div>
 <h6>Or</h6>
 </body>
@@ -353,7 +354,7 @@ button:hover .button-text {
  z-index: 1;
  font-family: 'Montserrat', sans-serif;
  margin-top: 280px;
- margin-right: 579px;
+ margin-right: 595px;
 }
 
 .main_div::before {

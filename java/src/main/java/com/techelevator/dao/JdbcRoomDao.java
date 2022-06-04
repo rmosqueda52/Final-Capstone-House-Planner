@@ -14,8 +14,10 @@ public class JdbcRoomDao implements RoomDao{
 
     @Override
     public boolean addRoomToFloor(Room room, int floorId) {
-        String sql ="INSERT INTO room_details (room_name, room_size, floor_id) VALUES(?,?,?)";
-        return jdbcTemplate.update(sql, room.getRoomName(), room.getRoomSize(), floorId) ==1 ;
+        String sql ="INSERT INTO room_details (room_name, room_size, floor_id,is_kitchen, is_bathroom," +
+                " number_of_windows, tier) VALUES(?,?,?,?,?,?,?)";
+        return jdbcTemplate.update(sql, room.getRoomName(), room.getRoomSize(), floorId,room.isKitchen(),
+                room.isBathroom(),room.getNumOfWindows(),room.getTierFlooring()) ==1 ;
     }
 
     @Override
@@ -33,7 +35,7 @@ public class JdbcRoomDao implements RoomDao{
     @Override
     public boolean changeRoomName(Room room, int roomId) {
         String sql = "UPDATE room_details SET room_name = ? WHERE room_id = ?";
-        return jdbcTemplate.update(sql,room.getRoomName(), room.getRoomId()) == 1;
+        return jdbcTemplate.update(sql,room.getRoomName(), roomId) == 1;
     }
 
     @Override
