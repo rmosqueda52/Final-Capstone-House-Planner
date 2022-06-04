@@ -18,7 +18,7 @@ public class Room {
     private boolean isBathroom;
     @JsonProperty("number_of_windows")
     private int numOfWindows;
-    @JsonProperty("tier")
+    @JsonProperty("flooring_tier_id")
     private int tierFlooring;
 
     public Room(){}

@@ -12,6 +12,7 @@ import CreateFloorPlan from '../components/S2_SpecifyFloorDetails.vue'
 import GuestHome from '../views/GuestHome.vue'
 import GuestPublicHomes from '../components/GuestPublicHomes.vue'
 import SelectedHouseDetails from '../views/SelectedHouseDetails.vue'
+import AddRoomToFloor from '../components/S3_AddRoomToFloor.vue'
 
 Vue.use(Router)
 
@@ -80,7 +81,7 @@ const router = new Router({
       path: "/createNewHome",
       name: "createNewHome",
       component: CreateNewHome,
-      meta : {
+      meta: {
         requiresAuth: true
       }
     },
@@ -99,24 +100,31 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
-      },
-      {
-        path: "/guestPublicHomes",
-        name: "guestPublicHomes",
-        component: GuestPublicHomes,
-        meta: {
-          requiresAuth: false
-        }
-      },
-      {
-        path: "/selectedHouseDetails",
-        name: "selectedHouseDetails",
-        component: SelectedHouseDetails,
-        meta: {
-          requiresAuth: true
-        }
+    },
+    {
+      path: "/guestPublicHomes",
+      name: "guestPublicHomes",
+      component: GuestPublicHomes,
+      meta: {
+        requiresAuth: false
       }
-    
+    },
+    {
+      path: "/selectedHouseDetails",
+      name: "selectedHouseDetails",
+      component: SelectedHouseDetails,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/addRoomToFloor",
+      name: "addRoomToFloor",
+      component: AddRoomToFloor,
+      meta: {
+        requiresAuth: true
+      }
+    }
   ]
 })
 

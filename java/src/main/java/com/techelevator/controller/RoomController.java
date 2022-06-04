@@ -40,4 +40,10 @@ public class RoomController {
         return roomDao.changeRoomFloor(room, id);
     }
 
+    @PutMapping(value= "/update-room-tier/{roomId}")
+    public boolean updateRoomTier(@RequestBody Room room, @PathVariable int roomId ) {
+        return roomDao.updateRoomTier(room, roomId);
+    }
+
+
 }

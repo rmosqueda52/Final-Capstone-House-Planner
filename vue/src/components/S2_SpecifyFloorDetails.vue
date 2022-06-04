@@ -10,14 +10,7 @@
          <tr v-for="floor in newRooms" v-bind:key="floor.id">
              Floor Level: {{floor.floorLevel}} <br>
 
-             <button>Add Room to this Floor</button><br><br>
-        <!-- <form v-on:submit.prevent='addFloorDetails'>
-     Room Name: <input type="text" required v-model='newRooms.room_name'/><br>
-     room Size sq. ft: <input type="number" min=1 required v-model="newRooms.room_size"/> <br>
-
-    <button>Submit</button>
-  
-  </form> -->
+             <button v-on:click="setCurrentFloor(floor.floorId)">Add Room to this Floor </button><br><br>
   </tr> 
   </table> 
   </div>
@@ -42,7 +35,8 @@ export default {
                 for(let i = 0; i<response.data.length; i++) {
                     const eachFloor = response.data[i];
                     const newRooms = {
-                        floorLevel: eachFloor.floorLevel
+                        floorLevel: eachFloor.floorLevel,
+                        floorId: eachFloor.floorId
                     };
                     this.newRooms.push(newRooms);
                 }
@@ -64,6 +58,10 @@ export default {
                     }
                 }
             )
+        },
+        setCurrentFloor(floorId) {
+            this.$store.commit("SET_ACTIVE_FLOOR", floorId)
+            this.$router.push({ name: 'addRoomToFloor'})
         }
     }
 }

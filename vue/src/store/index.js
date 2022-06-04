@@ -20,7 +20,8 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    currentHouseId: 0
+    currentHouseId: 0,
+    currentFloorId: 0,
 
 
   },
@@ -43,6 +44,9 @@ export default new Vuex.Store({
     },
     SET_ACTIVE_HOUSE(state, houseId) {
       state.currentHouseId = houseId;
+    },
+    SET_ACTIVE_FLOOR(state, floorId) {
+      state.currentFloorId = floorId;
     }
   }
 })
