@@ -20,6 +20,9 @@ export default {
   },
   getHouseDetails(houseId) {
     return axios.get(`/get-house-details/${houseId}`)
+  },
+  getRoomsByFloorId(floorId) {
+    return axios.get(`/get-rooms/${floorId}`)
   }
-  
+
 }

@@ -3,14 +3,14 @@
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
      <br> This is where the details for the floor will go<br>
-     {{this.newRooms}} <br>
+     {{this.newFloors}} <br>
      House ID: {{this.house_id}} <br>
      You're currently working on: {{this.currentHouseName}}
      <table>
-         <tr v-for="floor in newRooms" v-bind:key="floor.id">
+         <tr v-for="floor in newFloors" v-bind:key="floor.id">
              Floor Level: {{floor.floorLevel}} <br>
 
-             <button v-on:click="setCurrentFloor(floor.floorId)">Add Room to this Floor </button><br><br>
+             <button v-on:click="setCurrentFloor(floor.floorId)">Add Rooms to this Floor </button><br><br>
   </tr> 
   </table> 
   </div>
@@ -24,7 +24,7 @@ export default {
     data() {
         return{
            house_id: 990,     //this.$store.state.currentHouseId,
-           newRooms: [],
+           newFloors: [],
             floors: 0,
             currentHouseName: ''
         };
@@ -34,11 +34,11 @@ export default {
             (response) => {
                 for(let i = 0; i<response.data.length; i++) {
                     const eachFloor = response.data[i];
-                    const newRooms = {
+                    const newFloor = {
                         floorLevel: eachFloor.floorLevel,
                         floorId: eachFloor.floorId
                     };
-                    this.newRooms.push(newRooms);
+                    this.newFloors.push(newFloor);
                 }
             }
         ),

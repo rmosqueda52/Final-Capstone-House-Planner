@@ -2,6 +2,8 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Room;
 
+import java.util.List;
+
 public interface RoomDao {
 
     boolean addRoomToFloor(Room room, int floorId);
@@ -15,5 +17,7 @@ public interface RoomDao {
     boolean changeRoomFloor (Room room, int floorId);
 
     boolean updateRoomTier (Room room, int roomId);
+
+    public List<Room> getAllRoomsByFloorId(int floorId);
 
 }

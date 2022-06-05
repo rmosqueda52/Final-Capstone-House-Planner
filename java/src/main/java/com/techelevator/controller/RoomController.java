@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin
 @PreAuthorize("isAuthenticated()")
@@ -45,5 +47,9 @@ public class RoomController {
         return roomDao.updateRoomTier(room, roomId);
     }
 
+    @GetMapping(value = "/get-rooms/{id}")//floor_id
+    public List<Room> getRooms(@PathVariable int id) {
+        return roomDao.getAllRoomsByFloorId(id);
+    }
 
 }
