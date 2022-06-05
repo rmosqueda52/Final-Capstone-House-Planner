@@ -48,8 +48,8 @@ public class RoomController {
     }
 
     @GetMapping(value = "/get-rooms/{id}")//floor_id
-    public List<Room> getRooms(@PathVariable int floorId) {
-        return roomDao.getAllRoomsByFloorId(floorId);
+    public List<Room> getRooms(@PathVariable int id) {
+        return roomDao.getAllRoomsByFloorId(id);
     }
 
 }

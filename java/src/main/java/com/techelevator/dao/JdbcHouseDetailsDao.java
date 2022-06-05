@@ -142,6 +142,7 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
         houseDetails.setHouseName(rs.getString("house_name"));
         houseDetails.setRegion(rs.getString("region"));
         houseDetails.setUserId(rs.getLong("user_id"));
+        houseDetails.setNumberOfFloors(rs.getInt("number_of_floors"));
         return houseDetails;
     }
 

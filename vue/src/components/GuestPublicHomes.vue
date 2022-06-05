@@ -5,19 +5,13 @@
       <br>This is the List of Public Homes
       <table>
       <tr v-for="house in homes" v-bind:key="house.id">
+      <div>
         <br>
-        House Name:
-        {{
-          house.houseName
-        }}<br>
-        House Region:
-        {{
-          house.region
-        }}<br>
-        Foundation size:
-        {{
-          house.foundationSize
-        }} <br> 
+        House Name:{{house.houseName}}<br>
+        House Region:{{house.region}}<br>
+        Foundation size:{{house.foundationSize}} <br> 
+        Number of Floors: {{house.numOfFloors}} <br>
+        </div>
       </tr>
     </table>
   </div>
@@ -41,6 +35,7 @@ export default {
           houseName: eachHome.house_name,
           region: eachHome.region,
           foundationSize: eachHome.foundation_size,
+          numOfFloors: eachHome.number_of_floors
         };
         this.homes.push(newHome);
       }
