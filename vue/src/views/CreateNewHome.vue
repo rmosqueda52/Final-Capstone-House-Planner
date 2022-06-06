@@ -21,9 +21,8 @@ export default {
 
 <style>
 .userForm{
-padding: 100px;
+margin-left: 100px;
 display: flex;
-align-self: center;
 }
 .loginHome{
     text-align: left;

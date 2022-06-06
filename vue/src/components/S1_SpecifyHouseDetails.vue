@@ -3,12 +3,12 @@
      <br>
   <form v-on:submit.prevent='addHouseDetails'>
     <div class="userFormStyle">
-    House Name: <br> <br> <input type="text" placeholder="Enter a name for this build" required v-model='newHome.house_name'/> <br> <br> <br>
-    Region: <br> <br> <input type="text" required placeholder="Where will your house be located?" v-model='newHome.region'/><br> <br> <br>
-    Foundation Size sq. ft: <br> <br> <input type="number" placeholder="How large do you want your foundation to be?" min=1 required v-model='newHome.foundation_size'/><br> <br> <br>
-    Number of Floors in this House: <br> <br> <input type="number" placeholder="How many floors?" min=1 required v-model='newHome.number_of_floors'/><br> <br> <br>
+    House Name: <br> <br> <input class="textbox" type="text" placeholder="Enter a name for this build" required v-model='newHome.house_name'/> <br> <br> <br>
+    Region: <br> <br> <input class="textbox" type="text" required placeholder="Where will your house be located?" v-model='newHome.region'/><br> <br> <br>
+    Foundation Size sq. ft: <br> <br> <input class="textbox" type="number" placeholder="How large do you want your foundation to be?" min=1 required v-model='newHome.foundation_size'/><br> <br> <br>
+    Number of Floors in this House: <br> <br> <input class="textbox" type="number" placeholder="How many floors?" min=1 required v-model='newHome.number_of_floors'/><br> <br> <br>
     Should this house be Public or Private? <br> <br>
-    <select name="isPrivate" required v-model='newHome.is_private'>
+    <select class="textbox" name="isPrivate" required v-model='newHome.is_private'>
       <option value="false">Public</option>
       <option value="true">Private</option>
     </select><br> <br>
@@ -83,5 +83,10 @@ methods: {
   -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
   box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
   transition: all 0.4s ease 0s;
+}
+
+.textbox{
+  height:20px;
+    font-size:10pt;
 }
 </style>
