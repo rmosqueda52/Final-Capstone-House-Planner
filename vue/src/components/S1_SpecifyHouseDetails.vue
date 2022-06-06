@@ -3,16 +3,16 @@
      <br>
   <form v-on:submit.prevent='addHouseDetails'>
     <div class="userFormStyle">
-    House Name: <input type="text" required v-model='newHome.house_name'/> <br> <br> <br>
-    Region: <input type="text" required  v-model='newHome.region'/><br> <br> <br>
-    Foundation Size sq. ft: <input type="number" min=1 required v-model='newHome.foundation_size'/><br> <br> <br>
-    Number of Floors in this House: <input type="number" min=1 required v-model='newHome.number_of_floors'/><br> <br> <br>
-    Should this house be Public or Private? 
-    <select name="isPrivate" required v-model='newHome.is_private'>
+    House Name: <br> <br> <input class="textbox" type="text" placeholder="Enter a name for this build" required v-model='newHome.house_name'/> <br> <br> <br>
+    Region: <br> <br> <input class="textbox" type="text" required placeholder="Where will your house be located?" v-model='newHome.region'/><br> <br> <br>
+    Foundation Size sq. ft: <br> <br> <input class="textbox" type="number" placeholder="How large do you want your foundation to be?" min=1 required v-model='newHome.foundation_size'/><br> <br> <br>
+    Number of Floors in this House: <br> <br> <input class="textbox" type="number" placeholder="How many floors?" min=1 required v-model='newHome.number_of_floors'/><br> <br> <br>
+    Should this house be Public or Private? <br> <br>
+    <select class="textbox" name="isPrivate" required v-model='newHome.is_private'>
       <option value="false">Public</option>
       <option value="true">Private</option>
     </select><br> <br>
-  <button>Submit</button>
+  <div class="container-name"><a class="example_a" href="#" target="_blank" rel="nofollow"><span>Submit</span></a></div>
   </div>
   </form>
   
@@ -56,9 +56,37 @@ methods: {
 .userFormStyle{
   display: flex;
   flex-direction: column;
-  
+  margin-left: 720px;
   font-weight: bold;
   font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.123);
+  backdrop-filter: blur(30px);
+  padding: 40px;
+}
+.example_a {
+  font-family: 'Montserrat';
+  color: #ffffff;
+  text-transform: Capitalize;
+  text-decoration: none;
+  background: #000000;
+  padding: 20px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+}
 
+.example_a:hover {
+  background: #434343;
+  letter-spacing: 1px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.4s ease 0s;
+}
+
+.textbox{
+  height:20px;
+    font-size:10pt;
 }
 </style>

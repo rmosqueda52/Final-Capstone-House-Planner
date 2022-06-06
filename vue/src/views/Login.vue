@@ -200,7 +200,7 @@ h1{
 }
 
 html {
-  overflow-y: hidden; 
+  overflow-y: auto; 
   overflow-x: hidden;
   margin: -1%;
 }
