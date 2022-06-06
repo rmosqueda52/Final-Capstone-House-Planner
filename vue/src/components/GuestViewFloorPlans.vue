@@ -1,5 +1,9 @@
 <template>
   <div>
+    <router-link v-bind:to="{ name: 'guestHome' }">Home</router-link
+    >&nbsp;|&nbsp;
+    <router-link v-bind:to="{ name: 'register' }">Create Account?</router-link>
+    <br />
     This is the GuestFloor page
     <div>
       <br />
@@ -13,12 +17,11 @@
           <table>
             <tr v-for="room in floor.rooms" v-bind:key="room.id">
               <div>
-              Room:
-              {{
-                room.roomName
-              }} <br>
-              Room Size: {{room.roomSize}} <br>
-              Number of Windows: {{room.numOfWindows}} <br> <br>
+                Room:
+                {{ room.roomName }} <br />
+                Room Size: {{ room.roomSize }} <br />
+                Number of Windows: {{ room.numOfWindows }} <br />
+                <br />
               </div>
             </tr>
           </table>

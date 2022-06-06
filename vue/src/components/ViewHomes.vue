@@ -12,6 +12,7 @@
         Foundation size: {{house.foundationSize}} <br> 
         Number of Floors: {{house.numOfFloors}} <br>
         <button v-on:click="setActiveHouse(house.houseId)">Checkout {{house.houseName}}</button>
+        <br> <br>
         </div>
         
       </tr>
