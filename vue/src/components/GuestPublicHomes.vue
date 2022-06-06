@@ -5,7 +5,7 @@
       <br>This is the List of Public Homes
       <table>
       <tr v-for="house in homes" v-bind:key="house.id">
-      <div>
+      <div class="homes">
         <br>
         House Name:{{house.houseName}}<br>
         House Region:{{house.region}}<br>
@@ -45,5 +45,17 @@ export default {
 </script>
 
 <style>
-
+table{
+  align-items: center;
+  padding: 100px;
+  display: flexbox;
+  gap: 40px;
+}
+.homes{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  vertical-align: middle;
+}
 </style>
