@@ -56,16 +56,15 @@ VALUES(991,25,'America', 'Small House', 2, 1, false);
 INSERT INTO house_details(house_id, foundation_size,region,house_name,user_id,number_of_floors,is_Private)
 VALUES(992,150,'America', 'Party House', 3, 3, true);
 INSERT INTO house_details(house_id, foundation_size,region,house_name,user_id,number_of_floors,is_Private)
-VALUES(993,20,'Portland', 'Public test house 1', 3, 2, false);
-INSERT INTO house_details(house_id, foundation_size,region,house_name,user_id,number_of_floors,is_Private)
-VALUES(994,50,'Brooklin', 'Absurd Public test house 2', 3, 7, false);
+VALUES(993,2000,'Unknown', 'Haunted House', 3, 3, false);
+
 
 
 
 CREATE SEQUENCE seq_floor_id
   INCREMENT BY 1
   NO MAXVALUE
-  START WITH 100
+  START WITH 101
   CACHE 1;
 
 CREATE TABLE floor (
@@ -92,13 +91,19 @@ INSERT INTO floor(floor_id, house_id,floor_level)
 VALUES(96,992,2);
 INSERT INTO floor(floor_id, house_id,floor_level)
 VALUES(97,992,3);
+INSERT INTO floor(floor_id, house_id,floor_level)
+VALUES(98,993,1);
+INSERT INTO floor(floor_id, house_id,floor_level)
+VALUES(99,993,2);
+INSERT INTO floor(floor_id, house_id,floor_level)
+VALUES(100,993,3);
 
 
 CREATE SEQUENCE seq_room_id
   INCREMENT BY 1
   NO MAXVALUE
   NO MINVALUE
-  START WITH 10
+  START WITH 21
   CACHE 1;
 
 
@@ -149,9 +154,35 @@ VALUES (5, 'Bedroom',10, 93,false,false,2,3);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
 VALUES (6, 'Kitchen',10, 94,true,false,1,2);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
-VALUES (7, 'Bathroom',10, 95,false, true,0,1);
+VALUES (7, 'Bedroom',10, 94,false,false,3,3);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
-VALUES (8, 'Bedroom',10, 96,false,false,3,3);
+VALUES (8, 'Bathroom',10, 95,false, true,0,1);
+INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
+VALUES (9, 'Bedroom',10, 95,false,false,3,3);
+INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
+VALUES (10, 'Bedroom',10, 96,false,false,3,3);
+INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
+VALUES (11, 'Bedroom',10, 96,false,false,3,3);
+INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
+VALUES (12, 'Bedroom',10, 97,false,false,3,3);
+INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
+VALUES (13, 'Bathroom',10, 97,false,true,3,3);
+INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
+VALUES (14, 'Bedroom',10, 98,false,false,1,1);
+INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
+VALUES (15, 'Kitchen',7, 98,true,false,2,2);
+INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
+VALUES (16, 'Bathroom',10, 98,false,true,1,3);
+INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
+VALUES (17, 'Bedroom',10, 99,false,false,1,4);
+INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
+VALUES (18, 'Bedroom',10, 99,false,false,2,3);
+INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
+VALUES (19, 'Kitchen',10, 100,true,false,1,2);
+INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
+VALUES (20, 'Secret Room',18, 100,false,false,0,2);
+
+
 
 
 
