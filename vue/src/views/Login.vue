@@ -200,8 +200,8 @@ h1{
 }
 
 html {
-  overflow-y: auto; 
-  overflow-x: hidden;
+  overflow-y: scroll; 
+  overflow-x: scroll;
   margin: -1%;
 }
 /* From uiverse.io */
