@@ -46,7 +46,7 @@ public class RoomController {
     public boolean updateRoomTier(@RequestBody Room room, @PathVariable int roomId ) {
         return roomDao.updateRoomTier(room, roomId);
     }
-
+    @PreAuthorize("permitAll")
     @GetMapping(value = "/get-rooms/{id}")//floor_id
     public List<Room> getRooms(@PathVariable int id) {
         return roomDao.getAllRoomsByFloorId(id);
