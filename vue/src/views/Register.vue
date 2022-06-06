@@ -44,7 +44,7 @@
           value="Home_Buyer"
           required
         />
-        <label for="role" id="home-buyer-label">Home Buyer</label><br />
+        <label class="select-role"  for="role" id="home-buyer-label">Home Buyer</label><br />
         <input
           type="radio"
           id="system-admin"
@@ -54,7 +54,7 @@
           value="System_Admin"
           required
         />
-        <label for="role" id="system-admin-label">System Administrator</label>
+        <label class="select-role" for="role"  id="system-admin-label">System Administrator</label>
         <button class="learn-more" id="reg-create-account">
           <span class="circle" aria-hidden="true">
             <span class="icon arrow"></span>
@@ -232,5 +232,8 @@ html {
   overflow-y: hidden;
   overflow-x: hidden;
   margin: -1%;
+}
+.select-role{
+  color: black;
 }
 </style>

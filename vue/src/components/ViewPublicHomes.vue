@@ -1,15 +1,21 @@
 <template>
   <div>
       This is the List of Public Homes
-      <table>
+    <table>
       <tr v-for="house in homes" v-bind:key="house.id">
-        <div>
-        <br>
-        House Name:{{house.houseName}}<br>
-        House Region:{{house.region}}<br>
-        Foundation size:{{house.foundationSize}} <br> 
-        Number of Floors: {{house.numOfFloors}} <br>
-        <button v-on:click="setActiveHouse(house.houseId)">Checkout {{house.houseName}}</button>
+        <div class="homes">
+          <br />
+          House Name: {{ house.houseName }}<br />
+          <br />
+          House Region: {{ house.region }}<br />
+          <br />
+          Foundation size: {{ house.foundationSize }} <br />
+          <br />
+          Number of Floors: {{ house.numOfFloors }} <br />
+          <br />
+          <button role="button" class="button-name" v-on:click="setActiveHouse(house.houseId)">
+            Checkout {{ house.houseName }}
+          </button>
         </div>
       </tr>
     </table>

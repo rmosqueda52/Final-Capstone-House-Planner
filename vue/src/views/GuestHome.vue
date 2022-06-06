@@ -84,7 +84,6 @@ html {
   font-size: 20px;
   text-align: left;
   margin-right: 1300px;
-  
-  
+
 }
 </style>

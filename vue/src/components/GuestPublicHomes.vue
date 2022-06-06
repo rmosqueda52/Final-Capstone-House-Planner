@@ -5,17 +5,17 @@
     <router-link v-bind:to="{ name: 'guestHome' }">Home</router-link
     >&nbsp;|&nbsp;
     <router-link v-bind:to="{ name: 'register' }">Create Account?</router-link>
-    <br />This is the List of Public Homes
+    <br />Public Homes
     </div>
     <table>
       <tr v-for="house in homes" v-bind:key="house.id">
         <div class="homes">
           <br />
-          House Name:{{ house.houseName }}<br />
+          House Name: {{ house.houseName }}<br />
           <br />
-          House Region:{{ house.region }}<br />
+          House Region: {{ house.region }}<br />
           <br />
-          Foundation size:{{ house.foundationSize }} <br />
+          Foundation size: {{ house.foundationSize }} <br />
           <br />
           Number of Floors: {{ house.numOfFloors }} <br />
           <br />
@@ -67,7 +67,6 @@ export default {
 <style>
 table{
   align-items: center;
-  /* padding: 100px; */
   background-color: rgba(54, 148, 66, 0.397);
   margin-left: 690px;
   border-radius: 107px;
@@ -75,23 +74,21 @@ table{
   backdrop-filter: blur(10px);
   color: rgb(0, 0, 0);
   position: absolute;
-  margin-top: 55px;
+  margin-top: 25px;
   padding: 60px;
-    
 }
 .in-and-out{
-  /* position: absolute; */
-  /* margin-top: 390px; */
-  /* margin-left: 829px; */
-  
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 20px;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
 }
 .homes{
   font-size: 20px;
   text-align: center;
-  
-
-  
-  
 }
 
 /* From uiverse.io by @Custyyyy */
@@ -101,7 +98,7 @@ table{
  background-color: #FCFCFD;
  border-radius: 10px;
  border-width: 0;
- box-shadow: rgba(45, 35, 66, 0.2) 0 2px 4px,rgba(45, 35, 66, 0.15) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+ box-shadow: rgba(0, 0, 0, 0.2) 0 2px 4px,rgba(0, 0, 0, 0.15) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
  box-sizing: border-box;
  color: #000000;
  cursor: pointer;
