@@ -83,13 +83,15 @@ VALUES(91,990,2);
 INSERT INTO floor(floor_id, house_id,floor_level)
 VALUES(92,990,3);
 INSERT INTO floor(floor_id, house_id,floor_level)
-VALUES(93,991,1);
+VALUES(93,990,4);
 INSERT INTO floor(floor_id, house_id,floor_level)
-VALUES(94,992,1);
+VALUES(94,991,1);
 INSERT INTO floor(floor_id, house_id,floor_level)
-VALUES(95,992,2);
+VALUES(95,992,1);
 INSERT INTO floor(floor_id, house_id,floor_level)
-VALUES(96,992,3);
+VALUES(96,992,2);
+INSERT INTO floor(floor_id, house_id,floor_level)
+VALUES(97,992,3);
 
 
 CREATE SEQUENCE seq_room_id

@@ -8,10 +8,12 @@
   </div>
 </template>
 <style>
-#nav{
+html {
+  padding: 10px;
+}
+#nav {
   position: absolute;
   margin-top: 15px;
   margin-left: 600px;
-  
 }
 </style>
