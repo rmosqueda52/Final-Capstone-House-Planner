@@ -21,7 +21,6 @@ export default {
 
 <style>
 .userForm{
-margin-left: 100px;
 display: flex;
 }
 .loginHome{

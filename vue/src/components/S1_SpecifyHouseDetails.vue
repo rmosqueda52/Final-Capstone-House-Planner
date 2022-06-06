@@ -56,7 +56,7 @@ methods: {
 .userFormStyle{
   display: flex;
   flex-direction: column;
-  margin-left: 650px;
+  margin-left: 720px;
   font-weight: bold;
   font-size: 20px;
   background-color: rgba(255, 255, 255, 0.123);
