@@ -53,7 +53,7 @@ html {
   margin-left: 30px;
 }
 .guestbutton{
-  background-color:rgba(85, 90, 36, 0.397);
+  background-color: rgba(54, 148, 66, 0.397);
   border: none;
   color: rgb(0, 0, 0);
   padding: 10px;
@@ -70,10 +70,10 @@ html {
   padding: 20px;
   margin-left: 713px;
   font-size: 25px;
-  margin-top: -34px;
+  margin-top: -44px;
   color: rgb(0, 0, 0);
   border-bottom-left-radius: 30px;
-  background-color: rgba(85, 90, 36, 0.397);
+  background-color: rgba(54, 148, 66, 0.397);
   white-space: nowrap;
   backdrop-filter: blur(5px);
   text-decoration: none;
@@ -84,6 +84,7 @@ html {
   font-size: 20px;
   text-align: left;
   margin-right: 1300px;
+  
   
 }
 </style>

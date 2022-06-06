@@ -1,7 +1,7 @@
 <template>
   <body id="register-body">
     <div id="register" class="text-center">
-      <router-link v-bind:to="{ name: 'home' }">Home</router-link>
+      <!-- <router-link v-bind:to="{ name: 'home' }">Home</router-link> -->
       <form class="form-register" @submit.prevent="register">
         <h1 id="register-header">Create Account</h1>
         <!--class="h3 mb-3 font-weight-normal"-->
