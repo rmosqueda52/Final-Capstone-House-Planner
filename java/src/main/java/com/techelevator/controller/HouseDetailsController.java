@@ -20,7 +20,7 @@ public class HouseDetailsController {
     public Long createHouse (@RequestBody HouseDetails houseDetails){
         return houseDetailsDao.createHouse(houseDetails);
     }
-
+    @PreAuthorize("permitAll")
     @GetMapping(value = "/get-house-details/{id}")//house ID
     public HouseDetails getHouseDetails (@PathVariable Long id){
         return houseDetailsDao.getHouseDetails(id);
@@ -54,7 +54,7 @@ public class HouseDetailsController {
         return houseDetailsDao.getAllHousesForGuestUser();
     }
 
-
+    @PreAuthorize("permitAll")
     @GetMapping(value = "/get-all-floors/{id}") //houseId
     public List<Floor> getAllFloorsByHouseId (@PathVariable Long id){
         return houseDetailsDao.getAllFloorsByHouseId(id);
