@@ -3,19 +3,20 @@
     <div class="guestHome">
       <!-- <router-link v-bind:to="{ name: 'guestHome' }">Home</router-link>&nbsp;|&nbsp; -->
       <router-link id="create" v-bind:to="{ name: 'register' }"
-        >Create Account?</router-link>
+        style="text-decorations: none; color: inherit;">Create Account?</router-link>
 
-      <h1>Real Construction</h1>
+      <h1 id="guest"><b>Real Construction</b></h1>
       <span class="guest-welcome-text">
-      <p id="welcome">Welcome to your house planner</p>
-      <p id="limited-view">As a guest you can only view limited items</p>
-      <p id="create-account-prompt">Create an account to customize your own home today!</p>
+      <p id="welcome"><b>Welcome to our house planner</b></p>
+      <p id="limited-view"><b>As a guest you can only view limited items</b></p>
+      <p id="create-account-prompt"><b>Create an account to customize your own home today!</b></p>
+      <p id="click-on"><b>Otherwise click here to see public floor plans</b></p>
       </span>
       <div>
         <button
           class="guestbutton"
           v-on:click="$router.push({ name: 'guestPublicHomes' })">
-          View public constructions
+          Public Floor plans
         </button>
         <br />
         <br />
@@ -46,32 +47,36 @@ html {
   
 }
 
-h1{
+#guest{
+  font-size: 80px;
   text-align: left;
   margin-left: 30px;
 }
 .guestbutton{
-  background-color: #38be3d; /* Green */
+  background-color:rgba(85, 90, 36, 0.397);
   border: none;
-  color: white;
-  padding: 15px 32px;
+  color: rgb(0, 0, 0);
+  padding: 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  border-radius: 25px;
+  font-size: 35px;
+  border-radius: 90px;
+  margin-right: 1346px;
+  width: 500px;
 }
 #create{
   position: absolute;
   padding: 20px;
   margin-left: 713px;
   font-size: 25px;
-  margin-top: -2px;
+  margin-top: -34px;
   color: rgb(0, 0, 0);
   border-bottom-left-radius: 30px;
-  background-color: rgba(0, 0, 0, 0.11);
+  background-color: rgba(85, 90, 36, 0.397);
   white-space: nowrap;
   backdrop-filter: blur(5px);
+  text-decoration: none;
   
 }
 .guest-welcome-text{
@@ -79,5 +84,6 @@ h1{
   font-size: 20px;
   text-align: left;
   margin-right: 1300px;
+  
 }
 </style>
