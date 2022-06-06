@@ -14,6 +14,7 @@ import GuestPublicHomes from '../components/GuestPublicHomes.vue'
 import SelectedHouseDetails from '../views/SelectedHouseDetails.vue'
 import AddRoomToFloor from '../components/S3_AddRoomToFloor.vue'
 import CurrentFloorAndRoomDetails from '../components/ViewFloorAndRoomDetails.vue'
+import GuestViewFloor from '../components/GuestViewFloorPlans.vue'
 
 Vue.use(Router)
 
@@ -133,7 +134,15 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
-    }
+    },
+    {
+      path: "/GuestViewFloor",
+      name: "GuestViewFloor",
+      component: GuestViewFloor,
+      meta: {
+        requiresAuth: false
+      }
+    },
   ]
 })
 
