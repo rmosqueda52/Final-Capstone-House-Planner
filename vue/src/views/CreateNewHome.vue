@@ -1,9 +1,11 @@
 <template>
   <div>
+    <div class="loginHome">
     <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-      <br>This is what the user sees when they click "create a new home"
-    <specify-house-details />
+     </div>
+      <h2>Enter your house specifications</h2>
+    <specify-house-details class="userForm" />
   </div>
 </template>
 
@@ -18,5 +20,17 @@ export default {
 </script>
 
 <style>
+.userForm{
+display: flex;
+}
+.loginHome{
+    text-align: left;
+  margin-left: 20px;
+  margin-top: 20px;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
+}
 
 </style>
