@@ -24,7 +24,7 @@ export default {
 display: flex;
 }
 .loginHome{
-    text-align: left;
+  text-align: left;
   margin-left: 20px;
   margin-top: 20px;
   font-family: 'Montserrat';
