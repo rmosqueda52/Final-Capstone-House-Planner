@@ -1,17 +1,19 @@
 <template>
   <div>
-      This is where we'll build a form to grab the house details input from the User<br>
+     <br>
   <form v-on:submit.prevent='addHouseDetails'>
-    House Name: <input type="text" required v-model='newHome.house_name'/> <br>
-    Region: <input type="text" required  v-model='newHome.region'/><br>
-    Foundation Size sq. ft: <input type="number" min=1 required v-model='newHome.foundation_size'/><br>
-    Number of Floors in this House: <input type="number" min=1 required v-model='newHome.number_of_floors'/><br>
+    <div class="userFormStyle">
+    House Name: <input type="text" required v-model='newHome.house_name'/> <br> <br> <br>
+    Region: <input type="text" required  v-model='newHome.region'/><br> <br> <br>
+    Foundation Size sq. ft: <input type="number" min=1 required v-model='newHome.foundation_size'/><br> <br> <br>
+    Number of Floors in this House: <input type="number" min=1 required v-model='newHome.number_of_floors'/><br> <br> <br>
     Should this house be Public or Private? 
     <select name="isPrivate" required v-model='newHome.is_private'>
       <option value="false">Public</option>
       <option value="true">Private</option>
     </select><br> <br>
   <button>Submit</button>
+  </div>
   </form>
   
   </div>
@@ -51,5 +53,12 @@ methods: {
 </script>
 
 <style>
+.userFormStyle{
+  display: flex;
+  flex-direction: column;
+  
+  font-weight: bold;
+  font-size: 20px;
 
+}
 </style>

@@ -3,7 +3,7 @@
     <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
       <br>This is what the user sees when they click "create a new home"
-    <specify-house-details />
+    <specify-house-details class="userForm" />
   </div>
 </template>
 
@@ -18,5 +18,10 @@ export default {
 </script>
 
 <style>
+.userForm{
+padding: 100px;
+display: flex;
+align-self: center;
 
+}
 </style>
