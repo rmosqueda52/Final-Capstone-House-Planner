@@ -1,5 +1,6 @@
 <template>
   <div>
+  
     This is the list of homes this user has worked on
     <table>
       <tr v-for="house in homes" v-bind:key="house.id">
