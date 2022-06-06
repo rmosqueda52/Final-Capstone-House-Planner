@@ -1,5 +1,8 @@
 <template>
-  <div> <br> <br>
+
+  <div> 
+      <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
+     <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link><br> <br>
        You're currently looking at: {{this.currentHouseName}}
      <table>
          <tr v-for="floor in floors" v-bind:key="floor.id">
