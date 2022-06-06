@@ -7,7 +7,7 @@
     <router-link v-bind:to="{ name: 'register' }">Create Account?</router-link>
     <br />Public Homes
     </div>
-    <table>
+    <table id="guestFloorTable">
       <tr v-for="house in homes" v-bind:key="house.id">
         <div class="homes">
           <br />
@@ -65,7 +65,7 @@ export default {
 </script>
 
 <style>
-table{
+#guestFloorTable{
   align-items: center;
   background-color: rgba(54, 148, 66, 0.397);
   margin-left: 690px;

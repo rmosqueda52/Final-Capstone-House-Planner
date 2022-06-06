@@ -12,10 +12,14 @@
           }}
           <table>
             <tr v-for="room in floor.rooms" v-bind:key="room.id">
+              <div>
               Room:
               {{
                 room.roomName
-              }}
+              }} <br>
+              Room Size: {{room.roomSize}} <br>
+              Number of Windows: {{room.numOfWindows}} <br> <br>
+              </div>
             </tr>
           </table>
           <br />
@@ -37,12 +41,8 @@ export default {
     };
   },
   created() {
-    console.log("created");
     this.getHouseDetails();
     this.getFloors(this.house_id);
-    for( let i = 0; i <this.floors.length; i++){
-      this.getRooms(this.floors[i]);
-    }
   },
   methods: {
     getFloors(houseId) {
@@ -55,12 +55,12 @@ export default {
             rooms: [],
           };
           this.floors.push(newFloor);
-          this.getRooms(newFloor.floorId);
+          this.getRooms(newFloor);
         }
       });
     },
-    getRooms(floorId) {
-      HomeService.getRoomsByFloorId(floorId).then((roomResponse) => {
+    getRooms(floor) {
+      HomeService.getRoomsByFloorId(floor.floorId).then((roomResponse) => {
         for (let i = 0; i < roomResponse.data.length; i++) {
           const eachRoom = roomResponse.data[i];
           const newRooms = {
@@ -73,13 +73,6 @@ export default {
             numOfWindows: eachRoom.number_of_windows,
             flooringTierId: eachRoom.flooring_tier_id,
           };
-          let floor = null;
-          for (let k = 0; k < this.floors.length; k++) {
-            if (this.floors[k].floorId == floorId) {
-              floor = this.floors[k];
-              break;
-            }
-          }
           floor.rooms.push(newRooms);
         }
       });
