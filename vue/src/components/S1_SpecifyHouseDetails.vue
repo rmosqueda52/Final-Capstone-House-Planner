@@ -155,4 +155,7 @@ export default {
 html {
   overflow-y: scroll;
 }
+input{
+  font-family: 'Montserrat';
+}
 </style>

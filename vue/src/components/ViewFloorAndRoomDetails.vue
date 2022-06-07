@@ -1,18 +1,22 @@
 <template>
   <div>
+      <div class="top-thingys">
     <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
     <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''"
       >Logout</router-link
     ><br />
     <br />
     You're currently looking at: {{ this.currentHouseName }}
+      </div>
     <table class="roomDetails">
       <tr v-for="floor in floors" v-bind:key="floor.id">
+          <div class="floor-level">
         Floor Level:
         {{
           floor.floorLevel
         }}
-        <table class="roomDetails">
+          </div>
+        <table>
             <tr v-for="room in floor.rooms" v-bind:key="room.id">
                 <div>
                     Room: {{ room.roomName}} <br>
@@ -91,12 +95,27 @@ export default {
 
 <style>
 .roomDetails{
-  display: flex;
-  flex-flow: column;
-  justify-content: space-between;
-  gap: 20px;
+align-items: center;
+  background-color: rgba(54, 148, 66, 0.397);
+  margin-left: 50px;
   border-radius: 107px;
-  
+  padding-bottom: 60px;
+  backdrop-filter: blur(10px);
+  color: rgb(0, 0, 0);
+  position: relative;
+  margin-top: 25px;
+  padding: 60px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.top-thingys{
+text-align: left;
+  margin-left: 20px;
+  margin-top: 20px;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
 }
 
 </style>

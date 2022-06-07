@@ -1,6 +1,6 @@
 <template>
 
-<div>
+<div class="top-links">
   <router-link class="homeButton" v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
      <router-link class="logoutButton" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
    <br> This is what the user sees after they click view homes 
@@ -23,5 +23,13 @@ export default {
 </script>
 
 <style>
-
+.top-links{
+    text-align: left;
+  margin-left: 20px;
+  margin-top: 20px;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
+}
 </style>

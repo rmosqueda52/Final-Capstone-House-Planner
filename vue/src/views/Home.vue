@@ -31,9 +31,11 @@ export default {
 }
 .button:hover{
   background-color: #4E944F;
+  transition-duration: 0.15s;
+  
 }
 .button{
-  background-color: #38be3d; /* Green */
+  background-color: rgba(54, 148, 67, 0.61); /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
