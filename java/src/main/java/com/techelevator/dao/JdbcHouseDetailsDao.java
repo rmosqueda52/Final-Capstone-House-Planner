@@ -19,12 +19,11 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
 
     @Override
     public Long createHouse(HouseDetails houseDetails) {
-        String sql = "INSERT INTO house_details (house_name, foundation_size, region, user_id, is_private,number_of_floors) " +
-                        "VALUES (?,?,?,?,?,?) RETURNING house_id";
+        String sql = "INSERT INTO house_details (house_name, foundation_size, city, state_abbreviation, user_id, is_private,number_of_floors) " +
+                        "VALUES (?,?,?,?,?,?,?) RETURNING house_id";
         Long house_id = jdbcTemplate.queryForObject(sql,Long.class, houseDetails.getHouseName(),houseDetails.getFoundationSize(),
-                houseDetails.getRegion(), houseDetails.getUserId(), houseDetails.isPrivate(), houseDetails.getNumberOfFloors());
+                houseDetails.getCity(), houseDetails.getStateAbbreviation(), houseDetails.getUserId(), houseDetails.isPrivate(), houseDetails.getNumberOfFloors());
         addFloorsWhenHouseisCreated(houseDetails,house_id);
-//        return addFloorsWhenHouseisCreated(houseDetails, house_id);
         return house_id;
   }
 
@@ -54,11 +53,6 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
         return houses;
     }
 
-//    @Override
-//    public boolean addFloors(HouseDetails houseDetails, Long houseId) {
-//        String sql = "UPDATE house_details SET number_of_floors = number_of_floors + ? WHERE house_id =?";
-//        return jdbcTemplate.update(sql, houseDetails.getNumberOfFloors(), houseId)==1;
-//    }
 
     @Override
     public boolean addFloorsWhenHouseisCreated(HouseDetails houseDetails, Long houseId) {
@@ -140,7 +134,8 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
         houseDetails.setFoundationSize(rs.getInt("foundation_size"));
         houseDetails.setHouseId(rs.getLong("house_id"));
         houseDetails.setHouseName(rs.getString("house_name"));
-        houseDetails.setRegion(rs.getString("region"));
+        houseDetails.setCity(rs.getString("city"));
+        houseDetails.setStateAbbreviation(rs.getString("state_abbreviation"));
         houseDetails.setUserId(rs.getLong("user_id"));
         houseDetails.setNumberOfFloors(rs.getInt("number_of_floors"));
         return houseDetails;
