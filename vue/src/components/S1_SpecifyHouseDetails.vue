@@ -87,6 +87,7 @@ export default {
         number_of_floors: "",
         is_private: "",
         user_id: this.$store.state.user.id,
+        house_id: ""
       },
     };
   },
@@ -94,13 +95,11 @@ export default {
     addHouseDetails() {
       HomeService.addNewHouse(this.newHome).then((response) => {
         if (response.status === 200) {
-          let houseId = response.data;
-          this.$store.commit("SET_ACTIVE_HOUSE", houseId);
+          this.newHome.house_id = response.data
+          // let houseId = response.data;
+          this.$store.commit("SET_ACTIVE_HOUSE", this.house_id);
           this.$store.commit("SET_CURRENT_HOUSE", this.newHome);
-          this.$router.push({
-            name: "createFloorPlan",
-            params: { id: houseId },
-          });
+          this.$router.push({ name: "createFloorPlan", params: { id: this.newHome.house_id} });
         }
       });
     },
