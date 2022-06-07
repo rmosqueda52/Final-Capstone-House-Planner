@@ -1,9 +1,9 @@
 <template>
   <div>
       This is the List of Public Homes
-    <table>
+    <table class="publicHomesTable">
       <tr v-for="house in homes" v-bind:key="house.id">
-        <div class="homes">
+        <div class="publicHomes">
           <br />
           House Name: {{ house.houseName }}<br />
           <br />
@@ -57,5 +57,22 @@ export default {
 </script>
 
 <style>
+.publicHomesTable{
+  align-items: center;
+  background-color: rgba(54, 148, 66, 0.397);
+  margin-left: 690px;
+  border-radius: 107px;
+  padding-bottom: 60px;
+  backdrop-filter: blur(10px);
+  color: rgb(0, 0, 0);
+  position: absolute;
+  margin-top: 25px;
+  padding: 60px;
+}
+.publicHomes{
+  font-size: 20px;
+  text-align: center;
+}
+
 
 </style>

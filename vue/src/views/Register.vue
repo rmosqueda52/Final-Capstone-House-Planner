@@ -229,7 +229,7 @@ export default {
   align-content: top;
 }
 html {
-  overflow-y: hidden;
+  overflow-y: scroll;
   overflow-x: hidden;
   margin: -1%;
 }

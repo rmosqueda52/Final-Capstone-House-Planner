@@ -91,7 +91,7 @@ export default {
   text-align: center;
 }
 
-/* From uiverse.io by @Custyyyy */
+
 .button-name {
  align-items: center;
  appearance: none;

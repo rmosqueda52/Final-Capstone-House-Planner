@@ -2,18 +2,16 @@
   <div>
   
     This is the list of homes this user has worked on
-    <table>
+    <table class="publicHomesTable">
       <tr v-for="house in homes" v-bind:key="house.id">
-        
-        <div>
+        <div class="publicHomes">
         <br>
         House Name: {{house.houseName}}<br>
         House Region: {{house.region}}<br>
         Foundation size: {{house.foundationSize}} <br> 
         Number of Floors: {{house.numOfFloors}} <br>
-        <button v-on:click="setActiveHouse(house.houseId)">Checkout {{house.houseName}}</button>
+        <button class="button-name" v-on:click="setActiveHouse(house.houseId)">Checkout {{house.houseName}}</button>
         </div>
-        
       </tr>
     </table>
   </div>
