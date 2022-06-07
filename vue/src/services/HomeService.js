@@ -26,8 +26,8 @@ export default {
   addFloorToHouse(houseID) {
     return axios.put(`/update-floors/${houseID}`)
   },
-  removeFloorFromHouse(houseID) {
-    return axios.delete(`/update-subtract-floors/${houseID}`)
+  removeFloorFromHouse(floorID, houseId) {
+    return axios.put(`/update-subtract-floors/${floorID}/${houseId}`)
   },
 
 }

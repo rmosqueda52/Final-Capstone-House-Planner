@@ -48,6 +48,7 @@ export default {
       newFloors: [],
       floors: [],
       currentHouseName: this.$store.state.currentHouse.house_name,
+      highestFloor: ""
     };
   },
   created() {
@@ -89,7 +90,7 @@ export default {
             roomId: eachRoom.room_id,
             roomName: eachRoom.room_name,
             roomSize: eachRoom.room_size,
-            floorID: eachRoom.floor_id,
+            floorId: eachRoom.floor_id,
             isKitchen: eachRoom.is_kitchen,
             isBathroom: eachRoom.is_bathroom,
             numOfWindows: eachRoom.number_of_windows,
@@ -100,7 +101,7 @@ export default {
       });
     },
     addFloorDetails() {
-      HomeService.addNewRoom(this.newRooms, this.newRooms.floor_id).then(
+      HomeService.addNewRoom(this.newRooms, this.newRooms.floorId).then( // dble check
         (response) => {
           if (response.status === 200) {
             window.alert("Room Created!");
@@ -116,7 +117,7 @@ export default {
       HomeService.addFloorToHouse(this.house_id).then(
         (response) => {
           if(response.status === 200){
-            window.alert("FloorCreated");
+            window.alert("Floor Created");
            window.location.reload();
           }
         }
@@ -124,16 +125,18 @@ export default {
 
     },
     removeFloorFromHouse() {
-      HomeService.removeFloorFromHouse(this.house_id).then(
+      if (this.floors.length > 1) {
+      HomeService.removeFloorFromHouse(this.floors[this.floors.length -1].floorId, this.house_id).then(
         (response) => {
           window.confirm("Are you sure you want to delete this floor?");
           if(response.status === 200){
             window.location.reload();
-
           }
         }
       )
-    }
+      } else {window.alert("You must have at least one floor in your house");}
+    },
+  
   },
 };
 </script>

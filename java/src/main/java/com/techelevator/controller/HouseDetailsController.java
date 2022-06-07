@@ -37,10 +37,9 @@ public class HouseDetailsController {
         return houseDetailsDao.addFloorToExistingFloors(houseId);
     }
 
-    @PutMapping(value = "/update-subtract-floors/{id}") // Validation to be done on the Front end, check for floors only
-    // in the house that they are looking at.
-    public boolean removeFloors(@PathVariable int id, @RequestBody HouseDetails houseDetails){
-        return houseDetailsDao.removeFloorsFromHouseTable(houseDetails, id );
+    @PutMapping(value = "/update-subtract-floors/{id}/{houseId}") //floor ID/houseID
+    public boolean removeFloors(@PathVariable int id, @PathVariable Long houseId){
+        return houseDetailsDao.removeFloorsFromHouseTable(houseId, id );
     }
 
     @DeleteMapping(value = "/delete-house/{id}")

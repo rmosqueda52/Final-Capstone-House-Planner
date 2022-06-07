@@ -45,8 +45,8 @@ export default {
   },
   methods: {
     setActiveHouse(houseId){
-      this.$store.commit("SET_ACTIVE_HOUSE", houseId)
-      this.$router.push({name: 'view&EditFloors&Rooms'})
+      this.$store.commit("SET_ACTIVE_HOUSE", houseId);
+      this.$router.push({name: 'view&EditFloors&Rooms', params: { id: houseId}});
     }
   }
 };

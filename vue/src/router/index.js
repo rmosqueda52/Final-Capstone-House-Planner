@@ -145,7 +145,7 @@ const router = new Router({
       }
     },
     {
-      path: "/view&EditFloors&Rooms",
+      path: "/view&EditFloors&Rooms/:id", //houseID
       name: "view&EditFloors&Rooms",
       component: ViewAndEditFloorAndRoom,
       meta: {

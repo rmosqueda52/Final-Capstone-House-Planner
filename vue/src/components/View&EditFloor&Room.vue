@@ -27,6 +27,7 @@
         <br />
       </tr>
     </table>
+    <button class="button" v-on:click="addFloorToHouse()">Add a Floor to this House</button>
   </div>
 </template>
 
@@ -37,7 +38,7 @@ export default {
   name: "view-and-edit-floors-and-rooms",
   data() {
     return {
-      house_id: this.$store.state.currentHouseId,
+      house_id: this.$route.params.id,
       floors: [],
       numOfFloors: 0,
       currentHouseName: "",
@@ -85,6 +86,16 @@ export default {
         this.currentHouseName = response.data.house_name;
       });
     },
+    addFloorToHouse() {
+      HomeService.addFloorToHouse(this.house_Id).then(
+        (response) => {
+          if(response.status === 200){
+          window.alert("Floor Created");
+          window.location.reload();
+          }
+        }
+      );
+    }
   },
 };
 </script>

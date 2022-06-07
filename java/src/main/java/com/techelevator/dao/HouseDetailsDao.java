@@ -15,7 +15,7 @@ public interface HouseDetailsDao {
 
     boolean addFloorsWhenHouseisCreated(HouseDetails houseDetails, Long houseId);
 
-    boolean removeFloorsFromHouseTable(HouseDetails houseDetails, int floorId);
+    boolean removeFloorsFromHouseTable(Long houseId, int floorId);
 
     boolean removeFloorsFromFloorTable(int floorId);
 

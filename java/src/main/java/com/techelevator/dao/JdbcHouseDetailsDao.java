@@ -69,9 +69,9 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
     }
 
     @Override
-    public boolean removeFloorsFromHouseTable(HouseDetails houseDetails, int floorId) {
+    public boolean removeFloorsFromHouseTable(Long houseId, int floorId) {
         String sql = "UPDATE house_details SET number_of_floors = number_of_floors - 1 WHERE house_id =?";
-        jdbcTemplate.update(sql, houseDetails.getHouseId());
+        jdbcTemplate.update(sql, houseId);
         return removeFloorsFromFloorTable(floorId);
     }
 
