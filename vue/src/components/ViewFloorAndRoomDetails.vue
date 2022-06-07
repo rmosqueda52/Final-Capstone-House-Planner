@@ -6,13 +6,13 @@
     ><br />
     <br />
     You're currently looking at: {{ this.currentHouseName }}
-    <table>
+    <table class="roomDetails">
       <tr v-for="floor in floors" v-bind:key="floor.id">
         Floor Level:
         {{
           floor.floorLevel
         }}
-        <table>
+        <table class="roomDetails">
             <tr v-for="room in floor.rooms" v-bind:key="room.id">
                 <div>
                     Room: {{ room.roomName}} <br>
@@ -90,4 +90,13 @@ export default {
 </script>
 
 <style>
+.roomDetails{
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  gap: 20px;
+  border-radius: 107px;
+  
+}
+
 </style>
