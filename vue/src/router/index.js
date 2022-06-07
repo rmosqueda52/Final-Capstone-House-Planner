@@ -89,7 +89,7 @@ const router = new Router({
       }
     },
     {
-      path: "/createFloorPlan",
+      path: "/createFloorPlan/:id",
       name: "createFloorPlan",
       component: CreateFloorPlan,
       meta: {

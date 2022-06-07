@@ -22,6 +22,7 @@ export default new Vuex.Store({
     user: currentUser || {},
     currentHouseId: 0,
     currentFloorId: 0,
+    currentHouse:[]
 
 
   },
@@ -47,6 +48,9 @@ export default new Vuex.Store({
     },
     SET_ACTIVE_FLOOR(state, floorId) {
       state.currentFloorId = floorId;
+    },
+    SET_CURRENT_HOUSE(state, currentHouse) {
+      state.currentHouse = currentHouse;
     }
   }
 })

@@ -22,6 +22,10 @@ export default {
   },
   getRoomsByFloorId(floorId) {
     return axios.get(`/get-rooms/${floorId}`)
-  }
+  },
+  addFloorToHouse(houseID) {
+    return axios.put(`/update-floors/${houseID}`)
+  },
+  
 
 }

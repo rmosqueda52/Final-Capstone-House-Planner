@@ -1,10 +1,21 @@
 <template>
   <div>
+      <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
+    <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''"
+      >Logout</router-link
+    >
       This is where we'll add room details to the floor <br>
       You're currently working on floor:  <br>
       {{this.floorId}} <br>
-      {{this.rooms}}
-
+      {{this.rooms}} <br>
+      <form v-on:submit.prevent="addRoomToFloor">
+      Room Name: <input type="text" required v-model="newRoom.room_name"> <br>
+      Room Size: <input type="number" min="1" required v-model="newRoom.room_size"> <br>
+      Is this Room a Kitchen? <input type="checkbox" value="true"><label>Yes</label><br> 
+      is this room a Bathroom? <input type="checkbox" value="true"><label>Yes</label><br>
+      How many windows will be in this room? <input type="number" min="0" required v-model="newRoom.number_of_windows"> <br>
+      <button class="button">Add New Room</button>
+      </form>
   </div>
 </template>
 
@@ -17,6 +28,15 @@ export default {
         return {
             floorId: this.$store.state.currentFloorId,
             rooms:[],
+            newRoom: {
+                room_name: "",
+                room_size: "",
+                is_kitchen: "",
+                is_bathroom: "",
+                number_of_windows: "",
+                floor_id: this.$store.state.currentFloorId,
+                tier: 1
+            }
         };
     },
     created() {
@@ -33,6 +53,18 @@ export default {
 
             }
         )
+    },
+    methods: {
+        addRoomToFloor() {
+            HomeService.addNewRoom(this.newRoom, this.floorId).then(
+                (response) => {
+                    if (response.status === 200){
+                        window.alert("Room Created");
+                        this.$router.push({name: "createFloorPlan"})
+                    }
+                }
+            )
+        }
     }
 }
 </script>

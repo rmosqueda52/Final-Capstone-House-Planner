@@ -17,7 +17,7 @@
                 <div>
                     Room: {{ room.roomName}} <br>
                     Room Size: {{ room.roomSize}} <br>
-                    number of Windows: {{room.numOfWindows}} <br>
+                    Number of Windows: {{room.numOfWindows}} <br>
                     <br>
                 </div>
 

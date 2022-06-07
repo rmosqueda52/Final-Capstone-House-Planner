@@ -86,7 +86,8 @@ export default {
         if (response.status === 200) {
           let houseId = response.data;
           this.$store.commit("SET_ACTIVE_HOUSE", houseId);
-          this.$router.push({ name: "createFloorPlan" });
+          this.$store.commit("SET_CURRENT_HOUSE", this.newHome);
+          this.$router.push({ name: "createFloorPlan", params: { id: houseId} });
         }
       });
     },

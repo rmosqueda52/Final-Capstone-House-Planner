@@ -5,10 +5,8 @@
       >Logout</router-link
     >
     <br />
-    This is where the details for the floor will go<br />
-    {{ this.newFloors }} <br />
-    House ID: {{ this.house_id }} <br />
-    You're currently working on: {{ this.currentHouseName }}
+    These are the floors in: {{ this.currentHouseName }}<br />
+
     <table>
       <tr v-for="floor in newFloors" v-bind:key="floor.id">
         Floor Level:
@@ -16,12 +14,23 @@
           floor.floorLevel
         }}
         <br />
+          <table>
+            <tr v-for="room in floor.rooms" v-bind:key="room.id">
+              <div>
+                Room: {{room.roomName}} <br>
+                Room Size: {{room.roomSize}} <br>
+                Number of Windows: {{room.numOfWindows}} <br>
+              </div>
 
-        <button v-on:click="setCurrentFloor(floor.floorId)">
+            </tr>
+
+          </table>
+        <button class="button" v-on:click="setCurrentFloor(floor.floorId)">
           Add Rooms to this Floor</button
         ><br /><br />
       </tr>
     </table>
+    <button class="button" v-on:click="addFloorToHouse()"> Add a floor to this house</button>
   </div>
 </template>
 
@@ -32,10 +41,11 @@ export default {
   name: "specify-room-details",
   data() {
     return {
+      currentHouse: this.$store.state.currentHouse,
       house_id: this.$store.state.currentHouseId,
       newFloors: [],
-      floors: 0,
-      currentHouseName: "",
+      floors: [],
+      currentHouseName: this.$store.state.currentHouse.house_name,
     };
   },
   created() {
@@ -52,8 +62,41 @@ export default {
       HomeService.getHouseDetails(this.house_id).then((response) => {
         this.currentHouseName = response.data.house_name;
       });
+      this.getFloors(this.house_id)
   },
   methods: {
+    getFloors(houseId) {
+      HomeService.getFloorDetails(houseId).then((response) => {
+        for (let i = 0; i < response.data.length; i++) {
+          const eachFloor = response.data[i];
+          const newFloor = {
+            floorLevel: eachFloor.floorLevel,
+            floorId: eachFloor.floorId,
+            rooms: [],
+          };
+          this.floors.push(newFloor);
+          this.getRooms(newFloor);
+        }
+      });
+    },
+    getRooms(floor) {
+      HomeService.getRoomsByFloorId(floor.floorId).then((roomResponse) => {
+        for (let i = 0; i < roomResponse.data.length; i++) {
+          const eachRoom = roomResponse.data[i];
+          const newRooms = {
+            roomId: eachRoom.room_id,
+            roomName: eachRoom.room_name,
+            roomSize: eachRoom.room_size,
+            floorID: eachRoom.floor_id,
+            isKitchen: eachRoom.is_kitchen,
+            isBathroom: eachRoom.is_bathroom,
+            numOfWindows: eachRoom.number_of_windows,
+            flooringTierId: eachRoom.flooring_tier_id,
+          };
+          floor.rooms.push(newRooms);
+        }
+      });
+    },
     addFloorDetails() {
       HomeService.addNewRoom(this.newRooms, this.newRooms.floor_id).then(
         (response) => {
@@ -67,6 +110,17 @@ export default {
       this.$store.commit("SET_ACTIVE_FLOOR", floorId);
       this.$router.push({ name: "addRoomToFloor" });
     },
+    addFloorToHouse() {
+      HomeService.addFloorToHouse(this.house_id).then(
+        (response) => {
+          if(response.status === 200){
+            window.alert("FloorCreated");
+            window.location.reload();
+          }
+        }
+      )
+
+    }
   },
 };
 </script>
