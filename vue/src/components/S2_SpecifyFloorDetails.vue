@@ -27,10 +27,12 @@
           </table>
         <button class="button" v-on:click="setCurrentFloor(floor.floorId)">
           Add Rooms to this Floor</button
-        ><br /><br />
+        ><br /> <br />
+        
       </tr>
     </table>
-    <button class="button" v-on:click="addFloorToHouse()"> Add a floor to this house</button>
+    <button class="button" v-on:click="addFloorToHouse()"> Add a floor to this house</button> <br>
+    <button class="button" v-on:click="removeFloorFromHouse()">Remove the top floor from this house</button>
   </div>
 </template>
 
@@ -42,7 +44,7 @@ export default {
   data() {
     return {
       currentHouse: this.$store.state.currentHouse,
-      house_id: this.$store.state.currentHouseId,
+      house_id: this.$route.params.id,
       newFloors: [],
       floors: [],
       currentHouseName: this.$store.state.currentHouse.house_name,
@@ -115,11 +117,22 @@ export default {
         (response) => {
           if(response.status === 200){
             window.alert("FloorCreated");
-            window.location.reload();
+           window.location.reload();
           }
         }
       )
 
+    },
+    removeFloorFromHouse() {
+      HomeService.removeFloorFromHouse(this.house_id).then(
+        (response) => {
+          window.confirm("Are you sure you want to delete this floor?");
+          if(response.status === 200){
+            window.location.reload();
+
+          }
+        }
+      )
     }
   },
 };
