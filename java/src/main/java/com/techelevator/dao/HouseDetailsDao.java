@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Floor;
+import com.techelevator.model.HouseCostParams;
 import com.techelevator.model.HouseDetails;
 
 import java.util.List;
@@ -28,5 +29,8 @@ public interface HouseDetailsDao {
     boolean addFloorToFloorTable (Long houseId);
 
     List<Floor> getAllFloorsByHouseId(Long houseId);
+
+    HouseCostParams getParamsForHouseCost(Long houseId);
+
 
 }

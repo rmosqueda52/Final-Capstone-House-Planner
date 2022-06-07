@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.HouseDetailsDao;
 import com.techelevator.model.Floor;
+import com.techelevator.model.HouseCostParams;
 import com.techelevator.model.HouseDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -59,4 +60,8 @@ public class HouseDetailsController {
         return houseDetailsDao.getAllFloorsByHouseId(id);
     }
 
+    @GetMapping(value = "/get-house-cost/{id}")
+    public HouseCostParams getHouseCost(@PathVariable Long id){
+        return houseDetailsDao.getParamsForHouseCost(id);
+    }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="top-stuff">
     <router-link v-bind:to="{ name: 'guestHome' }">Home</router-link
     >&nbsp;|&nbsp;
     <router-link v-bind:to="{ name: 'register' }">Create Account?</router-link>
@@ -9,11 +9,13 @@
       <br />
       <br />
       You're currently looking at: {{ this.currentHouseName }}
-      <table>
+      <table class="home-details">
         <tr v-for="floor in floors" v-bind:key="floor.id">
+          <div class="floor-level">
           Floor Level:{{
             floor.floorLevel
           }}
+          </div>
           <table>
             <tr v-for="room in floor.rooms" v-bind:key="room.id">
               <div>
@@ -25,7 +27,7 @@
               </div>
             </tr>
           </table>
-          <br />
+          <br/>
         </tr>
       </table>
     </div>
@@ -89,4 +91,29 @@ export default {
 };
 </script>
 <style>
+.top-stuff{
+    text-align: left;
+  margin-left: 20px;
+  margin-top: 20px;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
+}
+.home-details{
+  align-items: center;
+  background-color: rgba(54, 148, 66, 0.397);
+  margin-left: 50px;
+  border-radius: 107px;
+  padding-bottom: 60px;
+  backdrop-filter: blur(10px);
+  color: rgb(0, 0, 0);
+  position: absolute;
+  margin-top: 25px;
+  padding: 60px;
+  font-size: 20px;
+}
+.floor-level{
+  color: white;
+}
 </style>

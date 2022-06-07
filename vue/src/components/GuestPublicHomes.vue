@@ -76,10 +76,11 @@ export default {
   position: absolute;
   margin-top: 25px;
   padding: 60px;
+  font-weight: bold;
 }
 .in-and-out{
   text-align: left;
-  margin-left: 20px;
+  margin-left: 12px;
   margin-top: 20px;
   font-family: 'Montserrat';
   font-weight: bold;
@@ -121,6 +122,7 @@ export default {
  will-change: box-shadow,transform;
  font-size: 18px;
  margin-bottom: 30px;
+ font-weight: bold;
 }
 
 .button-name:focus {
