@@ -15,6 +15,7 @@ import SelectedHouseDetails from '../views/SelectedHouseDetails.vue'
 import AddRoomToFloor from '../components/S3_AddRoomToFloor.vue'
 import CurrentFloorAndRoomDetails from '../components/ViewFloorAndRoomDetails.vue'
 import GuestViewFloor from '../components/GuestViewFloorPlans.vue'
+import ViewAndEditFloorAndRoom from '../components/View&EditFloor&Room.vue'
 
 Vue.use(Router)
 
@@ -143,6 +144,14 @@ const router = new Router({
         requiresAuth: false
       }
     },
+    {
+      path: "/view&EditFloors&Rooms",
+      name: "view&EditFloors&Rooms",
+      component: ViewAndEditFloorAndRoom,
+      meta: {
+        requiresAuth: true
+      }
+    }
   ]
 })
 
