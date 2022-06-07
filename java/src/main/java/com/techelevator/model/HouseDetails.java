@@ -11,7 +11,9 @@ public class HouseDetails {
     private Integer foundationSize;
     @JsonProperty ("user_id")
     private Long userId;
-    private String region;
+    private String city;
+    @JsonProperty("state_abbreviation")
+    private String stateAbbreviation;
     @JsonProperty("number_of_floors")
     private int numberOfFloors;
     @JsonProperty("is_private")
@@ -19,15 +21,7 @@ public class HouseDetails {
 
     public HouseDetails(){}
 
-    public HouseDetails(Long houseId, String houseName, Integer foundationSize, Long userId, String region, int numberOfFloors, boolean isPrivate) {
-        this.houseId = houseId;
-        this.houseName = houseName;
-        this.foundationSize = foundationSize;
-        this.userId = userId;
-        this.region = region;
-        this.numberOfFloors = numberOfFloors;
-        this.isPrivate = isPrivate;
-    }
+
 
     @Override
     public String toString() {
@@ -36,7 +30,6 @@ public class HouseDetails {
                 ", houseName='" + houseName + '\'' +
                 ", foundationSize=" + foundationSize +
                 ", userId=" + userId +
-                ", region='" + region + '\'' +
                 ", numberOfFloors=" + numberOfFloors +
                 '}';
     }
@@ -73,14 +66,6 @@ public class HouseDetails {
         this.userId = userId;
     }
 
-    public String getRegion() {
-        return region;
-    }
-
-    public void setRegion(String region) {
-        this.region = region;
-    }
-
     public int getNumberOfFloors() {
         return numberOfFloors;
     }
@@ -95,5 +80,21 @@ public class HouseDetails {
 
     public void setPrivate(boolean aPrivate) {
         isPrivate = aPrivate;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getStateAbbreviation() {
+        return stateAbbreviation;
+    }
+
+    public void setStateAbbreviation(String stateAbbreviation) {
+        this.stateAbbreviation = stateAbbreviation;
     }
 }

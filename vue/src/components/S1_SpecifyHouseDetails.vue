@@ -13,13 +13,22 @@
         />
         <br />
         <br />
-        Region: <br />
+        City: <br />
         <input
           class="textbox"
           type="text"
           required
           placeholder="Where will your house be located?"
-          v-model="newHome.region"
+          v-model="newHome.city"
+        /><br />
+        <br />
+        State Abbreviation: <br />
+        <input
+          class="textbox"
+          type="text"
+          required
+          placeholder="Where will your house be located?"
+          v-model="newHome.state_abbreviation"
         /><br />
         <br />
         Foundation Size sq. ft: <br />
@@ -72,7 +81,8 @@ export default {
     return {
       newHome: {
         house_name: "",
-        region: "",
+        city: "",
+        state_abbreviation: "",
         foundation_size: "",
         number_of_floors: "",
         is_private: "",

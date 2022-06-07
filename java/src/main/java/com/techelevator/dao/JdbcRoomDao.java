@@ -19,7 +19,7 @@ public class JdbcRoomDao implements RoomDao{
     @Override
     public boolean addRoomToFloor(Room room, int floorId) {
         String sql ="INSERT INTO room_details (room_name, room_size, floor_id,is_kitchen, is_bathroom," +
-                " number_of_windows, tier) VALUES(?,?,?,?,?,?,?)";
+                " number_of_windows, flooring_tier_id) VALUES(?,?,?,?,?,?,?)";
         return jdbcTemplate.update(sql, room.getRoomName(), room.getRoomSize(), floorId,room.isKitchen(),
                 room.isBathroom(),room.getNumOfWindows(),room.getTierFlooring()) ==1 ;
     }
