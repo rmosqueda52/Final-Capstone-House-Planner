@@ -22,4 +22,6 @@ public interface RoomDao {
 
     Room getRoomByRoomId(int roomId);
 
+    boolean updateRoomElements (Room room, int roomId);
+
 }

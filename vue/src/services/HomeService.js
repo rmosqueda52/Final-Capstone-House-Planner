@@ -35,4 +35,10 @@ export default {
   getRoomByRoomId(roomId) {
     return axios.get(`/get-room/${roomId}`)
   },
+  updateExistingRoom(roomId, room) {
+    return axios.put(`/update-room-elements/${roomId}`, room)
+  },
+  deleteRoom(roomId) {
+    return axios.delete(`/delete-room/${roomId}`)
+  }
 }
