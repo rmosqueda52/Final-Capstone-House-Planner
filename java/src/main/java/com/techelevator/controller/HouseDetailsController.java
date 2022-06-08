@@ -60,6 +60,7 @@ public class HouseDetailsController {
         return houseDetailsDao.getAllFloorsByHouseId(id);
     }
 
+    @PreAuthorize("permitAll")
     @GetMapping(value = "/get-house-cost/{id}")
     public HouseCostParams getHouseCost(@PathVariable Long id){
         return houseDetailsDao.getParamsForHouseCost(id);
