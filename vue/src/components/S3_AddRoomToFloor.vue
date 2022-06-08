@@ -1,9 +1,9 @@
 <template>
   <div>
+    <div class="loginHome">
     <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-    <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''"
-      >Logout</router-link
-    >
+    <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+    </div>
     This is where we'll add room details to the floor <br />
     
     <div class="RoomFormStyle">
