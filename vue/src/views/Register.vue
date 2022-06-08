@@ -35,7 +35,7 @@
           v-model="user.confirmPassword"
           required
         />
-        <input
+        <!-- <input
           type="radio"
           id="home-buyer"
           class="form-control"
@@ -43,8 +43,8 @@
           name="Role"
           value="Home_Buyer"
           required
-        />
-        <label class="select-role"  for="role" id="home-buyer-label">Home Buyer</label><br />
+        /> -->
+        <!-- <label class="select-role"  for="role" id="home-buyer-label">Home Buyer</label><br /> -->
         <button class="learn-more" id="reg-create-account">
           <span class="circle" aria-hidden="true">
             <span class="icon arrow"></span>
@@ -91,7 +91,7 @@ export default {
         username: "",
         password: "",
         confirmPassword: "",
-        role: "",
+        role: "HOME_BUYER",
       },
       registrationErrors: false,
       registrationErrorMsg: "There were problems registering this user.",
