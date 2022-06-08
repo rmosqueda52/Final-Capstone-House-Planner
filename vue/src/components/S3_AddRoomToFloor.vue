@@ -1,11 +1,12 @@
 <template>
   <div>
+    <div class="loginHome">
     <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
     <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''"
-      >Logout</router-link
-    >
+      >Logout</router-link>
+      </div>
     Please add room details to the floor <br />
-  
+    <div class="RoomFormStyle">
     <form v-on:submit.prevent="addRoomToFloor">
       Room Name: <input class="RoomTextBox" type="text" required v-model="newRoom.room_name" />
       <br />
@@ -32,7 +33,7 @@
       <button class="button">Add New Room</button>
     </form>
     </div>
-  </div>
+    </div>
 </template>
 
 <script>

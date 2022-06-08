@@ -3,7 +3,7 @@
 <div class="top-links">
   <router-link class="homeButton" v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
      <router-link class="logoutButton" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-   <br> This is what the user sees after they click view homes 
+   <br>
     <view-homes />
 </div>
 
