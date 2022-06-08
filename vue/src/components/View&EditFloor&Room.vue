@@ -7,7 +7,7 @@
     </div>
     <br />
     <br />
-    You're currently looking at: {{ this.currentHouseName }}
+    <h1> You're currently looking at: {{ this.currentHouseName }} </h1>
     <table class="floor-details-user-homes">
       <tr v-for="floor in floors" v-bind:key="floor.id">
         <div class="floor-level">
@@ -19,10 +19,11 @@
         <table>
             <tr v-for="room in floor.rooms" v-bind:key="room.id">
                 <div>
-                    Room: {{ room.roomName}} <button class="button">Edit this Room</button> <br>
+                    Room: {{ room.roomName}} <br>
                     Room Size: {{ room.roomSize}} <br>
                     number of Windows: {{room.numOfWindows}} <br>
                     <br>
+                    <button class="button">Edit this Room</button> <br>
                 </div>
 
             </tr>

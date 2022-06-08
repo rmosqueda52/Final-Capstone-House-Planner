@@ -1,12 +1,12 @@
 <template>
   <div>
+    <div class="loginHome">
     <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-    <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''"
-      >Logout</router-link
-    >
+    <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+    </div>
     <br />
-    These are the floors in: {{ this.currentHouseName }}<br />
-
+    <h1>These are the floors in: {{ this.currentHouseName }}</h1> <br />
+    <div class="floorDetailsStyle">
     <table>
       <tr v-for="floor in floors" v-bind:key="floor.id">
         Floor Level:
@@ -14,25 +14,26 @@
           floor.floorLevel
         }}
         <br />
-          <table>
+          <table id="rooms">
             <tr v-for="room in floor.rooms" v-bind:key="room.id">
-              <div>
-                Room: {{room.roomName}} <button class="button" v-on:click="$router.push({ name: 'editRoomView', params: {id: room.roomId} })"> Edit this room </button> <br>
+              <!-- <div class="rooms"> -->
+                Room: {{room.roomName}} <br>
                 Room Size: {{room.roomSize}} <br>
                 Number of Windows: {{room.numOfWindows}} <br>
-              </div>
-
+                 <button class="button" v-on:click="$router.push({ name: 'editRoomView', params: {id: room.roomId} })"> Edit this room </button>
+              <!-- </div> -->
             </tr>
-
           </table>
         <button class="button" v-on:click="setCurrentFloor(floor.floorId)">
           Add a room to this Floor</button
         ><br /> <br />
         
       </tr>
-    </table>
-    <button class="button" v-on:click="addFloorToHouse()"> Add a floor to this house</button> <br>
+      <button class="button" v-on:click="addFloorToHouse()"> Add a floor to this house</button> <br>
     <button class="button" v-on:click="removeFloorFromHouse()">Remove the top floor from this house</button>
+    </table>
+    
+    </div>
   </div>
 </template>
 
@@ -142,4 +143,19 @@ export default {
 </script>
 
 <style>
+.floorDetailsStyle{
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.123);
+  backdrop-filter: blur(30px);
+  padding: 40px;
+  margin-left: 35%;
+  margin-right: 35%;
+}
+#rooms{
+  margin-left: 26%;
+  margin-bottom: 15px;
+}
 </style>
