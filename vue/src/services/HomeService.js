@@ -30,7 +30,9 @@ export default {
     return axios.put(`/update-subtract-floors/${floorID}/${houseId}`)
   },
   getHouseCostParams(houseID) {
-    return axios.get(`get-house-cost/${houseID}`)
+    return axios.get(`/get-house-cost/${houseID}`)
   },
-
+  getRoomByRoomId(roomId) {
+    return axios.get(`/get-room/${roomId}`)
+  },
 }

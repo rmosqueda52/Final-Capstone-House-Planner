@@ -16,6 +16,8 @@ public class JdbcRoomDao implements RoomDao{
 
     public JdbcRoomDao (JdbcTemplate jdbcTemplate) {this.jdbcTemplate = jdbcTemplate;}
 
+
+
     @Override
     public boolean addRoomToFloor(Room room, int floorId) {
         String sql ="INSERT INTO room_details (room_name, room_size, floor_id,is_kitchen, is_bathroom," +
@@ -65,6 +67,17 @@ public class JdbcRoomDao implements RoomDao{
             rooms.add(room);
         }
         return rooms;
+    }
+
+    @Override
+    public Room getRoomByRoomId(int roomId) {
+        Room room = new Room();
+        String sql = "SELECT * FROM room_details WHERE room_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql,roomId);
+        if(results.next()){
+            room = mapRowToRoomDetails(results);
+        }
+        return room;
     }
 
     private Room mapRowToRoomDetails (SqlRowSet rs) {

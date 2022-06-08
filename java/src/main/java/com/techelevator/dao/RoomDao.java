@@ -20,4 +20,6 @@ public interface RoomDao {
 
     public List<Room> getAllRoomsByFloorId(int floorId);
 
+    Room getRoomByRoomId(int roomId);
+
 }
