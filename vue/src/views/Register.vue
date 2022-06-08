@@ -45,16 +45,6 @@
           required
         />
         <label class="select-role"  for="role" id="home-buyer-label">Home Buyer</label><br />
-        <input
-          type="radio"
-          id="system-admin"
-          class="form-control"
-          v-model="user.role"
-          name="Role"
-          value="System_Admin"
-          required
-        />
-        <label class="select-role" for="role"  id="system-admin-label">System Administrator</label>
         <button class="learn-more" id="reg-create-account">
           <span class="circle" aria-hidden="true">
             <span class="icon arrow"></span>
@@ -148,7 +138,7 @@ export default {
   justify-content: center;
   background-color: #023047;
   background-image: url(https://wallpaperaccess.com/full/2056374.jpg);
-  background-size: cover;
+  background-size:cover;
   padding-bottom: 600px;
   overflow-y: hidden;
 }
@@ -204,8 +194,9 @@ export default {
   border: 0px;
 }
 #home-buyer {
-  margin-left: -102px;
+  justify-self: center;
 }
+
 #system-admin {
   margin-left: -30px;
 }
@@ -232,7 +223,6 @@ export default {
 html {
   overflow-y: scroll;
   overflow-x: hidden;
-  margin: -1%;
 }
 .select-role{
   color: black;
