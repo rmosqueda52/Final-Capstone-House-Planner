@@ -40,5 +40,8 @@ export default {
   },
   deleteRoom(roomId) {
     return axios.delete(`/delete-room/${roomId}`)
+  },
+  getFloorWithFloorId(floorId) {
+    return axios.get(`/get-floor-level/${floorId}`)
   }
 }

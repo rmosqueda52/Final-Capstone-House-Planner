@@ -2,9 +2,8 @@
   <div>
     <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
     <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''"
-      >Logout</router-link
-    >
-    Please add room details to the floor <br />
+      >Logout</router-link> <br>
+    Please add room details to floor level {{this.floorLevel}} <br />
   
     <form v-on:submit.prevent="addRoomToFloor">
       Room Name: <input class="RoomTextBox" type="text" required v-model="newRoom.room_name" />
@@ -32,7 +31,6 @@
       <button class="button">Add New Room</button>
     </form>
     </div>
-  </div>
 </template>
 
 <script>
@@ -43,6 +41,7 @@ export default {
   data() {
     return {
       floorId: this.$store.state.currentFloorId,
+      floorLevel: "",
       rooms: [],
       newRoom: {
         room_name: "",
@@ -66,6 +65,14 @@ export default {
         this.rooms.push(newRooms);
       }
     });
+    HomeService.getFloorWithFloorId(this.floorId).then(
+      (response) => {
+        if(response.status === 200) {
+          window.alert("does this work?")
+          this.floorLevel = response.data.floorLevel;
+        }
+      }
+    )
   },
   methods: {
     addRoomToFloor() {

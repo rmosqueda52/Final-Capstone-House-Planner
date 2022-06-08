@@ -64,4 +64,9 @@ public class HouseDetailsController {
     public HouseCostParams getHouseCost(@PathVariable Long id){
         return houseDetailsDao.getParamsForHouseCost(id);
     }
+
+    @GetMapping(value = "/get-floor-level/{floorId}")
+    public Floor getFloorLevelWithFloorId(@PathVariable int floorId) {
+        return houseDetailsDao.getFloorWithFloorId(floorId);
+    }
 }

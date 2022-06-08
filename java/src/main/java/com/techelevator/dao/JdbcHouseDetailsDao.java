@@ -136,6 +136,17 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
 
     }
 
+    @Override
+    public Floor getFloorWithFloorId(int floorId) {
+        Floor floor = new Floor();
+        String sql = "SELECT * FROM floor WHERE floor_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql,floorId);
+        if(results.next()) {
+            floor = mapRowToFloor(results);
+        }
+        return floor;
+    }
+
 
     @Override
     public boolean deleteHouse(Long houseId) {
