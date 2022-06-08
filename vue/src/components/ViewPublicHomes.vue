@@ -1,19 +1,25 @@
 <template>
   <div>
-      This is the List of Public Homes
+    This is the List of Public Homes
     <table class="publicHomesTable">
       <tr v-for="house in homes" v-bind:key="house.id">
         <div class="publicHomes">
           <br />
           House Name: {{ house.houseName }}<br />
           <br />
-          House Region: {{ house.region }}<br />
+          City: {{ house.city }}<br />
+          <br />
+          State: {{ house.state }}<br />
           <br />
           Foundation size: {{ house.foundationSize }} <br />
           <br />
           Number of Floors: {{ house.numOfFloors }} <br />
           <br />
-          <button role="button" class="button-name" v-on:click="setActiveHouse(house.houseId)">
+          <button
+            role="button"
+            class="button-name"
+            v-on:click="setActiveHouse(house.houseId)"
+          >
             Checkout {{ house.houseName }}
           </button>
         </div>
@@ -38,26 +44,27 @@ export default {
         const eachHome = response.data[i];
         const newHome = {
           houseName: eachHome.house_name,
-          region: eachHome.region,
+          city: eachHome.city,
+          state: eachHome.state_abbreviation,
           foundationSize: eachHome.foundation_size,
           houseId: eachHome.house_id,
-          numOfFloors: eachHome.number_of_floors
+          numOfFloors: eachHome.number_of_floors,
         };
         this.homes.push(newHome);
       }
     });
   },
-   methods: {
-    setActiveHouse(houseId){
-      this.$store.commit("SET_ACTIVE_HOUSE", houseId)
-      this.$router.push({name: 'viewCurrentFloorAndRoomDetails'})
-    }
-  }
+  methods: {
+    setActiveHouse(houseId) {
+      this.$store.commit("SET_ACTIVE_HOUSE", houseId);
+      this.$router.push({ name: "viewCurrentFloorAndRoomDetails" });
+    },
+  },
 };
 </script>
 
 <style>
-.publicHomesTable{
+.publicHomesTable {
   align-items: center;
   background-color: rgba(54, 148, 66, 0.397);
   margin-left: 721px;
@@ -69,10 +76,8 @@ export default {
   margin-top: 25px;
   padding: 60px;
 }
-.publicHomes{
+.publicHomes {
   font-size: 20px;
   text-align: center;
 }
-
-
 </style>

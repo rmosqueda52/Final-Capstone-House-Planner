@@ -67,6 +67,8 @@ public class JdbcRoomDao implements RoomDao{
         return rooms;
     }
 
+
+
     private Room mapRowToRoomDetails (SqlRowSet rs) {
         Room room = new Room();
         room.setRoomId(rs.getInt("room_id"));
