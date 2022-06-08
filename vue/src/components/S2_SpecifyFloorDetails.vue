@@ -111,6 +111,7 @@ export default {
     },
     setCurrentFloor(floorId) {
       this.$store.commit("SET_ACTIVE_FLOOR", floorId);
+      this.$store.commit("SET_ACTIVE_HOUSE", this.house_id);
       this.$router.push({ name: "addRoomToFloor" });
     },
     addFloorToHouse() {

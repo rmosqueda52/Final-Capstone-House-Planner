@@ -80,6 +80,12 @@ public class JdbcRoomDao implements RoomDao{
         return room;
     }
 
+    @Override
+    public boolean updateRoomElements(Room room, int roomId) {
+        String sql = "UPDATE room_details SET room_name = ?, room_size = ?, is_kitchen = ?, is_bathroom = ?, number_of_windows = ? WHERE room_id = ?";
+        return jdbcTemplate.update(sql, room.getRoomName(), room.getRoomSize(), room.isKitchen(), room.isBathroom(), room.getNumOfWindows(), roomId) == 1;
+    }
+
     private Room mapRowToRoomDetails (SqlRowSet rs) {
         Room room = new Room();
         room.setRoomId(rs.getInt("room_id"));

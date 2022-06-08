@@ -1,12 +1,16 @@
 <template>
   <div>
-      This is the Edit Room View <br>
-      {{room[0].room_name}} <br>
-      {{room[0].room_id}} <br>
-      {{room[0].room_size}} <br>
-      {{room[0].is_kitchen}} <br>
-      {{room[0].is_bathroom}} <br>
-      {{room[0].number_of_windows}} <br>
+       <H3>Edit Room</H3>
+       <br /> <br/>
+      <form v-on:submit.prevent="">
+      Room Name: <input type="text" required v-model="room[0].room_name"> <br>
+      Room Size: Sq ft<input type="number" required v-model="room[0].room_size"> <br>
+      Is this a Kitchen: <input type="checkbox" value = room[0].is_kitchen v-model="room[0].is_kitchen"> <br>
+      Is this a Bathroom: <input type="checkbox" value = room[0].is_bathroom v-model="room[0].is_bathroom"> <br>
+      How many windows are in this room? <input type="number" required min= "0" value = room[0].number_of_windows v-model="room[0].number_of_windows"> <br>
+      <button class="button" v-on:click="updateRoom()">Keep these changes</button>
+      <button class="button" v-on:click="deleteRoom()">Delete this room</button>
+      </form>
 
   </div>
 </template>
@@ -19,7 +23,9 @@ export default {
     data() {
         return {
             roomId: this.$route.params.id,
-            room: []
+            room: [],
+            houseId: this.$store.state.currentHouseId
+        
         }
     },
     created() {
@@ -39,6 +45,28 @@ export default {
                 this.room.push(roomInfo)
             }
         )
+    },
+    methods: {
+        updateRoom() {
+            HomeService.updateExistingRoom(this.roomId, this.room).then(
+                (response) => {
+                    if(response.status === 200) {
+                        window.alert("Room Updated")
+                        this.$router.push({name: "createFloorPlan", params: {id: this.houseId}})
+                    }
+                }
+            )
+        },
+        deleteRoom() {
+            HomeService.deleteRoom(this.roomId).then(
+                (response) => {
+                    window.confirm("Are you Sure You want to Delete This Room?")
+                    if(response.status === 200) {
+                        this.$router.push({name: "createFloorPlan" ,params: {id: this.houseId}})
+                    }
+                }
+            )
+        }
     }
 }
 </script>

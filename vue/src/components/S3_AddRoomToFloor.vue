@@ -13,7 +13,7 @@
     <form v-on:submit.prevent="addRoomToFloor">
       Room Name: <input class="RoomTextBox" type="text" required v-model="newRoom.room_name" />
       <br />
-      Room Size:
+      Room Size Sq ft:
       <input class="RoomTextBox" type="number" min="1" required v-model="newRoom.room_size" />
       <br />
       Is this Room a Kitchen?
