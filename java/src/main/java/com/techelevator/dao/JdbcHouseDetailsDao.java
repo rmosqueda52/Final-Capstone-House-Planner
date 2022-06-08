@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Floor;
+import com.techelevator.model.HouseCostParams;
 import com.techelevator.model.HouseDetails;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -69,9 +70,9 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
     }
 
     @Override
-    public boolean removeFloorsFromHouseTable(HouseDetails houseDetails, int floorId) {
+    public boolean removeFloorsFromHouseTable(Long houseId, int floorId) {
         String sql = "UPDATE house_details SET number_of_floors = number_of_floors - 1 WHERE house_id =?";
-        jdbcTemplate.update(sql, houseDetails.getHouseId());
+        jdbcTemplate.update(sql, houseId);
         return removeFloorsFromFloorTable(floorId);
     }
 
@@ -108,6 +109,33 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
         return floors;
     }
 
+    @Override
+    public HouseCostParams getParamsForHouseCost(Long houseId) {
+        HouseCostParams houseCostParams = new HouseCostParams();
+        String sql = "SELECT house_details.foundation_size, house_details.city,house_details.state_abbreviation, MAX(floor.floor_level) AS stories,\n" +
+                "\t(SELECT COUNT(room_details.room_id) as bedrooms\n" +
+                "\tFROM room_details\n" +
+                "\tJOIN floor USING (floor_id)\n" +
+                "\tJOIN house_details USING (house_id)\n" +
+                "\tWHERE room_details.is_bathroom IS false AND house_details.house_id = ? AND room_details.is_kitchen IS false) AS bedrooms, \n" +
+                "\t\t(SELECT COUNT(room_details.is_bathroom)\n" +
+                "\t\tFROM room_details\n" +
+                "\t\tJOIN floor USING (floor_id)\n" +
+                "\t\tJOIN house_details USING (house_id)\n" +
+                "\t\tWHERE room_details.is_bathroom IS true AND house_details.house_id = ?) as bathrooms\n" +
+                "FROM house_details\n" +
+                "JOIN floor USING (house_id)\n" +
+                "JOIN room_details USING (floor_id)\n" +
+                "WHERE house_id = ? \n" +
+                "GROUP BY house_details.city, house_details.state_abbreviation, house_details.foundation_size";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, houseId,houseId,houseId);
+        while(results.next()) {
+            houseCostParams = mapRowToHouseCostParams(results);
+        }
+        return houseCostParams;
+
+    }
+
 
     @Override
     public boolean deleteHouse(Long houseId) {
@@ -127,6 +155,7 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
         }
         return houses;
     }
+
 
 
     private HouseDetails mapRowToHouseDetails (SqlRowSet rs) {
@@ -149,6 +178,16 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
         return floor;
     }
 
+    private HouseCostParams mapRowToHouseCostParams (SqlRowSet rs) {
+        HouseCostParams houseCostParams = new HouseCostParams();
+        houseCostParams.setFoundationSize(rs.getInt("foundation_size"));
+        houseCostParams.setCity(rs.getString("city"));
+        houseCostParams.setStateAbbreviation(rs.getString("state_abbreviation"));
+        houseCostParams.setNumberOfFloors(rs.getInt("stories"));
+        houseCostParams.setBathrooms(rs.getInt("bathrooms"));
+        houseCostParams.setBedrooms(rs.getInt("bedrooms"));
+        return houseCostParams;
+    }
 
 
 }

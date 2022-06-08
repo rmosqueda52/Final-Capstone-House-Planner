@@ -123,7 +123,7 @@ export default {
   color: #ffffff;
   text-transform: Capitalize;
   text-decoration: none;
-  background: #000000;
+  background: rgba(54, 148, 67, 0.45);
   padding: 20px;
   border-radius: 5px;
   display: inline-block;
@@ -132,7 +132,7 @@ export default {
 }
 
 .example_a:hover {
-  background: #434343;
+  background: #4E965F;
   letter-spacing: 1px;
   -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
   -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);

@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.HouseDetailsDao;
 import com.techelevator.model.Floor;
+import com.techelevator.model.HouseCostParams;
 import com.techelevator.model.HouseDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -37,10 +38,9 @@ public class HouseDetailsController {
         return houseDetailsDao.addFloorToExistingFloors(houseId);
     }
 
-    @PutMapping(value = "/update-subtract-floors/{id}") // Validation to be done on the Front end, check for floors only
-    // in the house that they are looking at.
-    public boolean removeFloors(@PathVariable int id, @RequestBody HouseDetails houseDetails){
-        return houseDetailsDao.removeFloorsFromHouseTable(houseDetails, id );
+    @PutMapping(value = "/update-subtract-floors/{id}/{houseId}") //floor ID/houseID
+    public boolean removeFloors(@PathVariable int id, @PathVariable Long houseId){
+        return houseDetailsDao.removeFloorsFromHouseTable(houseId, id );
     }
 
     @DeleteMapping(value = "/delete-house/{id}")
@@ -60,4 +60,8 @@ public class HouseDetailsController {
         return houseDetailsDao.getAllFloorsByHouseId(id);
     }
 
+    @GetMapping(value = "/get-house-cost/{id}")
+    public HouseCostParams getHouseCost(@PathVariable Long id){
+        return houseDetailsDao.getParamsForHouseCost(id);
+    }
 }

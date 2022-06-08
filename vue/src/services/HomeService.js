@@ -11,11 +11,11 @@ export default {
   addNewHouse(newHouse) {
     return axios.post('/create', newHouse)
   },
-  getFloorDetails(houseId){
+  getFloorDetails(houseId) {
     return axios.get(`/get-all-floors/${houseId}`)
   },
   addNewRoom(newRoom, floorId) {
-    return axios.post(`/add-room/${floorId}`,newRoom)
+    return axios.post(`/add-room/${floorId}`, newRoom)
   },
   getHouseDetails(houseId) {
     return axios.get(`/get-house-details/${houseId}`)
@@ -26,8 +26,11 @@ export default {
   addFloorToHouse(houseID) {
     return axios.put(`/update-floors/${houseID}`)
   },
-  removeFloorFromHouse(houseID) {
-    return axios.delete(`/update-subtract-floors/${houseID}`)
+  removeFloorFromHouse(floorID, houseId) {
+    return axios.put(`/update-subtract-floors/${floorID}/${houseId}`)
+  },
+  getHouseCostParams(houseID) {
+    return axios.get(`get-house-cost/${houseID}`)
   },
 
 }
