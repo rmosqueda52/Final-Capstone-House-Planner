@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="userForm">
     <br />
     <form v-on:submit.prevent="addHouseDetails">
       <div class="userFormStyle">
@@ -111,13 +111,16 @@ export default {
 .userFormStyle {
   display: flex;
   flex-direction: column;
-  margin-left: 720px;
   font-weight: bold;
   font-size: 20px;
   background-color: rgba(255, 255, 255, 0.123);
   backdrop-filter: blur(30px);
   padding: 40px;
 }
+.userForm{
+  justify-content: center;
+}
+
 .example_a {
   font-family: "Montserrat";
   color: #ffffff;
