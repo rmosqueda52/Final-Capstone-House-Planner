@@ -22,10 +22,11 @@
           v-model="newHome.city"
         /><br />
         <br />
-        State Abbreviation: <br />
+        State Abbreviation: <br /> <!-- style="text-transform: uppercase"  Maybe try this for uppercase?-->
         <input
           class="textbox"
           type="text"
+          maxlength="2"
           required
           placeholder="Where will your house be located?"
           v-model="newHome.state_abbreviation"

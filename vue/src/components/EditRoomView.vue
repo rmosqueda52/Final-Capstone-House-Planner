@@ -51,7 +51,6 @@ export default {
             HomeService.updateExistingRoom(this.roomId, this.room[0]).then(
                 (response) => {
                     if(response.status === 200) {
-                        window.alert("Room Updated")
                         this.$router.push({name: "createFloorPlan", params: {id: this.houseId}})
                     }
                 }

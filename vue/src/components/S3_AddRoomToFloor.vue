@@ -32,7 +32,9 @@
       <br />
       <button class="button">Add New Room</button>
     </form>
+    <button class="button" v-on:click="$router.push({name: 'createFloorPlan'})">Go Back</button>
     </div>
+    
     </div>
 </template>
 
@@ -71,7 +73,6 @@ export default {
     HomeService.getFloorWithFloorId(this.floorId).then(
       (response) => {
         if(response.status === 200) {
-          window.alert("does this work?")
           this.floorLevel = response.data.floorLevel;
         }
       }
@@ -81,7 +82,6 @@ export default {
     addRoomToFloor() {
       HomeService.addNewRoom(this.newRoom, this.floorId).then((response) => {
         if (response.status === 200) {
-          window.alert("Room Created");
           this.$router.push({ name: "createFloorPlan" });
         }
       });
