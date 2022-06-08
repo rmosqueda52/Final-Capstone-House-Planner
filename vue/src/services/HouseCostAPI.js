@@ -11,10 +11,11 @@ export default {
                 offset: '0',
                 limit: '1',
                 state_code: house.state_abbreviation,
-                city: house.city,
+                city: house.houseParamsCity,
                 sort: 'newest',
                 beds_min: house.bedrooms,
                 baths_min: house.bathrooms,
+                property_type: 'single_family',
                 home_size_min: house.size,
                 stories: house.stories
             },
