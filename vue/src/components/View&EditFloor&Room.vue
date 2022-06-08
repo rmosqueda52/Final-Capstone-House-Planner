@@ -19,7 +19,7 @@
         <table>
             <tr v-for="room in floor.rooms" v-bind:key="room.id">
                 <div>
-                    Room: {{ room.roomName}} <br>
+                    Room: {{ room.roomName}} <button class="button">Edit this Room</button> <br>
                     Room Size: {{ room.roomSize}} <br>
                     number of Windows: {{room.numOfWindows}} <br>
                     <br>
@@ -31,7 +31,8 @@
         <br />
       </tr>
     </table>
-    <button class="button" v-on:click="addFloorToHouse()">Add a Floor to this House</button>
+    <button class="button" v-on:click="addFloorToHouse()">Add a Floor to this House</button> <br>
+    <button class="button"> Remove the Top Floor from this House</button>
   </div>
 </template>
 

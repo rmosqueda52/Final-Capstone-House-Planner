@@ -33,6 +33,7 @@
       <button class="button">Add New Room</button>
     </form>
     </div>
+    </div>
 </template>
 
 <script>
