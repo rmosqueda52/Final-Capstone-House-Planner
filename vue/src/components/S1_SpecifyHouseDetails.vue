@@ -83,7 +83,7 @@ export default {
       newHome: {
         house_name: "",
         city: "",
-        state_abbreviation: "",
+        state_abbreviation: "".toUpperCase(),
         foundation_size: "",
         number_of_floors: "",
         is_private: "",

@@ -32,8 +32,8 @@
       <button class="button" v-on:click="addFloorToHouse()"> Add a floor to this house</button> <br>
     <button class="button" v-on:click="removeFloorFromHouse()">Remove the top floor from this house</button>
     </table>
-    
     </div>
+    <button class="button" v-on:click="$router.push({ name: 'home'})">Submit this House</button>
   </div>
 </template>
 

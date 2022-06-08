@@ -4,7 +4,6 @@
     >&nbsp;|&nbsp;
     <router-link v-bind:to="{ name: 'register' }">Create Account?</router-link>
     <br />
-    This is the GuestFloor page
     <div>
       <br />
       <br />
