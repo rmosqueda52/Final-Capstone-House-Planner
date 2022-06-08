@@ -35,11 +35,11 @@ export default {
                if(response.status === 200) {
                     roomInfo = {
                     room_name: response.data.room_name,
-                    room_id: response.data.room_id,
                     room_size: response.data.room_size,
                     is_kitchen: response.data.is_kitchen,
                     is_bathroom: response.data.is_bathroom,
-                    number_of_windows: response.data.number_of_windows
+                    number_of_windows: response.data.number_of_windows,
+                    room_id: response.data.room_id,
                     }
                 }
                 this.room.push(roomInfo)
@@ -48,7 +48,7 @@ export default {
     },
     methods: {
         updateRoom() {
-            HomeService.updateExistingRoom(this.roomId, this.room).then(
+            HomeService.updateExistingRoom(this.roomId, this.room[0]).then(
                 (response) => {
                     if(response.status === 200) {
                         window.alert("Room Updated")

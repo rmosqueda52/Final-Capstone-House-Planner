@@ -10,7 +10,7 @@ export default {
             params: {
                 offset: '0',
                 limit: '1',
-                state_code: house.state_abbreviation,
+                state_code: house.state_code,
                 city: house.houseParamsCity,
                 sort: 'newest',
                 beds_min: house.bedrooms,
@@ -26,7 +26,7 @@ export default {
         };
 
         axios.request(options).then(function (response) {
-            console.log(response.data);
+            console.log(response.data.data.home_search.results[0].list_price);
         }).catch(function (error) {
             console.error(error);
         })

@@ -2,14 +2,11 @@
   <div>
     <div class="loginHome">
     <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-    <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-    </div>
-    This is where we'll add room details to the floor <br />
-    
-    <div class="RoomFormStyle">
-      You're currently working on floor: <br />
-    {{ this.floorId }} <br />
-    {{ this.rooms }} <br />
+    <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''"
+      >Logout</router-link>
+      </div>
+    Please add room details to the floor <br />
+  
     <form v-on:submit.prevent="addRoomToFloor">
       Room Name: <input class="RoomTextBox" type="text" required v-model="newRoom.room_name" />
       <br />
@@ -36,7 +33,6 @@
       <button class="button">Add New Room</button>
     </form>
     </div>
-  </div>
 </template>
 
 <script>
@@ -85,7 +81,7 @@ export default {
 </script>
 
 <style>
-.RoomFormStyle{
+.RoomFormStyle {
   display: flex;
   flex-direction: column;
   font-weight: bold;
@@ -94,11 +90,11 @@ export default {
   backdrop-filter: blur(30px);
   padding: 60px;
   margin-left: 25%;
-  margin-right: 25%
+  margin-right: 25%;
 }
 
-.RoomTextBox{
- height: 40px;
+.RoomTextBox {
+  height: 40px;
   font-size: 10pt;
   margin-top: 45px;
   border-radius: 10px;
@@ -107,10 +103,10 @@ export default {
   font-size: 20px;
 }
 
-.checkbox{
+.checkbox {
   margin-top: 30px;
 }
-.checkbox2{
+.checkbox2 {
   margin-top: 40px;
   margin-bottom: 15px;
 }

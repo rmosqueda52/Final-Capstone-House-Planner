@@ -10,7 +10,7 @@
           State: {{ house.state }} <br />
           Foundation size: {{ house.foundationSize }} <br />
           Number of Floors: {{ house.numOfFloors }} <br />
-          <!-- House Cost Params: {{ houseParamsCost[0] }} <br /> -->
+          House Cost Params: {{ houseParamsCost[0] }} <br />
           <button
             class="button-name"
             v-on:click="setActiveHouse(house.houseId)"
@@ -50,10 +50,10 @@ export default {
           numOfFloors: eachHome.number_of_floors,
         };
         this.homes.push(newHome);
-        // this.getParamsForHouseCost(newHome.houseId);
-        // console.log(this.houseParamsCost);
-        // this.getHouseCost(this.houseParamsCost[0]);
+        this.getParamsForHouseCost(newHome.houseId);
       }
+      // console.log(this.houseParamsCost);
+      // this.getHouseCost(this.houseParamsCost[0]);
     });
   },
   methods: {
@@ -69,7 +69,7 @@ export default {
         const houseParamsData = response.data;
         const houseParams = {
           houseParamsCity: houseParamsData.city,
-          state_abbreviation: houseParamsData.state_abbreviation,
+          state_code: houseParamsData.state_abbreviation,
           bathrooms: houseParamsData.bathrooms.toString(),
           bedrooms: houseParamsData.bedrooms.toString(),
           houseSize: houseParamsData.foundation_size.toString(),
@@ -80,8 +80,8 @@ export default {
         } else {
           houseParams.stories = "single";
         }
-        console.log(houseParams);
         this.houseParamsCost.push(houseParams);
+        this.getHouseCost(houseParams);
       });
     },
     getHouseCost(house) {
