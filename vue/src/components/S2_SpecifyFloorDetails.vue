@@ -15,7 +15,7 @@
         }}
         <br />
           <table>
-            <tr v-for="room in floor.rooms" v-bind:key="room.id">
+            <tr v-for="room in floors.rooms" v-bind:key="room.id">
               <div>
                 Room: {{room.roomName}} <br>
                 Room Size: {{room.roomSize}} <br>
@@ -117,7 +117,6 @@ export default {
       HomeService.addFloorToHouse(this.house_id).then(
         (response) => {
           if(response.status === 200){
-            window.alert("Floor Created");
            window.location.reload();
           }
         }
