@@ -8,16 +8,16 @@
     These are the floors in: {{ this.currentHouseName }}<br />
 
     <table>
-      <tr v-for="floor in newFloors" v-bind:key="floor.id">
+      <tr v-for="floor in floors" v-bind:key="floor.id">
         Floor Level:
         {{
           floor.floorLevel
         }}
         <br />
           <table>
-            <tr v-for="room in floors.rooms" v-bind:key="room.id">
+            <tr v-for="room in floor.rooms" v-bind:key="room.id">
               <div>
-                Room: {{room.roomName}} <br>
+                Room: {{room.roomName}} <button class="button" v-on:click="this.$router.push()"> Edit this room </button> <br>
                 Room Size: {{room.roomSize}} <br>
                 Number of Windows: {{room.numOfWindows}} <br>
               </div>
@@ -26,7 +26,7 @@
 
           </table>
         <button class="button" v-on:click="setCurrentFloor(floor.floorId)">
-          Add Rooms to this Floor</button
+          Add a room to this Floor</button
         ><br /> <br />
         
       </tr>
@@ -45,23 +45,23 @@ export default {
     return {
       currentHouse: this.$store.state.currentHouse,
       house_id: this.$route.params.id,
-      newFloors: [],
+      // newFloors: [],
       floors: [],
       currentHouseName: this.$store.state.currentHouse.house_name,
       highestFloor: ""
     };
   },
   created() {
-    HomeService.getFloorDetails(this.house_id).then((response) => {
-      for (let i = 0; i < response.data.length; i++) {
-        const eachFloor = response.data[i];
-        const newFloor = {
-          floorLevel: eachFloor.floorLevel,
-          floorId: eachFloor.floorId,
-        };
-        this.newFloors.push(newFloor);
-      }
-    }),
+    // HomeService.getFloorDetails(this.house_id).then((response) => {
+    //   for (let i = 0; i < response.data.length; i++) {
+    //     const eachFloor = response.data[i];
+    //     const newFloor = {
+    //       floorLevel: eachFloor.floorLevel,
+    //       floorId: eachFloor.floorId,
+    //     };
+    //     this.newFloors.push(newFloor);
+    //   }
+    // }),
       HomeService.getHouseDetails(this.house_id).then((response) => {
         this.currentHouseName = response.data.house_name;
       });
