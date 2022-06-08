@@ -57,7 +57,7 @@ public class RoomController {
         return roomDao.getRoomByRoomId(roomId);
     }
 
-    @PostMapping(value= "/update-room-elements/{roomId}")
+    @PutMapping (value= "/update-room-elements/{roomId}")
     public boolean updateRoomElements(@PathVariable int roomId, @RequestBody Room room) {
         return roomDao.updateRoomElements(room, roomId);
     }

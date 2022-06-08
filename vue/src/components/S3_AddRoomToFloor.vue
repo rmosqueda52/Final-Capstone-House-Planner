@@ -4,10 +4,8 @@
     <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''"
       >Logout</router-link
     >
-    This is where we'll add room details to the floor <br />
-    You're currently working on floor: <br />
-    {{ this.floorId }} <br />
-    {{ this.rooms }} <br />
+    Please add room details to the floor <br />
+  
     <form v-on:submit.prevent="addRoomToFloor">
       Room Name: <input type="text" required v-model="newRoom.room_name" />
       <br />
