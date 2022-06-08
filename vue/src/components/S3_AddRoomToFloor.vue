@@ -6,7 +6,7 @@
       >Logout</router-link>
       </div>
     Please add room details to the floor <br />
-  
+    <div class="RoomFormStyle">
     <form v-on:submit.prevent="addRoomToFloor">
       Room Name: <input class="RoomTextBox" type="text" required v-model="newRoom.room_name" />
       <br />
@@ -32,6 +32,7 @@
       <br />
       <button class="button">Add New Room</button>
     </form>
+    </div>
     </div>
 </template>
 
