@@ -150,6 +150,7 @@ export default {
   background-image: url(https://wallpaperaccess.com/full/2056374.jpg);
   background-size: cover;
   padding-bottom: 600px;
+  overflow-y: hidden;
 }
 #register-header {
   color: white;
@@ -236,4 +237,5 @@ html {
 .select-role{
   color: black;
 }
+
 </style>
