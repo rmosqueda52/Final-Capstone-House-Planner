@@ -3,7 +3,7 @@ export default {
 
 
     getCostOfHouse(house) {
-
+        // let estimatedCost = 5;
         const options = {
             method: 'GET',
             url: 'https://us-real-estate.p.rapidapi.com/v2/for-sale',
@@ -24,12 +24,16 @@ export default {
                 'X-RapidAPI-Key': 'e4a60f80edmsh8a02bc981672585p1f5556jsn1bde7ae8d189'
             }
         };
+        return axios.request(options)
+        // axios.request(options).then(function (response) {
+        //     console.log(response.data.data.home_search.results[0].list_price);
+        //     // console.log(estimatedCost)
+        //     // estimatedCost = (response.data.data.home_search.results[0].list_price);
 
-        axios.request(options).then(function (response) {
-            console.log(response.data.data.home_search.results[0].list_price);
-        }).catch(function (error) {
-            console.error(error);
-        })
-
+        // }).catch(function (error) {
+        //     console.error(error);
+        // })
+        // console.log(estimatedCost)
+        // return estimatedCost;
     }
 }

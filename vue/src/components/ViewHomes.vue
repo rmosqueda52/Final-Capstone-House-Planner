@@ -12,6 +12,7 @@
             Foundation size: {{ house.foundationSize }} <br />
             Number of Floors: {{ house.numOfFloors }} <br />
             <!-- House Cost Params: {{ houseParamsCost[0] }} <br /> -->
+            Estimated Cost: ${{ house.houseEstimate }} <br />
             <button
               class="button-name"
               v-on:click="setActiveHouse(house.houseId)"
@@ -37,7 +38,6 @@ export default {
       userID: this.$store.state.user.id,
       homes: [],
       houseParamsCost: [],
-      houseEstimate: 0,
     };
   },
   created() {
@@ -51,9 +51,10 @@ export default {
           foundationSize: eachHome.foundation_size,
           houseId: eachHome.house_id,
           numOfFloors: eachHome.number_of_floors,
+          houseEstimate: 0,
         };
         this.homes.push(newHome);
-        this.getParamsForHouseCost(newHome.houseId);
+        this.getParamsForHouseCost(newHome.houseId, newHome);
       }
       // console.log(this.houseParamsCost);
       // this.getHouseCost(this.houseParamsCost[0]);
@@ -67,7 +68,7 @@ export default {
         params: { id: houseId },
       });
     },
-    getParamsForHouseCost(houseId) {
+    getParamsForHouseCost(houseId, newHome) {
       HomeService.getHouseCostParams(houseId).then((response) => {
         const houseParamsData = response.data;
         const houseParams = {
@@ -84,11 +85,15 @@ export default {
           houseParams.stories = "single";
         }
         this.houseParamsCost.push(houseParams);
-        this.getHouseCost(houseParams);
+        this.getHouseCost(houseParams, newHome);
       });
     },
-    getHouseCost(house) {
-      HouseCostAPI.getCostOfHouse(house);
+    getHouseCost(house, newHome) {
+      HouseCostAPI.getCostOfHouse(house).then((response) => {
+        newHome.houseEstimate =
+          response.data.data.home_search.results[0].list_price;
+      });
+      // this.houseEstimate = HouseCostAPI.getCostOfHouse(house);
     },
   },
 };
