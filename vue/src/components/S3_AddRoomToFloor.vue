@@ -5,25 +5,28 @@
       >Logout</router-link
     >
     This is where we'll add room details to the floor <br />
-    You're currently working on floor: <br />
+    
+    <div class="RoomFormStyle">
+      You're currently working on floor: <br />
     {{ this.floorId }} <br />
     {{ this.rooms }} <br />
     <form v-on:submit.prevent="addRoomToFloor">
-      Room Name: <input type="text" required v-model="newRoom.room_name" />
+      Room Name: <input class="RoomTextBox" type="text" required v-model="newRoom.room_name" />
       <br />
       Room Size:
-      <input type="number" min="1" required v-model="newRoom.room_size" />
+      <input class="RoomTextBox" type="number" min="1" required v-model="newRoom.room_size" />
       <br />
       Is this Room a Kitchen?
-      <input type="checkbox" value="true" v-model="newRoom.is_kitchen" /><label
+      <input class="checkbox" type="radio" value="true" v-model="newRoom.is_kitchen" /><label class="checkbox"
         >Yes</label
-      ><br />
+      ><br/>
       is this room a Bathroom?
-      <input type="checkbox" value="true" v-model="newRoom.is_bathroom" /><label
+      <input class="checkbox2" type="radio" value="true" v-model="newRoom.is_bathroom" /><label 
         >Yes</label
-      ><br />
-      How many windows will be in this room?
+      ><br>
+       How many windows will be in this room?
       <input
+        class="RoomTextBox"
         type="number"
         min="0"
         required
@@ -32,6 +35,7 @@
       <br />
       <button class="button">Add New Room</button>
     </form>
+    </div>
   </div>
 </template>
 
@@ -81,4 +85,33 @@ export default {
 </script>
 
 <style>
+.RoomFormStyle{
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.123);
+  backdrop-filter: blur(30px);
+  padding: 60px;
+  margin-left: 25%;
+  margin-right: 25%
+}
+
+.RoomTextBox{
+ height: 40px;
+  font-size: 10pt;
+  margin-top: 45px;
+  border-radius: 10px;
+  line-height: 80px;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
+.checkbox{
+  margin-top: 30px;
+}
+.checkbox2{
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
 </style>
