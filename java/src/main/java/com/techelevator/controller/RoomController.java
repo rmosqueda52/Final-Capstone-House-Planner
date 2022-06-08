@@ -52,4 +52,9 @@ public class RoomController {
         return roomDao.getAllRoomsByFloorId(id);
     }
 
+    @GetMapping(value = "/get-room/{roomId}")
+    public Room getRoomByRoomId(@PathVariable int roomId){
+        return roomDao.getRoomByRoomId(roomId);
+    }
+
 }

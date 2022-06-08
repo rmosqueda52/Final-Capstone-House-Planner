@@ -17,7 +17,7 @@
           <table>
             <tr v-for="room in floor.rooms" v-bind:key="room.id">
               <div>
-                Room: {{room.roomName}} <button class="button" v-on:click="this.$router.push()"> Edit this room </button> <br>
+                Room: {{room.roomName}} <button class="button" v-on:click="$router.push({ name: 'editRoomView', params: {id: room.roomId} })"> Edit this room </button> <br>
                 Room Size: {{room.roomSize}} <br>
                 Number of Windows: {{room.numOfWindows}} <br>
               </div>
