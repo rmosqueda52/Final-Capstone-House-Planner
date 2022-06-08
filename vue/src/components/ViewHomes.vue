@@ -10,7 +10,8 @@
           State: {{ house.state }} <br />
           Foundation size: {{ house.foundationSize }} <br />
           Number of Floors: {{ house.numOfFloors }} <br />
-          House Cost Params: {{ houseParamsCost[0] }} <br />
+          House Estimate: {{ house.houseEstimate }} <br />
+          <!-- House Cost Params: {{ houseParamsCost[0] }} <br /> -->
           <button
             class="button-name"
             v-on:click="setActiveHouse(house.houseId)"
@@ -35,6 +36,7 @@ export default {
       userID: this.$store.state.user.id,
       homes: [],
       houseParamsCost: [],
+      houseEstimate: 0,
     };
   },
   created() {
