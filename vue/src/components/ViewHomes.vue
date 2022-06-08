@@ -1,27 +1,29 @@
 <template>
   <div>
-    This is the list of homes this user has worked on
-    <table class="publicHomesTable">
-      <tr v-for="house in homes" v-bind:key="house.id">
-        <div class="publicHomes">
-          <br />
-          House Name: {{ house.houseName }}<br />
-          City: {{ house.city }}<br />
-          State: {{ house.state }} <br />
-          Foundation size: {{ house.foundationSize }} <br />
-          Number of Floors: {{ house.numOfFloors }} <br />
-          House Cost Params: {{ houseParamsCost[0] }} <br />
-          <button
-            class="button-name"
-            v-on:click="setActiveHouse(house.houseId)"
-          >
-            Checkout {{ house.houseName }}
-          </button>
-          <br />
-          <br />
-        </div>
-      </tr>
-    </table>
+    List of homes you have planned
+    <div class="userHomesTable">
+      <table class="">
+        <tr v-for="house in homes" v-bind:key="house.id">
+          <div class="">
+            <br />
+            House Name: {{ house.houseName }}<br />
+            City: {{ house.city }}<br />
+            State: {{ house.state }} <br />
+            Foundation size: {{ house.foundationSize }} <br />
+            Number of Floors: {{ house.numOfFloors }} <br />
+            <!-- House Cost Params: {{ houseParamsCost[0] }} <br /> -->
+            <button
+              class="button-name"
+              v-on:click="setActiveHouse(house.houseId)"
+            >
+              Checkout {{ house.houseName }}
+            </button>
+            <br />
+            <br />
+          </div>
+        </tr>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -35,6 +37,7 @@ export default {
       userID: this.$store.state.user.id,
       homes: [],
       houseParamsCost: [],
+      houseEstimate: 0,
     };
   },
   created() {
@@ -92,4 +95,16 @@ export default {
 </script>
 
 <style>
+.userHomesTable {
+  display: flex;
+  flex-flow: column;
+  background-color: rgba(54, 148, 66, 0.397);
+  border-radius: 107px;
+  backdrop-filter: blur(10px);
+  color: rgb(0, 0, 0);
+  margin-top: 25px;
+  padding: 60px;
+  margin-right: 35%;
+  margin-left: 35%;
+}
 </style>

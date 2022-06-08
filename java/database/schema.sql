@@ -51,13 +51,13 @@ CREATE TABLE house_details (
 );
 
 INSERT INTO house_details(house_id, foundation_size,city, state_abbreviation,house_name,user_id,number_of_floors,is_Private)
-VALUES(990,100,'Houston', 'TX', 'Big House', 3, 4, false);
+VALUES(990,3000,'Houston', 'TX', 'Big House', 3, 4, false);
 INSERT INTO house_details(house_id, foundation_size,city, state_abbreviation,house_name,user_id,number_of_floors,is_Private)
-VALUES(991,25,'Chicago', 'IL', 'Small House', 2, 1, false);
+VALUES(991,1500,'Chicago', 'IL', 'Small House', 2, 1, false);
 INSERT INTO house_details(house_id, foundation_size,city, state_abbreviation,house_name,user_id,number_of_floors,is_Private)
-VALUES(992,150,'Cincinnati', 'OH', 'Party House', 3, 3, true);
+VALUES(992,2000,'Cincinnati', 'OH', 'Party House', 3, 3, true);
 INSERT INTO house_details(house_id, foundation_size,city, state_abbreviation,house_name,user_id,number_of_floors,is_Private)
-VALUES(993,2000,'Austin', 'TX', 'Haunted House', 3, 3, false);
+VALUES(993,2500,'Austin', 'TX', 'Haunted House', 3, 3, false);
 
 
 
