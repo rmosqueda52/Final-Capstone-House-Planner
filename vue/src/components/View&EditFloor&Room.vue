@@ -23,7 +23,7 @@
                     Room Size: {{ room.roomSize}} <br>
                     number of Windows: {{room.numOfWindows}} <br>
                     <br>
-                    <button class="button">Edit this Room</button> <br>
+                    <button class="">Edit this Room</button> <br>
                 </div>
 
             </tr>
@@ -130,4 +130,5 @@ align-items: center;
   font-size: 20px;
   font-weight: bold;
 }
+
 </style>

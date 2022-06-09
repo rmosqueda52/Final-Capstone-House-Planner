@@ -5,7 +5,7 @@
     <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''"
       >Logout</router-link>
       </div>
-    Please add room details to floor level {{this.floorLevel}} <br />
+    <h1> Please add room details to floor level: {{this.floorLevel}}</h1>  <br />
     <div class="RoomFormStyle">
     <form v-on:submit.prevent="addRoomToFloor">
       Room Name: <input class="RoomTextBox" type="text" required v-model="newRoom.room_name" />
@@ -32,7 +32,8 @@
       <br />
       <button class="button">Add New Room</button>
     </form>
-    <button class="button" v-on:click="$router.push({name: 'createFloorPlan'})">Go Back</button>
+    <br>
+    <button id="goBack" class="button" v-on:click="$router.push({name: 'createFloorPlan'})">Go Back</button>
     </div>
     
     </div>
@@ -119,5 +120,10 @@ export default {
 .checkbox2 {
   margin-top: 40px;
   margin-bottom: 15px;
+}
+#goBack{
+  display: block;
+  align-self: center;
+  width: 23%;
 }
 </style>
