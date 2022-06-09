@@ -112,7 +112,7 @@ export default {
   },
   methods: {
       submitChanges() {
-          HomeService.updateExistingHouseDetails(this.houseId, this.home).then(
+          HomeService.updateExistingHouseDetails(this.houseId, this.home[0]).then(
               (response) => {
                   if(response.status === 200) {
                       this.$router.push({name: "view&EditFloors&Rooms", params: {id: this.houseId}})
