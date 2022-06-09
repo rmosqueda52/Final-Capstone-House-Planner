@@ -64,8 +64,8 @@
         ><br />
         <br />
         <div class="container-name">
-          <a class="example_a" href="#" target="_blank" rel="nofollow"
-            ><button>Submit</button></a
+          <a class="" href="#" target="_blank" rel="nofollow"
+            ><button class="submit">Submit</button></a
           >
         </div>
       </div>
@@ -155,6 +155,41 @@ export default {
   box-sizing: border-box;
   font-size: 20px;
 }
+.submit{
+  font-family: "Montserrat";
+  text-transform: Capitalize;
+  align-items: center;
+  appearance: none;
+  background-color: #fcfcfd;
+  border-radius: 10px;
+  border-width: 0;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 2px 4px, rgba(0, 0, 0, 0.15) 0 7px 13px -3px,
+    #d6d6e7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-flex;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
 html {
   overflow-y: scroll;
 }

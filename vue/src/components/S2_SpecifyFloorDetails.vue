@@ -30,10 +30,11 @@
         
       </tr>
       <button class="button" v-on:click="addFloorToHouse()"> Add a floor to this house</button> <br>
-    <button class="button" v-on:click="removeFloorFromHouse()">Remove the top floor from this house</button>
+    <button class="button" v-on:click="removeFloorFromHouse()">Remove the top floor</button>
     </table>
+        <button id="submit" v-on:click="$router.push({ name: 'home'})">Submit this House</button>
+
     </div>
-    <button class="button" v-on:click="$router.push({ name: 'home'})">Submit this House</button>
   </div>
 </template>
 
@@ -158,4 +159,36 @@ export default {
   margin-left: 26%;
   margin-bottom: 15px;
 }
+#submit{
+  align-items: center;
+  background-color: #fcfcfd;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 2px 4px, rgba(0, 0, 0, 0.15) 0 7px 13px -3px,
+    #d6d6e7 0 -3px 0 inset;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+  margin-top: 30px;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 </style>
