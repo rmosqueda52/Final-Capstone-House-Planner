@@ -14,11 +14,11 @@
       <input class="RoomTextBox" type="number" min="1" required v-model="newRoom.room_size" />
       <br />
       Is this Room a Kitchen?
-      <input class="checkbox" type="radio" value="true" v-model="newRoom.is_kitchen" /><label class="checkbox"
+      <input class="checkbox" type="checkbox" value="true" v-model="newRoom.is_kitchen" /><label class="checkbox"
         >Yes</label
       ><br/>
       is this room a Bathroom?
-      <input class="checkbox2" type="radio" value="true" v-model="newRoom.is_bathroom" /><label 
+      <input class="checkbox2" type="checkbox" value="true" v-model="newRoom.is_bathroom" /><label 
         >Yes</label
       ><br>
        How many windows will be in this room?
