@@ -33,4 +33,6 @@ public interface HouseDetailsDao {
     HouseCostParams getParamsForHouseCost(Long houseId);
 
     Floor getFloorWithFloorId(int floorId);
+
+    boolean updateHouseDetails(Long houseId, HouseDetails houseDetails);
 }

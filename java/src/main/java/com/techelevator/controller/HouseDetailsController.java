@@ -70,4 +70,9 @@ public class HouseDetailsController {
     public Floor getFloorLevelWithFloorId(@PathVariable int floorId) {
         return houseDetailsDao.getFloorWithFloorId(floorId);
     }
+
+    @PutMapping (value = "/update-existing-house-details/{houseId}")
+    public boolean updateHouse(@PathVariable Long houseId, @RequestBody HouseDetails houseDetails) {
+        return houseDetailsDao.updateHouseDetails(houseId, houseDetails);
+    }
 }

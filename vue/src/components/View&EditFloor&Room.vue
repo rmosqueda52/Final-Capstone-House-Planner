@@ -29,7 +29,7 @@
             </tr>
 
         </table>
-        <button class="button" v-on:click="addRoomToThisFloor()">Add a Room to This Floor</button>
+        <button class="button" v-on:click="addRoomToThisFloor(floor.floorId)">Add a Room to This Floor</button>
         <br />
       </tr>
     </table>
@@ -55,7 +55,8 @@ export default {
   created() {
     this.getHouseDetails();
     this.getFloors(this.house_id);
-    this.$store.commit("SET_ACTIVE_HOUSE",this.$route.params.id)
+    this.$store.commit("SET_ACTIVE_HOUSE",this.$route.params.id);
+    
   },
   methods: {
     getFloors(houseId) {
@@ -95,27 +96,35 @@ export default {
         this.currentHouseName = response.data.house_name;
       });
     },
-    setHouseId() {
-      
-    },
-    addRoomToThisFloor() {
-
+    addRoomToThisFloor(floorId) {
+      this.$store.commit("SET_ACTIVE_HOUSE",this.$route.params.id);
+      this.$store.commit("SET_ACTIVE_FLOOR", floorId);
+      this.$router.push({name: "addRoomToExistingFloor", params: {id: floorId, houseId: this.house_id}});
     },
     addFloorToHouse() {
-      HomeService.addFloorToHouse(this.house_Id).then(
+      HomeService.addFloorToHouse(this.house_id).then(
         (response) => {
           if(response.status === 200){
-          window.alert("Floor Created");
           window.location.reload();
           }
         }
       );
     },
     removeFloorFromHouse() {
+      if (this.floors.length > 1) {
+      HomeService.removeFloorFromHouse(this.floors[this.floors.length -1].floorId, this.house_id).then(
+        (response) => {
+          window.confirm("Are you sure you want to delete this floor?");
+          if(response.status === 200){
+            window.location.reload();
+          }
+        }
+      )
+      } else {window.alert("You must have at least one floor in your house");}
 
     },
     editHouseDetails() {
-
+      this.$router.push({name: 'editExistingHouseDetails', params: {id: this.house_id}})
     }
   },
 };
