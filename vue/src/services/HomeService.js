@@ -46,5 +46,8 @@ export default {
   },
   updateExistingHouseDetails(houseId, house) {
     return axios.put(`/update-existing-house-details/${houseId}`, house)
+  },
+  deleteHouse(houseId) {
+    return axios.delete(`/delete-house/${houseId}`)
   }
 }

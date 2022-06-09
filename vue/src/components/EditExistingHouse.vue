@@ -48,15 +48,6 @@
             v-model="home[0].foundation_size"
           /><br />
           <br />
-          Number of Floors in this House: <br />
-          <input
-            class="textbox"
-            type="number"
-            placeholder="How many floors?"
-            min="1"
-            required
-            v-model="home[0].number_of_floors"
-          /><br />
           <br />
           Should this house be Public or Private? <br />
           <select
@@ -76,6 +67,8 @@
           </div>
         </div>
       </form>
+      <br>
+      <button class="button" v-on:click="deleteFloors()">Delete this House</button>
     </div>
   </div>
 </template>
@@ -89,6 +82,7 @@ export default {
     return {
       houseId: this.$route.params.id,
       home: [],
+      floorIds: []
     };
   },
   created() {
@@ -109,6 +103,18 @@ export default {
       }
       this.home.push(currentHome)
     });
+    HomeService.getFloorDetails(this.houseId).then(
+      (response) => {
+          for(let i = 0; i < response.data.length;i++) {
+            const eachFloor = response.data[i];
+          const currentFloors = {
+          floor_id: eachFloor.floorId
+          }
+          this.floorIds.push(currentFloors)
+          }
+        
+      }
+    )
   },
   methods: {
       submitChanges() {
@@ -119,6 +125,23 @@ export default {
                   }
               }
           )
+      },
+      deleteFloors() {
+        window.confirm("Are you sure you want to Delete this House");
+        for(let i = 0; i< this.floorIds.length; i++){
+            HomeService.removeFloorFromHouse(this.floorIds[i].floor_id, this.houseId)
+        }
+        window.confirm("Building as been removed, do you wish to delete the lot?");
+        this.deleteHouse();
+      },
+      deleteHouse(){
+              HomeService.deleteHouse(this.houseId).then(
+          (response) => {
+            if (response.status === 200) {
+              this.$router.push({name: 'userHomes'})
+            }
+          }
+        )
       }
   },
 };

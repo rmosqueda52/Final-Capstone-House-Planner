@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="top-stuff">
     <router-link v-bind:to="{ name: 'guestHome' }">Home</router-link
     >&nbsp;|&nbsp;
@@ -11,7 +12,7 @@
       <div id="detailsView">
       <table class="home-details">
         <tr v-for="floor in floors" v-bind:key="floor.id">
-          <div class="floor-level">Floor Level:{{ floor.floorLevel }}</div>
+          <div class="floor-level">Floor Level: {{ floor.floorLevel }}</div>
           <table>
             <tr v-for="room in floor.rooms" v-bind:key="room.id">
               <div id="roomDisplaySpacing">
@@ -30,6 +31,9 @@
       <!--Drawing component-->
       <!-- <vue-p5 class="floor-map" v-on="{ setup, draw }"></vue-p5> -->
     </div>
+  
+  </div>
+  <button class="button" v-on:click="$router.push({name: 'guestPublicHomes'})">Go back to Public Homes</button>
   </div>
 </template>
 <script>

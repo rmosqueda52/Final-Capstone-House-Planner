@@ -15,7 +15,8 @@
         Floor Level:
         {{
           floor.floorLevel
-        }}
+        }} <br />
+         <button class="button-name" v-on:click="addRoomToThisFloor(floor.floorId)">Add a Room to This Floor</button>
         </div>
         <table>
             <tr v-for="room in floor.rooms" v-bind:key="room.id">
@@ -25,7 +26,7 @@
                     number of Windows: {{room.numOfWindows}} <br>
                     <br>
                     <button class="button-name" v-on:click="$router.push({ name: 'editExistingRoom', params: {id: room.roomId}})">Edit this Room</button> <br>
-                            <button class="button-name" v-on:click="addRoomToThisFloor(floor.floorId)">Add a Room to This Floor</button>
+                           
 
                 </div>
 
@@ -37,6 +38,7 @@
     </table>
     </div>
     <div class="editFloor2">
+      <button class="button" v-on:click="$router.push({name: 'userHomes'}) ">Go back to the Homes List</button> <br>
     <button class="button" v-on:click="addFloorToHouse()">Add a Floor to this House</button> <br>
     <button class="button" v-on:click="removeFloorFromHouse()"> Remove the Top Floor from this House</button> <br>
     <button class="button" v-on:click="editHouseDetails()">Edit The Details of This House</button>
