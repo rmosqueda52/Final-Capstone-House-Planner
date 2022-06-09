@@ -1,5 +1,6 @@
 <template>
   <body id="register-body">
+    
     <div id="register" class="text-center">
       <!-- <router-link v-bind:to="{ name: 'home' }">Home</router-link> -->
       <form class="form-register" @submit.prevent="register">
@@ -140,7 +141,8 @@ export default {
   background-image: url(https://wallpaperaccess.com/full/2056374.jpg);
   background-size:cover;
   padding-bottom: 600px;
-  overflow-y: hidden;
+  overflow: hidden;
+  width: 2000px;
 }
 #register-header {
   color: white;
