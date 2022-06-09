@@ -68,7 +68,7 @@
         </div>
       </form>
       <br>
-      <button class="button" v-on:click="deleteFloors()">Delete this House</button>
+      <button id="deleteButton" class="button" v-on:click="deleteFloors()">Delete this House</button>
     </div>
   </div>
 </template>
@@ -236,6 +236,14 @@ export default {
   font-size: 18px;
   margin-bottom: 30px;
   font-weight: bold;
+}
+
+#deleteButton:hover{
+background: red;
+}
+
+#deleteButton{
+  font-size: 20px;
 }
 
 /* html {

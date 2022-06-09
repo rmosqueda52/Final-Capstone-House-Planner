@@ -22,19 +22,20 @@
                 Number of Windows: {{ room.numOfWindows }} <br />
                 <br />
               </div>
-            </tr>
+               </tr>
           </table>
+              <button id="badButton" class="button-name" v-on:click="$router.push({name: 'guestPublicHomes'})">Go back to Public Homes</button>
+
           <br />
         </tr>
       </table>
       </div>
-      <!--Drawing component-->
+      </div>
+  </div><!--Drawing component-->
       <!-- <vue-p5 class="floor-map" v-on="{ setup, draw }"></vue-p5> -->
     </div>
   
-  </div>
-  <button class="button" v-on:click="$router.push({name: 'guestPublicHomes'})">Go back to Public Homes</button>
-  </div>
+  
 </template>
 <script>
 import HomeService from "../services/HomeService.js";
@@ -178,5 +179,8 @@ export default {
 }
 .floor-level {
   color: white;
+}
+#badButton{
+ 
 }
 </style>

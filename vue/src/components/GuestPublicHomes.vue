@@ -7,7 +7,8 @@
         <router-link v-bind:to="{ name: 'register' }"
           >Create Account?</router-link
         >
-        <br />Public Homes
+        <br />
+        <h1>Public Homes</h1>
       </div>
       <table id="guestFloorTable">
         <tr v-for="house in homes" v-bind:key="house.id">
