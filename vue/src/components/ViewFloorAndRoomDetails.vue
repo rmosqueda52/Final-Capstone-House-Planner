@@ -31,9 +31,10 @@
         </table>
         <br />
       </tr>
+          <button id="sideButton" class="button-name" v-on:click="$router.push({name: 'publicHomes'})">Return to public homes list</button>
+
     </table>
     </div>
-    <button class="button" v-on:click="$router.push({name: 'publicHomes'})">Return to public homes list</button>
   </div>
 </template>
 
@@ -127,5 +128,8 @@ text-align: left;
 #spacingStyling{
   margin-bottom: 25px;
 }
-
+#sideButton{
+  display: block;
+  justify-items: center;
+}
 </style>

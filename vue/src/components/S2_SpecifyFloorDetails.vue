@@ -9,10 +9,12 @@
     <div class="floorDetailsStyle">
     <table>
       <tr v-for="floor in floors" v-bind:key="floor.id">
+        <div id="">
         Floor Level:
         {{
           floor.floorLevel
         }}
+        </div>
         <br />
           <table id="rooms">
             <tr v-for="room in floor.rooms" v-bind:key="room.id">
@@ -189,6 +191,9 @@ export default {
   font-weight: bold;
   margin-left: auto;
   margin-right: auto;
+}
+#whiteTitle{
+  font-weight: bolder;
 }
 
 </style>
