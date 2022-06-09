@@ -105,7 +105,7 @@ export default {
 
       sketch.fill("black");
       sketch.textSize(24);
-      sketch.text("Floor Level: 1", 10, 30);
+      sketch.text("Floor Level: " + (this.currentFloor + 1), 10, 30);
 
       // Upper left corner X,Y of outer rectangle (floor)
       const startX = 100;
