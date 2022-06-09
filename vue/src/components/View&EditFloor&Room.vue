@@ -23,17 +23,19 @@
                     Room Size: {{ room.roomSize}} <br>
                     number of Windows: {{room.numOfWindows}} <br>
                     <br>
-                    <button class="button">Edit this Room</button> <br>
+                    <button class="button" v-on:click="$router.push({ name: 'editExistingRoom', params: {id: room.roomId}})">Edit this Room</button> <br>
                 </div>
 
             </tr>
 
         </table>
+        <button class="button" v-on:click="addRoomToThisFloor()">Add a Room to This Floor</button>
         <br />
       </tr>
     </table>
     <button class="button" v-on:click="addFloorToHouse()">Add a Floor to this House</button> <br>
-    <button class="button"> Remove the Top Floor from this House</button>
+    <button class="button" v-on:click="removeFloorFromHouse()"> Remove the Top Floor from this House</button> <br>
+    <button class="button" v-on:click="editHouseDetails()">Edit The Details of This House</button>
   </div>
 </template>
 
@@ -53,6 +55,7 @@ export default {
   created() {
     this.getHouseDetails();
     this.getFloors(this.house_id);
+    this.$store.commit("SET_ACTIVE_HOUSE",this.$route.params.id)
   },
   methods: {
     getFloors(houseId) {
@@ -92,6 +95,12 @@ export default {
         this.currentHouseName = response.data.house_name;
       });
     },
+    setHouseId() {
+      
+    },
+    addRoomToThisFloor() {
+
+    },
     addFloorToHouse() {
       HomeService.addFloorToHouse(this.house_Id).then(
         (response) => {
@@ -101,6 +110,12 @@ export default {
           }
         }
       );
+    },
+    removeFloorFromHouse() {
+
+    },
+    editHouseDetails() {
+
     }
   },
 };

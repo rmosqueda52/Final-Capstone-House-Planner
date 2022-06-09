@@ -17,6 +17,7 @@ import CurrentFloorAndRoomDetails from '../components/ViewFloorAndRoomDetails.vu
 import GuestViewFloor from '../components/GuestViewFloorPlans.vue'
 import ViewAndEditFloorAndRoom from '../components/View&EditFloor&Room.vue'
 import EditRoomView from '../components/EditRoomView.vue'
+import EditExistingRoom from '../components/EditExistingRoom.vue'
 
 Vue.use(Router)
 
@@ -157,6 +158,14 @@ const router = new Router({
       path: "/editRoomView/:id", //roomID
       name: "editRoomView",
       component: EditRoomView,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/editExistingRoom/:id",
+      name: "editExistingRoom",
+      component: EditExistingRoom,
       meta: {
         requiresAuth: true
       }
