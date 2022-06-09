@@ -147,6 +147,13 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
         return floor;
     }
 
+    @Override
+    public boolean updateHouseDetails(Long houseId, HouseDetails houseDetails) {
+        String sql = "UPDATE house_details SET foundation_size = ?, city = ?, state_abbreviation = ?, house_name = ?, number_of_floors = ?, is_private =  WHERE house_id = ?";
+        return jdbcTemplate.update(sql, houseDetails.getFoundationSize(), houseDetails.getCity(), houseDetails.getStateAbbreviation(),
+                houseDetails.getHouseName(), houseDetails.getNumberOfFloors(), houseDetails.isPrivate(),houseId) == 1;
+    }
+
 
     @Override
     public boolean deleteHouse(Long houseId) {

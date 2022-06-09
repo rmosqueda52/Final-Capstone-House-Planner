@@ -43,5 +43,8 @@ export default {
   },
   getFloorWithFloorId(floorId) {
     return axios.get(`/get-floor-level/${floorId}`)
+  },
+  updateExistingHouseDetails(houseId, house) {
+    return axios.put(`/update-existing-house-details/${houseId}`, house)
   }
 }
