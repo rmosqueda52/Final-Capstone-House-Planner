@@ -1,17 +1,16 @@
 <template>
-  <div>
-       <H3>Edit Room</H3>
+  <div class="roomDetail">
+       <h1>Edit Room</h1>
        <br /> <br/>
       <form v-on:submit.prevent="">
-      Room Name: <input type="text" required v-model="room[0].room_name"> <br>
-      Room Size: Sq ft<input type="number" required v-model="room[0].room_size"> <br>
-      Is this a Kitchen: <input type="checkbox" value = room[0].is_kitchen v-model="room[0].is_kitchen"> <br>
-      Is this a Bathroom: <input type="checkbox" value = room[0].is_bathroom v-model="room[0].is_bathroom"> <br>
-      How many windows are in this room? <input type="number" required min= "0" value = room[0].number_of_windows v-model="room[0].number_of_windows"> <br>
-      <button class="button" v-on:click="updateRoom()">Keep these changes</button>
-      <button class="button" v-on:click="deleteRoom()">Delete this room</button>
+      Room Name: <input class="textbox2" type="text" required v-model="room[0].room_name"> <br>
+      Room Size: Sq ft<input class="textbox2" type="number" required v-model="room[0].room_size"> <br>
+      Is this a Kitchen: <input type="checkbox" value = room[0].is_kitchen v-model="room[0].is_kitchen"> Yes <br>
+      Is this a Bathroom: <input type="checkbox" value = room[0].is_bathroom v-model="room[0].is_bathroom"> Yes <br>
+      How many windows are in this room? <input class="textbox2" type="number" required min= "0" value = room[0].number_of_windows v-model="room[0].number_of_windows"> <br>
+      <button id="buttons" class="button-name" v-on:click="updateRoom()">Keep these changes</button>
+      <button class="button-name" v-on:click="deleteRoom()">Delete this room</button>
       </form>
-
   </div>
 </template>
 
@@ -71,5 +70,38 @@ export default {
 </script>
 
 <style>
+.roomDetail{
+  align-items: center;
+  background-color: rgba(54, 148, 66, 0.397);
+  margin-left: 50px;
+  border-radius: 107px;
+  padding-bottom: 60px;
+  backdrop-filter: blur(10px);
+  color: rgb(0, 0, 0);
+  position: relative;
+  margin-top: 50px;
+  padding: 60px;
+  font-size: 20px;
+  font-weight: bold;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 420px;
+  line-height: 50px;
+}
+.textbox2{
+  height: 40px;
+  font-size: 10pt;
+  border-radius: 10px;
+  line-height: 80px;
+  box-sizing: border-box;
+  font-size: 20px;
+  margin-left: 10px;
+  
+}
+#buttons {
+    margin-right: 20px;
+}
+
 
 </style>

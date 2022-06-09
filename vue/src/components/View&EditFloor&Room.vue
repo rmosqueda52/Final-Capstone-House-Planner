@@ -8,6 +8,7 @@
     <br />
     <br />
     <h1> You're currently looking at: {{ this.currentHouseName }} </h1>
+    <div class="editFloor">
     <table class="floor-details-user-homes">
       <tr v-for="floor in floors" v-bind:key="floor.id">
         <div class="floor-level">
@@ -20,22 +21,26 @@
             <tr v-for="room in floor.rooms" v-bind:key="room.id">
                 <div>
                     Room: {{ room.roomName}} <br>
-                    Room Size: {{ room.roomSize}} <br>
+                    Room Size: {{ room.roomSize}} Sq.ft <br>
                     number of Windows: {{room.numOfWindows}} <br>
                     <br>
-                    <button class="button" v-on:click="$router.push({ name: 'editExistingRoom', params: {id: room.roomId}})">Edit this Room</button> <br>
+                    <button class="button-name" v-on:click="$router.push({ name: 'editExistingRoom', params: {id: room.roomId}})">Edit this Room</button> <br>
+                            <button class="button-name" v-on:click="addRoomToThisFloor(floor.floorId)">Add a Room to This Floor</button>
+
                 </div>
 
             </tr>
 
         </table>
-        <button class="button" v-on:click="addRoomToThisFloor(floor.floorId)">Add a Room to This Floor</button>
         <br />
       </tr>
     </table>
+    </div>
+    <div class="editFloor2">
     <button class="button" v-on:click="addFloorToHouse()">Add a Floor to this House</button> <br>
     <button class="button" v-on:click="removeFloorFromHouse()"> Remove the Top Floor from this House</button> <br>
     <button class="button" v-on:click="editHouseDetails()">Edit The Details of This House</button>
+    </div>
   </div>
 </template>
 
@@ -153,6 +158,16 @@ align-items: center;
   padding: 60px;
   font-size: 20px;
   font-weight: bold;
+}
+.editFloor{
+  display: flex;
+  justify-content: center;
+}
+.editFloor2{
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  margin-left: 20px;
 }
 
 </style>

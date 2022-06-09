@@ -7,17 +7,14 @@
     <div>
       <br />
       <br />
-      You're currently looking at: {{ this.currentHouseName }}
+      <h1>You're currently looking at: {{ this.currentHouseName }} </h1> 
+      <div id="detailsView">
       <table class="home-details">
         <tr v-for="floor in floors" v-bind:key="floor.id">
-          <div class="floor-level">
-            <button v-on:click="currentFloor = floor.floorLevel - 1">
-              Floor Level:{{ floor.floorLevel }}
-            </button>
-          </div>
+          <div class="floor-level">Floor Level:{{ floor.floorLevel }}</div>
           <table>
             <tr v-for="room in floor.rooms" v-bind:key="room.id">
-              <div>
+              <div id="roomDisplaySpacing">
                 Room:
                 {{ room.roomName }} <br />
                 Room Size: {{ room.roomSize }} <br />
@@ -29,20 +26,21 @@
           <br />
         </tr>
       </table>
+      </div>
       <!--Drawing component-->
-      <vue-p5 class="floor-map" v-on="{ setup, draw }"></vue-p5>
+      <!-- <vue-p5 class="floor-map" v-on="{ setup, draw }"></vue-p5> -->
     </div>
   </div>
 </template>
 <script>
 import HomeService from "../services/HomeService.js";
-import VueP5 from "vue-p5";
+// import VueP5 from "vue-p5";
 
 export default {
   name: "guest-view-floor-plans",
-  components: {
-    "vue-p5": VueP5,
-  },
+  // components: {
+  //   "vue-p5": VueP5,
+  // },
   data() {
     return {
       house_id: this.$store.state.currentHouseId,
@@ -96,51 +94,51 @@ export default {
         this.currentHouseSize = response.data.foundation_size;
       });
     },
-    setup(sketch) {
-      // Size of the entire drawing window
-      sketch.createCanvas(750, 750);
-    },
-    draw(sketch) {
-      sketch.background(255, 255, 255);
+    // setup(sketch) {
+    //   // Size of the entire drawing window
+    //   sketch.createCanvas(750, 750);
+    // },
+    // draw(sketch) {
+    //   sketch.background(255, 255, 255);
 
-      sketch.fill("black");
-      sketch.textSize(24);
-      sketch.text("Floor Level: " + (this.currentFloor + 1), 10, 30);
+    //   sketch.fill("black");
+    //   sketch.textSize(24);
+    //   sketch.text("Floor Level: " + (this.currentFloor + 1), 10, 30);
 
-      // Upper left corner X,Y of outer rectangle (floor)
-      const startX = 100;
-      const startY = 100;
+    //   // Upper left corner X,Y of outer rectangle (floor)
+    //   const startX = 100;
+    //   const startY = 100;
 
-      // Length of each side of square
-      const floorSize = 500;
+    //   // Length of each side of square
+    //   const floorSize = 500;
 
-      // No fill color
-      sketch.noFill();
+    //   // No fill color
+    //   sketch.noFill();
 
-      // Outline of floor (x, y, width, height)
-      sketch.rect(startX, startY, floorSize, floorSize);
+    //   // Outline of floor (x, y, width, height)
+    //   sketch.rect(startX, startY, floorSize, floorSize);
 
-      // Get first floor for no particular reason
-      const floor =
-        this.floors.length > 0 ? this.floors[this.currentFloor] : null;
+    //   // Get first floor for no particular reason
+    //   const floor =
+    //     this.floors.length > 0 ? this.floors[this.currentFloor] : null;
 
-      if (floor !== null) {
-        const rooms = floor.rooms;
+    //   if (floor !== null) {
+    //     const rooms = floor.rooms;
 
-        for (let i = 0; i < rooms.length; i++) {
-          const size = floorSize / rooms.length;
-          const x = startX + i * size;
-          const y = startY;
+    //     for (let i = 0; i < rooms.length; i++) {
+    //       const size = floorSize / rooms.length;
+    //       const x = startX + i * size;
+    //       const y = startY;
 
-          sketch.fill("black");
-          sketch.text("Room " + rooms[i].roomName, x + 10, y + size / 2);
+    //       sketch.fill("black");
+    //       sketch.text("Room " + rooms[i].roomName, x + 10, y + size / 2);
 
-          sketch.noFill();
-          sketch.rect(x, y, size, size);
-          sketch.rect(x, y, size, size);
-        }
-      }
-    },
+    //       sketch.noFill();
+    //       sketch.rect(x, y, size, size);
+    //       sketch.rect(x, y, size, size);
+    //     }
+    //   }
+    // },
   },
 };
 </script>
@@ -157,7 +155,7 @@ export default {
 .home-details {
   align-items: center;
   background-color: rgba(54, 148, 66, 0.397);
-  margin-left: 50px;
+  /* margin-left: 50px; */
   border-radius: 107px;
   padding-bottom: 60px;
   backdrop-filter: blur(10px);
@@ -166,6 +164,13 @@ export default {
   margin-top: 25px;
   padding: 60px;
   font-size: 20px;
+}
+#detailsView{
+  display: flex;
+  justify-content: center;
+}
+#roomDisplaySpacing{
+  margin-bottom: 50px;
 }
 .floor-level {
   color: white;
