@@ -35,6 +35,7 @@
     </div>
     <button class="button" v-on:click="$router.push({name: 'publicHomes'})">Return to public homes list</button>
   </div>
+  </div>
 </template>
 
 <script>
@@ -100,7 +101,6 @@ export default {
 .roomDetails{
 align-items: center;
   background-color: rgba(54, 148, 66, 0.397);
-  margin-left: 50px;
   border-radius: 107px;
   padding-bottom: 60px;
   backdrop-filter: blur(10px);

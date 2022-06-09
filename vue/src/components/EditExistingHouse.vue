@@ -238,9 +238,9 @@ export default {
   font-weight: bold;
 }
 
-html {
+/* html {
   overflow-y: scroll;
-}
+} */
 input {
   font-family: "Montserrat";
 }

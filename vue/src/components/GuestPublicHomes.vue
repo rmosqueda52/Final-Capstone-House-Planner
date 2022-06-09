@@ -1,5 +1,5 @@
 <template>
-  <body>
+  <body class="guest-public-homes">
     <div>
       <div class="in-and-out">
         <router-link v-bind:to="{ name: 'guestHome' }">Home</router-link
@@ -108,7 +108,7 @@ export default {
 #guestFloorTable {
   align-items: center;
   background-color: rgba(54, 148, 66, 0.397);
-  margin-left: 690px;
+  margin-left: 733px;
   border-radius: 107px;
   padding-bottom: 60px;
   backdrop-filter: blur(10px);
@@ -186,4 +186,5 @@ br {
   display: block;
   font-size: 24%;
 }
+
 </style>

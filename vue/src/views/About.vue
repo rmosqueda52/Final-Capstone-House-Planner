@@ -125,7 +125,6 @@
 </template>
 
 <script>
-// <font-awesome-icon icon="fa-brands fa-linkedin-in" />
 export default {
   name: "about",
 };
