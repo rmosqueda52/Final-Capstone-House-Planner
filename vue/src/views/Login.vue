@@ -1,5 +1,7 @@
 <template>
 <body id="login-body" style="margin: -1%;">
+<!-- <button class="about-button" v-on:click="$router.push({ name: 'about'})">About</button> -->
+
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign in to your Account</h1>
@@ -39,7 +41,9 @@
   <span class="button-text">Sign In</span>
 </button><br> <br>
 
-    </form>
+    </form><div class="about-button">
+    <button  v-on:click="$router.push({ name: 'about'})">About Us</button>
+</div>
   </div>
   <div id="new-account-container">
     <h3 id="create-account">Are you new here?</h3>
@@ -49,12 +53,11 @@
     <path id="Path_10" data-name="Path 10" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)"></path>
   </svg>
 </button></router-link>
-    
+
   </div>
   <div class="main_div">
   <button v-on:click="$router.push({ name: 'guestHome'})">Continue as Guest</button>
 </div>
-<h6>Or</h6>
 </body>
 </template>
 
@@ -104,7 +107,7 @@ export default {
   flex-direction: row;
   justify-content: center;
   background-image: url(https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
-  background-size: contain;
+  background-size: cover;
   /* background-color: #023047; */
 
 }
@@ -354,7 +357,7 @@ button:hover .button-text {
  z-index: 1;
  font-family: 'Montserrat', sans-serif;
  margin-top: 280px;
- margin-right: 595px;
+ margin-right: 576px;
 }
 
 .main_div::before {
@@ -403,5 +406,10 @@ button:hover .button-text {
  border: none;
  cursor: pointer;
  font-family: inherit;
+}
+.about-button{
+  position: absolute;
+  margin-bottom: 700px;
+  margin-left: 2900px;
 }
 </style>

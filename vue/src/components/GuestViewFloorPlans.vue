@@ -8,13 +8,14 @@
     <div>
       <br />
       <br />
-      You're currently looking at:  {{ this.currentHouseName }}
+      <h1>You're currently looking at: {{ this.currentHouseName }} </h1> 
+      <div id="detailsView">
       <table class="home-details">
         <tr v-for="floor in floors" v-bind:key="floor.id">
           <div class="floor-level">Floor Level: {{ floor.floorLevel }}</div>
           <table>
             <tr v-for="room in floor.rooms" v-bind:key="room.id">
-              <div>
+              <div id="roomDisplaySpacing">
                 Room:
                 {{ room.roomName }} <br />
                 Room Size: {{ room.roomSize }} <br />
@@ -26,7 +27,7 @@
           <br />
         </tr>
       </table>
-      
+      </div>
       <!--Drawing component-->
       <!-- <vue-p5 class="floor-map" v-on="{ setup, draw }"></vue-p5> -->
     </div>
@@ -158,7 +159,7 @@ export default {
 .home-details {
   align-items: center;
   background-color: rgba(54, 148, 66, 0.397);
-  margin-left: 50px;
+  /* margin-left: 50px; */
   border-radius: 107px;
   padding-bottom: 60px;
   backdrop-filter: blur(10px);
@@ -167,6 +168,13 @@ export default {
   margin-top: 25px;
   padding: 60px;
   font-size: 20px;
+}
+#detailsView{
+  display: flex;
+  justify-content: center;
+}
+#roomDisplaySpacing{
+  margin-bottom: 50px;
 }
 .floor-level {
   color: white;
