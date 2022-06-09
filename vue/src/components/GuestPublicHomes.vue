@@ -108,7 +108,7 @@ export default {
 #guestFloorTable {
   align-items: center;
   background-color: rgba(54, 148, 66, 0.397);
-  margin-left: 690px;
+  margin-left: 733px;
   border-radius: 107px;
   padding-bottom: 60px;
   backdrop-filter: blur(10px);
