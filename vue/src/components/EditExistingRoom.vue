@@ -1,6 +1,6 @@
 <template>
   <div class="roomDetail">
-       <h3>Edit Room</h3>
+       <h1>Edit Room</h1>
        <br /> <br/>
       <form v-on:submit.prevent="">
       Room Name: <input class="textbox2" type="text" required v-model="room[0].room_name"> <br>
@@ -8,8 +8,8 @@
       Is this a Kitchen: <input type="checkbox" value = room[0].is_kitchen v-model="room[0].is_kitchen"> Yes <br>
       Is this a Bathroom: <input type="checkbox" value = room[0].is_bathroom v-model="room[0].is_bathroom"> Yes <br>
       How many windows are in this room? <input class="textbox2" type="number" required min= "0" value = room[0].number_of_windows v-model="room[0].number_of_windows"> <br>
-      <button id="buttons" class="button" v-on:click="updateRoom()">Keep these changes</button>
-      <button class="button" v-on:click="deleteRoom()">Delete this room</button>
+      <button id="buttons" class="button-name" v-on:click="updateRoom()">Keep these changes</button>
+      <button class="button-name" v-on:click="deleteRoom()">Delete this room</button>
       </form>
   </div>
 </template>
@@ -100,7 +100,7 @@ export default {
   
 }
 #buttons {
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 
