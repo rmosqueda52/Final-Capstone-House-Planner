@@ -55,7 +55,6 @@
 </template>
 
 <script>
-// <font-awesome-icon icon="fa-brands fa-linkedin-in" />
 export default {
     name: "about",
 };
@@ -165,7 +164,7 @@ export default {
   padding: 10px;
   
 }
-p{
+.container p{
   margin-right: 30px;
   margin-left: 30px;
   background-color: rgba(54, 148, 67, 0.568);  
