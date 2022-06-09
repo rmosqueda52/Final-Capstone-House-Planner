@@ -31,6 +31,7 @@
         <br />
       </tr>
     </table>
+    <button class="button" v-on:click="$router.push({name: 'publicHomes'})">Return to public homes list</button>
   </div>
 </template>
 
