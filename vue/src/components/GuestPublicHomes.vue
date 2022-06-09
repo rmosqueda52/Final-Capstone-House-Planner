@@ -1,5 +1,5 @@
 <template>
-  <body>
+  <body class="guest-public-homes">
     <div>
       <div class="in-and-out">
         <router-link v-bind:to="{ name: 'guestHome' }">Home</router-link
@@ -186,4 +186,5 @@ br {
   display: block;
   font-size: 24%;
 }
+
 </style>

@@ -84,6 +84,8 @@
 <script>
 import authService from "../services/AuthService";
 
+
+
 export default {
   name: "register",
   data() {
@@ -140,9 +142,10 @@ export default {
   background-color: #023047;
   background-image: url(https://wallpaperaccess.com/full/2056374.jpg);
   background-size:cover;
-  padding-bottom: 600px;
-  overflow: hidden;
+  padding-bottom: 440px;
   width: 2000px;
+  overflow-y: auto;
+  margin: -1%;
 }
 #register-header {
   color: white;
@@ -222,12 +225,15 @@ export default {
   color: whitesmoke;
   align-content: top;
 }
-html {
-  overflow-y: scroll;
+html{
+  /* overflow-y: hidden; */
   overflow-x: hidden;
 }
 .select-role{
   color: black;
-}
 
+}
+/* ::-webkit-scrollbar {
+    display: none;
+} */
 </style>

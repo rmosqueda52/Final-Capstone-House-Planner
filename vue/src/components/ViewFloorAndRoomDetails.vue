@@ -6,8 +6,9 @@
       >Logout</router-link
     ><br />
     <br />
-    You're currently looking at: {{ this.currentHouseName }}
+    <h1>You're currently looking at: {{ this.currentHouseName }} </h1> 
       </div>
+      <div id="floorStyles">
     <table class="roomDetails">
       <tr v-for="floor in floors" v-bind:key="floor.id">
           <div class="floor-level">
@@ -18,7 +19,7 @@
           </div>
         <table>
             <tr v-for="room in floor.rooms" v-bind:key="room.id">
-                <div>
+                <div id="spacingStyling">
                     Room: {{ room.roomName}} <br>
                     Room Size: {{ room.roomSize}} <br>
                     Number of Windows: {{room.numOfWindows}} <br>
@@ -31,6 +32,7 @@
         <br />
       </tr>
     </table>
+    </div>
   </div>
 </template>
 
@@ -116,6 +118,14 @@ text-align: left;
   font-weight: bold;
   font-size: 20px;
   color: black;
+}
+#floorStyles{
+  display: inline-block;
+  justify-items: center;
+  
+}
+#spacingStyling{
+  margin-bottom: 25px;
 }
 
 </style>

@@ -47,8 +47,7 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 html {
-  overflow-y: scroll;
-  overflow-x: hidden;
+
   margin: -1%;
   background: url(https://www.decoraid.com/wp-content/uploads/2021/04/bright-minimalist-living-room-design-scaled.jpeg)
     no-repeat center center fixed;

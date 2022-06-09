@@ -125,7 +125,7 @@ export default {
 #new-account-container {
   background-image: url(https://i.pinimg.com/originals/83/30/8f/83308f3e6c6fde56dd45f162c718ab60.jpg);
   /* padding: 150px; */
-  padding-top:431px;
+  padding-top:405px;
   padding-bottom: 500px;
   padding-left: 150px;
   padding-right: 150px;
@@ -207,11 +207,7 @@ h1{
   margin-left: 97%;
 }
 
-html {
-  overflow-y: scroll; 
-  overflow-x: scroll;
-  margin: -1%;
-}
+
 /* From uiverse.io */
 button {
  position: relative;
@@ -422,8 +418,8 @@ button:hover .button-text {
  justify-content: center;
  align-items: center;
  position: absolute;
-  margin-bottom: 680px;
-  margin-left: 2668px;
+  margin-bottom: 670px;
+  margin-left: 2698px;
 }
 
 .cube {
