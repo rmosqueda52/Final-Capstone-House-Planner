@@ -20,6 +20,7 @@ import EditRoomView from '../components/EditRoomView.vue'
 import EditExistingRoom from '../components/EditExistingRoom.vue'
 import AddRoomToExistingHouse from '../components/AddRoomToExistingHouse.vue'
 import EditExistingHouseDetails from '../components/EditExistingHouse.vue'
+import about from '../views/About.vue'
 
 Vue.use(Router)
 
@@ -187,7 +188,16 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: "/about",
+      name: "about",
+      component: about,
+      meta: {
+        requiresAuth: false
+      }
     }
+    
   ]
 })
 
