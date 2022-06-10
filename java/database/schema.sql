@@ -143,31 +143,31 @@ CREATE TABLE room_details(
 
 
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
-VALUES (1, 'Master Bedroom',300, 90,false,false,1,1);
+VALUES (1, 'Master Bedroom',300, 90,false,false,1,2);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
 VALUES (2, 'Kitchen',200, 90,true,false,2,2);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
-VALUES (21, 'Half Bathroom',40, 90,false,true,1,3);
+VALUES (21, 'Half Bathroom',40, 90,false,true,1,1);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
-VALUES (24, 'Full Bathroom',80, 90,false,true,1,3);
+VALUES (24, 'Full Bathroom',80, 90,false,true,1,2);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
-VALUES (3, 'Full Bathroom',80, 91,false,true,1,3);
+VALUES (3, 'Full Bathroom',80, 91,false,true,1,2);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
-VALUES (22, 'Bedroom',100, 91,false,false,1,4);
+VALUES (22, 'Bedroom',100, 91,false,false,1,2);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
-VALUES (23, 'Bedroom',100, 91,false,false,1,4);
+VALUES (23, 'Bedroom',100, 91,false,false,1,3);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
-VALUES (4, 'Master Bedroom',180, 94,false,false,1,4);
+VALUES (4, 'Master Bedroom',180, 94,false,false,1,3);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
 VALUES (5, 'Bedroom',100, 94,false,false,2,3);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
 VALUES (6, 'Kitchen',120, 94,true,false,1,2);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
-VALUES (25, 'Full Bathroom',80, 94,false,true,1,3);
+VALUES (25, 'Full Bathroom',80, 94,false,true,1,2);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
-VALUES (7, 'Full Bathroom',100, 95,false,true,3,3);
+VALUES (7, 'Full Bathroom',100, 95,false,true,3,2);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
-VALUES (8, 'Full Bathroom',70, 94,false, true,0,1);
+VALUES (8, 'Full Bathroom',70, 94,false, true,0,2);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
 VALUES (9, 'Master Bedroom',180, 95,false,false,3,3);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
@@ -177,19 +177,19 @@ VALUES (10, 'Bedroom',100, 96,false,false,3,3);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
 VALUES (11, 'Bedroom',100, 96,false,false,3,3);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
-VALUES (13, 'Full Bathroom',80, 96,false,true,3,3);
+VALUES (13, 'Full Bathroom',80, 96,false,true,3,2);
 --INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
 --VALUES (12, 'Bedroom',10, 97,false,false,3,3);
 --INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
 --VALUES (13, 'Bathroom',10, 97,false,true,3,3);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
-VALUES (14, 'Master Bedroom',300, 98,false,false,1,1);
+VALUES (14, 'Master Bedroom',300, 98,false,false,1,2);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
 VALUES (15, 'Kitchen',150, 98,true,false,2,2);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
-VALUES (16, 'Full Bathroom',80, 98,false,true,1,3);
+VALUES (16, 'Full Bathroom',80, 98,false,true,1,2);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
-VALUES (17, 'Bedroom',100, 99,false,false,1,4);
+VALUES (17, 'Bedroom',100, 99,false,false,1,2);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
 VALUES (18, 'Bedroom',100, 99,false,false,2,3);
 INSERT INTO room_details(room_id, room_name, room_size, floor_id,is_kitchen,is_bathroom,number_of_windows,flooring_tier_id)
