@@ -157,6 +157,14 @@ public class JdbcHouseDetailsDao implements HouseDetailsDao {
 
     @Override
     public boolean deleteHouse(Long houseId) {
+        String sql1 = "DELETE\n" +
+                "FROM room_details\n" +
+                "WHERE floor_id IN (SELECT floor_id FROM floor WHERE house_id = ?)\n";
+        jdbcTemplate.update(sql1,houseId);
+        String sql2 = "DELETE\n" +
+                "FROM floor\n" +
+                "WHERE house_id = ?";
+        jdbcTemplate.update(sql2,houseId);
         String sql = "DELETE FROM house_details WHERE house_id = ?";
         return jdbcTemplate.update(sql,houseId) == 1;
     }

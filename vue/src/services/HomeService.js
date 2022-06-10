@@ -49,5 +49,8 @@ export default {
   },
   deleteHouse(houseId) {
     return axios.delete(`/delete-house/${houseId}`)
-  }
+  },
+
+
+
 }

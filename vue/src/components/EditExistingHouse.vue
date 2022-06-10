@@ -12,7 +12,6 @@
           <input
             class="textbox"
             type="text"
-            
             required
             v-model="home[0].house_name"
           />
@@ -67,8 +66,10 @@
           </div>
         </div>
       </form>
-      <br>
-      <button id="deleteButton" class="button" v-on:click="deleteFloors()">Delete this House</button>
+      <br />
+      <button id="deleteButton" class="button" v-on:click="deleteHouse()">
+        Delete this House
+      </button>
     </div>
   </div>
 </template>
@@ -82,12 +83,12 @@ export default {
     return {
       houseId: this.$route.params.id,
       home: [],
-      floorIds: []
+      floorIds: [],
     };
   },
   created() {
     HomeService.getHouseDetails(this.houseId).then((response) => {
-      let currentHome = []
+      let currentHome = [];
       if (response.status === 200) {
         const eachHome = response.data;
         currentHome = {
@@ -101,48 +102,72 @@ export default {
           houseEstimate: 0,
         };
       }
-      this.home.push(currentHome)
+      this.home.push(currentHome);
     });
-    HomeService.getFloorDetails(this.houseId).then(
-      (response) => {
-          for(let i = 0; i < response.data.length;i++) {
-            const eachFloor = response.data[i];
-          const currentFloors = {
-          floor_id: eachFloor.floorId
-          }
-          this.floorIds.push(currentFloors)
-          }
-        
+    HomeService.getFloorDetails(this.houseId).then((response) => {
+      for (let i = 0; i < response.data.length; i++) {
+        const eachFloor = response.data[i];
+        const currentFloors = {
+          floor_id: eachFloor.floorId,
+        };
+        this.floorIds.push(currentFloors);
       }
-    )
+    });
   },
   methods: {
-      submitChanges() {
-          HomeService.updateExistingHouseDetails(this.houseId, this.home[0]).then(
-              (response) => {
-                  if(response.status === 200) {
-                      this.$router.push({name: "view&EditFloors&Rooms", params: {id: this.houseId}})
-                  }
-              }
-          )
-      },
-      deleteFloors() {
-        window.confirm("Are you sure you want to Delete this House");
-        for(let i = 0; i< this.floorIds.length; i++){
-            HomeService.removeFloorFromHouse(this.floorIds[i].floor_id, this.houseId)
-        }
-        window.confirm("Building as been removed, do you wish to delete the lot?");
-        this.deleteHouse();
-      },
-      deleteHouse(){
-              HomeService.deleteHouse(this.houseId).then(
-          (response) => {
-            if (response.status === 200) {
-              this.$router.push({name: 'userHomes'})
-            }
+    submitChanges() {
+      HomeService.updateExistingHouseDetails(this.houseId, this.home[0]).then(
+        (response) => {
+          if (response.status === 200) {
+            this.$router.push({
+              name: "view&EditFloors&Rooms",
+              params: { id: this.houseId },
+            });
           }
-        )
+        }
+      );
+    },
+    // deleteFloors() {
+    //   window.confirm("Are you sure you want to Delete this House");
+    //   // let floorToDelete = this.floorIds.length;
+    //   // while (floorToDelete > 0) {
+    //   //   for (let i = 0; i < this.floorIds.length; i++) {
+    //   //     HomeService.removeFloorFromHouse(
+    //   //       this.floorIds[i].floor_id,
+    //   //       this.houseId
+    //   //     ).then((response) => {
+    //   //       if (response.status === 200) {
+    //   //         floorToDelete -= 1;
+    //   //       }
+    //   //     });
+    //   //   }
+
+    //   // for (let i = 0; i < this.floorIds.length; i++) {
+    //   //   HomeService.removeFloorFromHouse(
+    //   //     this.floorIds[i].floor_id,
+    //   //     this.houseId
+    //   //   );
+    //   // }
+    //   // window.confirm(
+    //   //   "Building as been removed, do you wish to delete the lot?"
+    //   // );
+    //   // this.deleteHouse();
+
+    //   HomeService.removeAllFloorsFromHouse(this.houseId).then((response) => {
+    //     if(response.status === 200){
+    //       this.deleteHouse()
+    //     }
+    //   })
+    // },
+    deleteHouse() {
+      if (window.confirm("Do you want to DELETE this house?")) {
+        HomeService.deleteHouse(this.houseId).then((response) => {
+          if (response.status === 200) {
+            this.$router.push({ name: "userHomes" });
+          }
+        });
       }
+    },
   },
 };
 </script>
@@ -238,11 +263,11 @@ export default {
   font-weight: bold;
 }
 
-#deleteButton:hover{
-background: red;
+#deleteButton:hover {
+  background: red;
 }
 
-#deleteButton{
+#deleteButton {
   font-size: 20px;
 }
 

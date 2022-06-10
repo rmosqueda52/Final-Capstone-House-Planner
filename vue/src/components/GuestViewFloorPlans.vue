@@ -1,41 +1,49 @@
 <template>
-<div>
-  <div class="top-stuff">
-    <router-link v-bind:to="{ name: 'guestHome' }">Home</router-link
-    >&nbsp;|&nbsp;
-    <router-link v-bind:to="{ name: 'register' }">Create Account?</router-link>
-    <br />
-    <div>
+  <div>
+    <div class="top-stuff">
+      <router-link v-bind:to="{ name: 'guestHome' }">Home</router-link
+      >&nbsp;|&nbsp;
+      <router-link v-bind:to="{ name: 'register' }"
+        >Create Account?</router-link
+      >
       <br />
-      <br />
-      <h1>You're currently looking at: {{ this.currentHouseName }} </h1> 
-      <div id="detailsView">
-      <table class="home-details">
-        <tr v-for="floor in floors" v-bind:key="floor.id">
-          <div class="floor-level">Floor Level: {{ floor.floorLevel }}</div>
-          <table>
-            <tr v-for="room in floor.rooms" v-bind:key="room.id">
-              <div id="roomDisplaySpacing">
-                Room:
-                {{ room.roomName }} <br />
-                Room Size: {{ room.roomSize }} <br />
-                Number of Windows: {{ room.numOfWindows }} <br />
-                <br />
-              </div>
-               </tr>
-          </table>
-              <button id="badButton" class="button-name" v-on:click="$router.push({name: 'guestPublicHomes'})">Go back to Public Homes</button>
+      <div>
+        <br />
+        <br />
+        <h1>You're currently looking at: {{ this.currentHouseName }}</h1>
+        <div id="detailsView">
+          <table class="home-details">
+            <tr v-for="floor in floors" v-bind:key="floor.id">
+              <div class="floor-level">Floor Level: {{ floor.floorLevel }}</div>
+              <br />
+              <table>
+                <tr v-for="room in floor.rooms" v-bind:key="room.id">
+                  <div id="roomDisplaySpacing">
+                    Room:
+                    {{ room.roomName }} <br />
+                    Room Size: {{ room.roomSize }} <br />
+                    Number of Windows: {{ room.numOfWindows }} <br />
+                    <br />
+                  </div>
+                </tr>
+              </table>
+              <button
+                id="badButton"
+                class="button-name"
+                v-on:click="$router.push({ name: 'guestPublicHomes' })"
+              >
+                Go back to Public Homes
+              </button>
 
-          <br />
-        </tr>
-      </table>
+              <br />
+            </tr>
+          </table>
+        </div>
       </div>
-      </div>
-  </div><!--Drawing component-->
-      <!-- <vue-p5 class="floor-map" v-on="{ setup, draw }"></vue-p5> -->
     </div>
-  
-  
+    <!--Drawing component-->
+    <!-- <vue-p5 class="floor-map" v-on="{ setup, draw }"></vue-p5> -->
+  </div>
 </template>
 <script>
 import HomeService from "../services/HomeService.js";
@@ -170,17 +178,16 @@ export default {
   padding: 60px;
   font-size: 20px;
 }
-#detailsView{
+#detailsView {
   display: flex;
   justify-content: center;
 }
-#roomDisplaySpacing{
+#roomDisplaySpacing {
   margin-bottom: 50px;
 }
 .floor-level {
   color: white;
 }
-#badButton{
- 
+#badButton {
 }
 </style>

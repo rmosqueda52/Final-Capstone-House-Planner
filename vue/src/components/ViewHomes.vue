@@ -11,7 +11,9 @@
             State: {{ house.state }} <br />
             Foundation size: {{ house.foundationSize }} <br />
             Number of Floors: {{ house.numOfFloors }} <br />
-            <!-- House Cost Params: {{ houseParamsCost[0] }} <br /> -->
+            <!-- <div v-if="house.isPrivate == false">Floor Plan: Public</div>
+            <div v-if="house.isPrivate == true">Floor Plan: Private</div> -->
+            <br />
             Estimated Cost: ${{ house.houseEstimate }} <br />
             <button
               class="button-name"
@@ -51,6 +53,7 @@ export default {
           foundationSize: eachHome.foundation_size,
           houseId: eachHome.house_id,
           numOfFloors: eachHome.number_of_floors,
+          isPrivate: eachHome.is_private,
           houseEstimate: 0,
         };
         this.homes.push(newHome);
