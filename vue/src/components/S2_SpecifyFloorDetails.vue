@@ -1,41 +1,72 @@
 <template>
   <div>
     <div class="loginHome">
-    <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-    <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+      <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
+      <router-link
+        v-bind:to="{ name: 'logout' }"
+        v-if="$store.state.token != ''"
+        >Logout</router-link
+      >
     </div>
     <br />
-    <h1>These are the floors in: {{ this.currentHouseName }}</h1> <br />
+    <h1>These are the floors in: {{ this.currentHouseName }}</h1>
+    <br />
     <div class="floorDetailsStyle">
-    <table>
-      <tr v-for="floor in floors" v-bind:key="floor.id">
-        <div id="">
-        Floor Level:
-        {{
-          floor.floorLevel
-        }}
-        </div>
-        <br />
+      <table>
+        <tr v-for="floor in floors" v-bind:key="floor.id">
+          <div id="">
+            Floor Level:
+            {{ floor.floorLevel }}
+          </div>
+          <br />
           <table id="rooms">
             <tr v-for="room in floor.rooms" v-bind:key="room.id">
               <!-- <div class="rooms"> -->
-                Room: {{room.roomName}} <br>
-                Room Size: {{room.roomSize}} <br>
-                Number of Windows: {{room.numOfWindows}} <br>
-                 <button class="button" v-on:click="$router.push({ name: 'editRoomView', params: {id: room.roomId} })"> Edit this room </button>
+              Room:
+              {{
+                room.roomName
+              }}
+              <br />
+              Room Size:
+              {{
+                room.roomSize
+              }}
+              <br />
+              Number of Windows:
+              {{
+                room.numOfWindows
+              }}
+              <br />
+              <button
+                class="button"
+                v-on:click="
+                  $router.push({
+                    name: 'editRoomView',
+                    params: { id: room.roomId },
+                  })
+                "
+              >
+                Edit this room
+              </button>
               <!-- </div> -->
             </tr>
           </table>
-        <button class="button" v-on:click="setCurrentFloor(floor.floorId)">
-          Add a room to this Floor</button
-        ><br /> <br />
-        
-      </tr>
-      <button class="button" v-on:click="addFloorToHouse()"> Add a floor to this house</button> <br>
-    <button class="button" v-on:click="removeFloorFromHouse()">Remove the top floor</button>
-    </table>
-        <button id="submit" v-on:click="$router.push({ name: 'home'})">Submit this House</button>
-
+          <button class="button" v-on:click="setCurrentFloor(floor.floorId)">
+            Add a room to this Floor</button
+          ><br />
+          <br />
+        </tr>
+        <button class="button" v-on:click="addFloorToHouse()">
+          Add a floor to this house
+        </button>
+        <br />
+        <button class="button" v-on:click="removeFloorFromHouse()">
+          Remove the top floor
+        </button>
+      </table>
+      <button id="submit" v-on:click="$router.push({ name: 'home' })">
+        Submit this House
+      </button>
     </div>
   </div>
 </template>
@@ -52,7 +83,7 @@ export default {
       // newFloors: [],
       floors: [],
       currentHouseName: this.$store.state.currentHouse.house_name,
-      highestFloor: ""
+      highestFloor: "",
     };
   },
   created() {
@@ -66,10 +97,10 @@ export default {
     //     this.newFloors.push(newFloor);
     //   }
     // }),
-      HomeService.getHouseDetails(this.house_id).then((response) => {
-        this.currentHouseName = response.data.house_name;
-      });
-      this.getFloors(this.house_id)
+    HomeService.getHouseDetails(this.house_id).then((response) => {
+      this.currentHouseName = response.data.house_name;
+    });
+    this.getFloors(this.house_id);
   },
   methods: {
     getFloors(houseId) {
@@ -105,7 +136,8 @@ export default {
       });
     },
     addFloorDetails() {
-      HomeService.addNewRoom(this.newRooms, this.newRooms.floorId).then( // dble check
+      HomeService.addNewRoom(this.newRooms, this.newRooms.floorId).then(
+        // dble check
         (response) => {
           if (response.status === 200) {
             window.alert("Room Created!");
@@ -119,34 +151,34 @@ export default {
       this.$router.push({ name: "addRoomToFloor" });
     },
     addFloorToHouse() {
-      HomeService.addFloorToHouse(this.house_id).then(
-        (response) => {
-          if(response.status === 200){
-           window.location.reload();
-          }
+      HomeService.addFloorToHouse(this.house_id).then((response) => {
+        if (response.status === 200) {
+          window.location.reload();
         }
-      )
-
+      });
     },
     removeFloorFromHouse() {
       if (this.floors.length > 1) {
-      HomeService.removeFloorFromHouse(this.floors[this.floors.length -1].floorId, this.house_id).then(
-        (response) => {
-          window.confirm("Are you sure you want to delete this floor?");
-          if(response.status === 200){
-            window.location.reload();
-          }
+        if (window.confirm("Are you sure you want to delete this floor?")) {
+          HomeService.removeFloorFromHouse(
+            this.floors[this.floors.length - 1].floorId,
+            this.house_id
+          ).then((response) => {
+            if (response.status === 200) {
+              window.location.reload();
+            }
+          });
         }
-      )
-      } else {window.alert("You must have at least one floor in your house");}
+      } else {
+        window.alert("You must have at least one floor in your house");
+      }
     },
-  
   },
 };
 </script>
 
 <style>
-.floorDetailsStyle{
+.floorDetailsStyle {
   display: flex;
   flex-direction: column;
   font-weight: bold;
@@ -157,11 +189,11 @@ export default {
   margin-left: 35%;
   margin-right: 35%;
 }
-#rooms{
+#rooms {
   margin-left: 26%;
   margin-bottom: 15px;
 }
-#submit{
+#submit {
   align-items: center;
   background-color: #fcfcfd;
   border-radius: 10px;
@@ -192,8 +224,7 @@ export default {
   margin-left: auto;
   margin-right: auto;
 }
-#whiteTitle{
+#whiteTitle {
   font-weight: bolder;
 }
-
 </style>
