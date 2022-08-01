@@ -21,7 +21,7 @@ export default {
             },
             headers: {
                 'X-RapidAPI-Host': 'us-real-estate.p.rapidapi.com',
-                'X-RapidAPI-Key': 'e4a60f80edmsh8a02bc981672585p1f5556jsn1bde7ae8d189'
+                'X-RapidAPI-Key': 'KEY', // Moved to Back End,
             }
         };
         return axios.request(options)
